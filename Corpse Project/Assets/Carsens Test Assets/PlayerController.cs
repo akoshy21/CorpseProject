@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
+    //SHOULD I MAKE THIS A SINGLETON??
+    // public static PlayerController player;
+    
     public float MoveSpeed;
     public float JumpHeight;
     public float DeathForce;
@@ -40,7 +44,6 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 1f, Color.green);
 
         Vector3 raySize = transform.localScale;
-//        raySize.x += 0.02f;
         groundCheck = Physics2D.BoxCastAll(ray.origin, raySize, 0f, ray.direction, 0.4f);
         
         
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Moves the player with velocity (and lerps hooray)
     void Move()
     {
         Vector3 vel = rb.velocity;
@@ -73,7 +77,8 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = vel;
     }
-
+    
+    
     void Jump()
     {
         //makes a timer that counts down whenever not touching the ground. gives short window to jump when falling off a ledge
@@ -101,50 +106,54 @@ public class PlayerController : MonoBehaviour
     }
    
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Hazard"))
-        {
-            //Add a force relative to your current velocity
-            Vector2 flingForce = Vector2.Reflect(lastVel, -other.transform.up);
-            flingForce.y += ExtraHeight;
-            rb.AddForce(flingForce * DeathForce);
-            
-            //Rotate for fun
-            rb.AddTorque(-flingForce.x * TorqueForce);
-            
-            //Create particle effect at point of impact, for fun
-            Instantiate(DeathParticles, other.GetContact(0).point, Quaternion.identity);
-            
-            //Shake camera for fun
-            Camera.main.GetComponent<CameraShake>().shakeMagnitude = Mathf.Clamp(lastVel.magnitude / 100, 0.1f, 0.37f);
-            Camera.main.GetComponent<CameraShake>().ShakeCamera(0.25f);
+    //Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision
+    //Commenting this out so shit doesnt break
+    
+//    private void OnCollisionEnter2D(Collision2D other)
+//    {
+//        if (other.gameObject.CompareTag("Hazard"))
+//        {
+//            //Add a force relative to your current velocity
+//            Vector2 flingForce = Vector2.Reflect(lastVel, -other.transform.up);
+//            flingForce.y += ExtraHeight;
+//            rb.AddForce(flingForce * DeathForce);
+//            
+//            //Rotate for fun
+//            rb.AddTorque(-flingForce.x * TorqueForce);
+//            
+//            //Create particle effect at point of impact, for fun
+//            Instantiate(DeathParticles, other.GetContact(0).point, Quaternion.identity);
+//            
+//            //Shake camera for fun
+//            Camera.main.GetComponent<CameraShake>().shakeMagnitude = Mathf.Clamp(lastVel.magnitude / 100, 0.1f, 0.37f);
+//            Camera.main.GetComponent<CameraShake>().ShakeCamera(0.25f);
+//
+//            //Play a sound.... for fun.
+//            aso.PlayOneShot(HitSound);
+//        }
+//
+//        else
+//        {
+//            if (!canMove)
+//            {
+//                aso.PlayOneShot(TerrainHitSound);
+//                Camera.main.GetComponent<CameraShake>().shakeMagnitude = 0.05f;
+//                Camera.main.GetComponent<CameraShake>().ShakeCamera(0.1f);
+//            }
+//
+//        }
+//       
+//    }
 
-            //Play a sound.... for fun.
-            aso.PlayOneShot(HitSound);
-        }
-
-        else
-        {
-            if (!canMove)
-            {
-                aso.PlayOneShot(TerrainHitSound);
-                Camera.main.GetComponent<CameraShake>().shakeMagnitude = 0.05f;
-                Camera.main.GetComponent<CameraShake>().ShakeCamera(0.1f);
-            }
-
-        }
-       
-    }
-
+    //A very small delay between when you are able to jump again because im losing my mind
     private IEnumerator TinyJumpDelay()
     {
-        //A very small delay between when you are able to jump again because im losing my mind
         canJump = false;
         yield return new WaitForSeconds(0.1f);
         canJump = true;
     }
 
+    //Extra juice option, adds a small time pause (think Smash) when hitting something
     private IEnumerator HitDelay()
     {
         Time.timeScale = 0;
@@ -152,15 +161,18 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
     }
     
+    
+    
+    
     //-----------------------------------------------------------//
     //  PUBLIC HELPER FUNCTIONS (for calling from other scripts) //
     //-----------------------------------------------------------//
 
+    
     //Kills the player and turns them into an uncontrollable corpse
     public void Die()
     {
-        //if (something something)
-        Destroy(this); //removes this script so it becomes an inanimate corpse
+        Destroy(this); //removes this script so u cant control it anymore
         
         //other stuff if we want it
     }
@@ -169,6 +181,6 @@ public class PlayerController : MonoBehaviour
     public void Launch(float launchForce, Vector3 launchDirection)
     {
         rb.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
-        //thats it
+        //thats it rn
     }
 }
