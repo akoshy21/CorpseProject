@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class AKTest : MonoBehaviour
 {
-    public enum Testing { Ragdoll, Spike, Head };
+    public enum Testing { Ragdoll, Spike, Legs };
 
     public Testing obj;
 
+    Quaternion originalRotation;
     public static AKTest player;
-    public bool dead;
+    public bool dead, restoreRotation;
+    public float rotateSpeed;
+
+    bool onGround;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +28,9 @@ public class AKTest : MonoBehaviour
                 print("For loop: " + transform.GetChild(i));
             }
         }
-        else if (obj == Testing.Head)
+        else if (obj == Testing.Legs)
         {
+            originalRotation = this.transform.rotation;
         }
     }
 
@@ -48,6 +53,23 @@ public class AKTest : MonoBehaviour
             // quick and dirty movement test
             // transform.position += new Vector3(Input.GetAxis("Horizontal") * 0.5f, 0, 0);
         }
+        else if (obj == Testing.Legs)
+        {
+            if (transform.rotation != originalRotation)
+            {
+                restoreRotation = true;
+            }
+
+            if (restoreRotation && onGround)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
+                Debug.Log("Rotating " + transform.rotation.eulerAngles);
+                if (Mathf.Abs(Quaternion.Angle(originalRotation, transform.rotation)) <= 2) ;
+                {
+                    restoreRotation = false;
+                }
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,6 +78,24 @@ public class AKTest : MonoBehaviour
         {
             Debug.Log("BOINK");
             AKTest.player.dead = true;
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (obj == Testing.Legs)
+            {
+                onGround = true;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (obj == Testing.Legs)
+            {
+                onGround = false;
+            }
         }
     }
 }
