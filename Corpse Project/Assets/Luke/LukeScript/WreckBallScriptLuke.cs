@@ -10,6 +10,7 @@ public class WreckBallScriptLuke : MonoBehaviour
     public float rePushx;
     public float rePushy;
     public float speedCap;
+    public float killSpeed;
     private Vector2 vel;
     public float normalPush;
     public GameObject ball;
@@ -47,16 +48,18 @@ public class WreckBallScriptLuke : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Player1"))
+        if (vel.magnitude > killSpeed)
         {
-           //Kill Player 1
-        }
-        
-        if(other.gameObject.CompareTag("Player2"))
-        {
-            //Kill Player 2
+            if (other.gameObject.CompareTag("Player1"))
+            {
+                //Kill Player 1
+            }
+
+            if (other.gameObject.CompareTag("Player2"))
+            {
+                //Kill Player 2
+            }
         }
 
-       
     }
 }
