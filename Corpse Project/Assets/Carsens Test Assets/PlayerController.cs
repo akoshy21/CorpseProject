@@ -128,47 +128,6 @@ public class PlayerController : MonoBehaviour
         }
     }
    
-
-//    Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision
-//    Commenting this out so shit doesnt break
-    
-    //private void OnCollisionEnter2D(Collision2D other)
-    //{
-    //    //****** Will need to change this check *****
-    //    if (other.gameObject.CompareTag("Hazard"))
-    //    {
-    //        //Add a force relative to your current velocity
-    //        Vector2 flingForce = Vector2.Reflect(lastVel, -other.transform.up);
-    //        flingForce.y += ExtraHeight;
-    //        rb.AddForce(flingForce * DeathForce);
-            
-    //        //Rotate for fun
-    //        rb.AddTorque(-flingForce.x * TorqueForce);
-            
-    //        //Create particle effect at point of impact, for fun
-    //        Instantiate(DeathParticles, other.GetContact(0).point, Quaternion.identity);
-            
-    //        //Shake camera for fun
-    //        Camera.main.GetComponent<CameraShake>().shakeMagnitude = Mathf.Clamp(lastVel.magnitude / 100, 0.1f, 0.37f);
-    //        Camera.main.GetComponent<CameraShake>().ShakeCamera(0.25f);
-
-    //        //Play a sound.... for fun.
-    //        aso.PlayOneShot(HitSound);
-    //    }
-
-    //    else
-    //    {
-    //        if (!canMove)
-    //        {
-    //            aso.PlayOneShot(TerrainHitSound);
-    //            Camera.main.GetComponent<CameraShake>().shakeMagnitude = 0.05f;
-    //            Camera.main.GetComponent<CameraShake>().ShakeCamera(0.1f);
-    //        }
-
-    //    }
-       
-    //}
-
     //A very small delay between when you are able to jump again because im losing my mind
     private IEnumerator TinyJumpDelay()
     {
@@ -206,9 +165,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    ///Launches the player a certain amount
+    ///Launches the player a certain amount in a certain direction
     public void Launch(float launchForce, Vector3 launchDirection)
     {
         rb.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
+        //thats it rn
+    }
+    
+    /// <summary>
+    /// More similar functionality to my spike game, will launch the player at a classic pong "bounce" trajectory
+    /// (usually make <c>collidingObject</c> the transform of the object that is calling this function)
+    /// </summary>
+    public void LaunchMirrored(Transform collidingObject)
+    {
+        //Add a force relative to your current velocity
+        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.up);
+        flingForce.y += ExtraHeight;
+        rb.AddForce(flingForce * DeathForce);
+    }
+    /// <summary>
+    /// Launches the player at trajectory mirrored to their velocity, but spins them around for a more floppy effect
+    /// </summary>
+    public void LaunchMirrored(Transform collidingObject, bool spinRotation)
+    {
+        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.up);
+        flingForce.y += ExtraHeight;
+        rb.AddForce(flingForce * DeathForce);
+        rb.AddTorque(-flingForce.x * TorqueForce);
     }
 }
