@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 334a6b9f000434298ad6cbbaf35ec3df
+=======
+guid: 8ccf7f99dede86f47b3940ab6072e2e5
+>>>>>>> origin/kate
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

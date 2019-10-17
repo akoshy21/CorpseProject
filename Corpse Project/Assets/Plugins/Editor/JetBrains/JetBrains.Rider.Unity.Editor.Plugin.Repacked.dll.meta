@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: fbd559880b3274611b6452a1d41197e9
+=======
+guid: f1799e466f229494590484a15452d042
+>>>>>>> origin/kate
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
