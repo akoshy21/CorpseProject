@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
-    //SHOULD I MAKE THIS A SINGLETON??
     // public static PlayerController player;
-    
+
+    public bool dead;
+
     public float MoveSpeed;
     public float JumpHeight;
     public float DeathForce;
     public float ExtraHeight;
     public float TorqueForce;
-    [Space(20)] 
-//    public GameObject DeathParticles;
+    [Space(20)]
     public AudioClip HitSound, TerrainHitSound, JumpSound;
     public bool canMove = true;
+    public bool grounded;
 
     private bool canJump = true;
     private Rigidbody2D rb;
@@ -26,10 +26,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastVel;
     private AudioSource aso;
 
+    private RagdollManager myRagdoll;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         aso = GetComponent<AudioSource>();
+        myRagdoll = gameObject.GetComponentInParent<RagdollManager>();
+        Debug.Log("Ragdoll script is: " + myRagdoll);
     }
 
     private void FixedUpdate()
@@ -41,12 +45,30 @@ public class PlayerController : MonoBehaviour
     {
         //Always check for raycasts to the ground
         Ray2D ray = new Ray2D(transform.position, Vector2.down);
-        Debug.DrawRay(ray.origin, ray.direction * 1f, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction * 1.2f, Color.green);
 
         Vector3 raySize = transform.localScale;
-        groundCheck = Physics2D.BoxCastAll(ray.origin, raySize, 0f, ray.direction, 0.4f);
-        
-        
+        groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.2f);
+//        groundCheck = Physics2D.BoxCastAll(ray.origin, raySize, 0f, ray.direction, 1f);
+
+        if (groundCheck.Length > 0)
+        {
+            foreach (var hit in groundCheck)
+            {
+                if (hit.collider.gameObject.CompareTag("Ground"))
+                {
+                    grounded = true;
+                    break;
+                }
+                else
+                {
+                    grounded = false;
+                }
+            }
+        }
+        else
+            grounded = false;
+
         if (canMove)
         {
             Move();
@@ -56,6 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
     }
 
     ///Moves the player with velocity (and lerps hooray)
@@ -77,12 +100,12 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = vel;
     }
-    
-    
+
+
     void Jump()
     {
         //makes a timer that counts down whenever not touching the ground. gives short window to jump when falling off a ledge
-        if (groundCheck.Length > 0)
+        if (grounded)
         {
             coyoteTimer = 0.1f;
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
@@ -104,47 +127,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-   
 
-    //Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision
-    //Commenting this out so shit doesnt break
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Hazard"))
-        {
-            //Add a force relative to your current velocity
-//            Vector2 flingForce = Vector2.Reflect(lastVel, -other.transform.up);
-//            flingForce.y += ExtraHeight;
-//            rb.AddForce(flingForce * DeathForce);
-            
-            //Rotate for fun
-            
-            
-            //Create particle effect at point of impact, for fun
-//            Instantiate(DeathParticles, other.GetContact(0).point, Quaternion.identity);
-            
-            //Shake camera for fun
-//            Camera.main.GetComponent<CameraShake>().shakeMagnitude = Mathf.Clamp(lastVel.magnitude / 100, 0.1f, 0.37f);
-//            Camera.main.GetComponent<CameraShake>().ShakeCamera(0.25f);
-//
-//            //Play a sound.... for fun.
-//            aso.PlayOneShot(HitSound);
-        }
-
-        else
-        {
-            if (!canMove)
-            {
-                aso.PlayOneShot(TerrainHitSound);
-                Camera.main.GetComponent<CameraShake>().shakeMagnitude = 0.05f;
-                Camera.main.GetComponent<CameraShake>().ShakeCamera(0.1f);
-            }
-
-        }
-       
-    }
-
-    ///A very small delay between when you are able to jump again because im losing my mind
+    //A very small delay between when you are able to jump again because im losing my mind
     private IEnumerator TinyJumpDelay()
     {
         canJump = false;
@@ -159,21 +143,26 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.04f);
         Time.timeScale = 1;
     }
-    
-    
-    
-    
+
+
+
+
     //-----------------------------------------------------------//
     //  PUBLIC HELPER FUNCTIONS (for calling from other scripts) //
     //-----------------------------------------------------------//
 
-    
+
     ///Kills the player and turns them into an uncontrollable corpse
     public void Die()
     {
-        Destroy(this); //removes this script so u cant control it anymore
-        
-        //other stuff if we want it
+        if (!dead)
+        {
+            dead = true;
+            Debug.Log("death");
+//            myRagdoll.dead = true;
+//            myRagdoll.CreateRagdoll();
+//            RagdollManager.body.dead = true;
+        }
     }
 
     ///Launches the player a certain amount in a certain direction
@@ -182,7 +171,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
         //thats it rn
     }
-    
+
     /// <summary>
     /// More similar functionality to my spike game, will launch the player at a classic pong "bounce" trajectory
     /// (usually make <c>collidingObject</c> the transform of the object that is calling this function)
