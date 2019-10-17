@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public float ExtraHeight;
     public float TorqueForce;
     [Space(20)]
-    public AudioClip HitSound, TerrainHitSound, JumpSound;
     public bool canMove = true;
     public bool grounded;
 
@@ -32,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         aso = GetComponent<AudioSource>();
-        myRagdoll = gameObject.GetComponentInParent<RagdollManager>();
+        myRagdoll = GetComponentInParent<RagdollManager>();
         Debug.Log("Ragdoll script is: " + myRagdoll);
     }
 
@@ -55,7 +54,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var hit in groundCheck)
             {
-                if (hit.collider.gameObject.CompareTag("Ground"))
+                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.CompareTag("Player"))
                 {
                     grounded = true;
                     break;
@@ -113,7 +112,6 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 StartCoroutine(TinyJumpDelay());
                 coyoteTimer = 0;
-                aso.PlayOneShot(JumpSound);
             }
         }
         else
@@ -123,7 +121,6 @@ public class PlayerController : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 coyoteTimer = 0;
-                aso.PlayOneShot(JumpSound);
             }
         }
     }
@@ -159,9 +156,7 @@ public class PlayerController : MonoBehaviour
         {
             dead = true;
             Debug.Log("death");
-//            myRagdoll.dead = true;
 //            myRagdoll.CreateRagdoll();
-//            RagdollManager.body.dead = true;
         }
     }
 
