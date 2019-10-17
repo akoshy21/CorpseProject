@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba65862f-8da9-4417-b6c7-691cc87394bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Corpse Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Corpse Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,50 +20,95 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1072" />
+          <entry key="cs" value="1133" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="1072" />
+          <entry key="C#" value="1133" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C#" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="172" column="73" selection-start-line="172" selection-start-column="73" selection-end-line="172" selection-end-column="73" />
+            <state relative-caret-position="278">
+              <caret line="113" column="48" selection-start-line="113" selection-start-column="48" selection-end-line="113" selection-end-column="48" />
               <folding>
-                <marker date="1570930392078" expanded="false" signature="6:92" ph="..." />
-                <marker date="1570930392078" expanded="true" signature="139:5313" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
-                <marker date="1570930392078" expanded="true" signature="737:834" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="866:909" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="928:1403" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1295:1335" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1357:1397" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1476:1864" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1554:1631" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1673:1749" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1762:1830" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1890:2789" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2059:2423" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2181:2413" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2436:2783" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2590:2773" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2955:4155" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="3012:3847" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="3861:4141" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="3897:4130" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="4287:4395" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="4518:4642" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="4667:4866" ph="/* ----------------------------------------------------------- ... */" />
-                <marker date="1570930392078" expanded="true" signature="4962:5093" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="5204:5311" ph="{...}" />
+                <marker date="1571274263081" expanded="false" signature="6:92" ph="..." />
+                <marker date="1571274263081" expanded="true" signature="139:5419" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
+                <marker date="1571274263081" expanded="true" signature="737:834" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="866:909" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="928:1403" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="1295:1335" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="1357:1397" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="1476:1864" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="1554:1631" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="1673:1749" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="1762:1830" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="1890:2789" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="2059:2423" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="2181:2413" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="2436:2783" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="2590:2773" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="2795:2947" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+                <marker date="1571274263081" expanded="true" signature="3007:4261" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="3118:3953" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="3967:4247" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="4003:4236" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="4393:4501" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="4624:4748" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="4773:4972" ph="/* ----------------------------------------------------------- ... */" />
+                <marker date="1571274263081" expanded="true" signature="5068:5199" ph="{...}" />
+                <marker date="1571274263081" expanded="true" signature="5310:5417" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3542">
+              <caret line="155" column="100" selection-start-line="155" selection-start-column="100" selection-end-line="155" selection-end-column="100" />
+              <folding>
+                <marker date="1571274313175" expanded="false" signature="6:92" ph="..." />
+                <marker date="1571274313175" expanded="true" signature="142:5524" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="150:230" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
+                <marker date="1571274313175" expanded="true" signature="731:828" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="860:903" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="922:1381" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="1273:1313" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="1335:1375" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="1454:1842" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="1532:1609" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="1651:1727" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="1740:1808" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="1860:2759" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="2029:2393" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="2151:2383" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="2406:2753" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="2560:2743" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="2766:4472" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+                <marker date="1571274313175" expanded="true" signature="4512:4620" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="4757:4881" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="4890:5089" ph="/* ----------------------------------------------------------- ... */" />
+                <marker date="1571274313175" expanded="true" signature="5181:5304" ph="{...}" />
+                <marker date="1571274313175" expanded="true" signature="5415:5522" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -77,11 +121,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" />
       </list>
     </option>
   </component>
@@ -103,13 +149,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
       <pane id="UnityExplorer">
         <option name="show-hidden-items" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,7 +206,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1935000" />
+    <option name="totallyTimeSpent" value="2194000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -175,17 +221,9 @@
     <frame x="125" y="23" width="1216" height="865" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24957411" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25383306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unity" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unit Tests" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -193,11 +231,19 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Errors In Solution" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,37 +265,70 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3542">
+          <caret line="155" column="100" selection-start-line="155" selection-start-column="100" selection-end-line="155" selection-end-column="100" />
+          <folding>
+            <marker date="1571274313175" expanded="false" signature="6:92" ph="..." />
+            <marker date="1571274313175" expanded="true" signature="142:5524" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="150:230" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
+            <marker date="1571274313175" expanded="true" signature="731:828" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="860:903" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="922:1381" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="1273:1313" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="1335:1375" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="1454:1842" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="1532:1609" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="1651:1727" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="1740:1808" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="1860:2759" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="2029:2393" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="2151:2383" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="2406:2753" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="2560:2743" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="2766:4472" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+            <marker date="1571274313175" expanded="true" signature="4512:4620" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="4757:4881" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="4890:5089" ph="/* ----------------------------------------------------------- ... */" />
+            <marker date="1571274313175" expanded="true" signature="5181:5304" ph="{...}" />
+            <marker date="1571274313175" expanded="true" signature="5415:5522" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="172" column="73" selection-start-line="172" selection-start-column="73" selection-end-line="172" selection-end-column="73" />
+        <state relative-caret-position="278">
+          <caret line="113" column="48" selection-start-line="113" selection-start-column="48" selection-end-line="113" selection-end-column="48" />
           <folding>
-            <marker date="1570930392078" expanded="false" signature="6:92" ph="..." />
-            <marker date="1570930392078" expanded="true" signature="139:5313" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
-            <marker date="1570930392078" expanded="true" signature="737:834" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="866:909" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="928:1403" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1295:1335" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1357:1397" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1476:1864" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1554:1631" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1673:1749" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1762:1830" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1890:2789" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2059:2423" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2181:2413" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2436:2783" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2590:2773" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2955:4155" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="3012:3847" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="3861:4141" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="3897:4130" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="4287:4395" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="4518:4642" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="4667:4866" ph="/* ----------------------------------------------------------- ... */" />
-            <marker date="1570930392078" expanded="true" signature="4962:5093" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="5204:5311" ph="{...}" />
+            <marker date="1571274263081" expanded="false" signature="6:92" ph="..." />
+            <marker date="1571274263081" expanded="true" signature="139:5419" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
+            <marker date="1571274263081" expanded="true" signature="737:834" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="866:909" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="928:1403" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="1295:1335" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="1357:1397" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="1476:1864" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="1554:1631" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="1673:1749" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="1762:1830" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="1890:2789" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="2059:2423" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="2181:2413" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="2436:2783" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="2590:2773" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="2795:2947" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+            <marker date="1571274263081" expanded="true" signature="3007:4261" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="3118:3953" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="3967:4247" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="4003:4236" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="4393:4501" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="4624:4748" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="4773:4972" ph="/* ----------------------------------------------------------- ... */" />
+            <marker date="1571274263081" expanded="true" signature="5068:5199" ph="{...}" />
+            <marker date="1571274263081" expanded="true" signature="5310:5417" ph="{...}" />
           </folding>
         </state>
       </provider>

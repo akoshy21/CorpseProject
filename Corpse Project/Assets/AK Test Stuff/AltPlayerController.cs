@@ -153,7 +153,7 @@ public class AltPlayerController : MonoBehaviour
         canJump = true;
     }
 
-    //Extra juice option, adds a small time pause (think Smash) when hitting something
+    //Extra juice option, adds a small time pause (think Smash) when hitting something (not used rn)
     private IEnumerator HitDelay()
     {
         Time.timeScale = 0;
