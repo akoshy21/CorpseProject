@@ -6,7 +6,11 @@ EditorSettings:
   serializedVersion: 8
   m_ExternalVersionControlSupport: Hidden Meta Files
   m_SerializationMode: 2
+<<<<<<< HEAD
   m_LineEndingsForNewScripts: 2
+=======
+  m_LineEndingsForNewScripts: 1
+>>>>>>> origin/carsen
   m_DefaultBehaviorMode: 0
   m_PrefabRegularEnvironment: {fileID: 0}
   m_PrefabUIEnvironment: {fileID: 0}
