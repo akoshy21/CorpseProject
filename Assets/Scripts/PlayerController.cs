@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public float ExtraHeight;
     public float TorqueForce;
     [Space(20)]
-    public AudioClip HitSound, TerrainHitSound, JumpSound;
     public bool canMove = true;
     public bool grounded;
 
@@ -32,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         aso = GetComponent<AudioSource>();
-        myRagdoll = gameObject.GetComponentInParent<RagdollManager>();
+        myRagdoll = GetComponentInParent<RagdollManager>();
         Debug.Log("Ragdoll script is: " + myRagdoll);
     }
 
@@ -55,7 +54,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var hit in groundCheck)
             {
-                if (hit.collider.gameObject.CompareTag("Ground"))
+                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.CompareTag("Player"))
                 {
                     grounded = true;
                     break;
@@ -113,7 +112,6 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 StartCoroutine(TinyJumpDelay());
                 coyoteTimer = 0;
-                aso.PlayOneShot(JumpSound);
             }
         }
         else
@@ -123,7 +121,6 @@ public class PlayerController : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 coyoteTimer = 0;
-                aso.PlayOneShot(JumpSound);
             }
         }
     }
@@ -159,9 +156,7 @@ public class PlayerController : MonoBehaviour
         {
             dead = true;
             Debug.Log("death");
-//            myRagdoll.dead = true;
 //            myRagdoll.CreateRagdoll();
-//            RagdollManager.body.dead = true;
         }
     }
 
@@ -176,19 +171,19 @@ public class PlayerController : MonoBehaviour
     /// More similar functionality to my spike game, will launch the player at a classic pong "bounce" trajectory
     /// (usually make <c>collidingObject</c> the transform of the object that is calling this function)
     /// </summary>
-    public void LaunchMirrored(Transform collidingObject)
+    public void LaunchMirrored(GameObject collidingObject)
     {
         //Add a force relative to your current velocity
-        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.up);
+        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.transform.up);
         flingForce.y += ExtraHeight;
         rb.AddForce(flingForce * DeathForce);
     }
     /// <summary>
     /// Launches the player at trajectory mirrored to their velocity, but spins them around for a more floppy effect
     /// </summary>
-    public void LaunchMirrored(Transform collidingObject, bool spinRotation)
+    public void LaunchMirrored(GameObject collidingObject, bool spinRotation)
     {
-        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.up);
+        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.transform.up);
         flingForce.y += ExtraHeight;
         rb.AddForce(flingForce * DeathForce);
         rb.AddTorque(-flingForce.x * TorqueForce);

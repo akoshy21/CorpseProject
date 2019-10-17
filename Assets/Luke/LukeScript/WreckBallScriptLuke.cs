@@ -50,12 +50,16 @@ public class WreckBallScriptLuke : MonoBehaviour
     {
         if (vel.magnitude > killSpeed)
         {
-            if (other.gameObject.CompareTag("Player1"))
+            if (other.gameObject.CompareTag("Player"))
             {
-                //Kill Player 1
+                PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
+                controller.Die();
+                controller.LaunchMirrored(ball.transform);
+                Debug.Log("Smash");
+                
             }
 
-            if (other.gameObject.CompareTag("Player2"))
+            if (other.gameObject.CompareTag("PlayerTwo"))
             {
                 //Kill Player 2
             }

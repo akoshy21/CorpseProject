@@ -51,8 +51,6 @@ public class RagdollManager : MonoBehaviour
             transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
         
-        Starter.start.bodyCount--;
-//        body = null;
         Starter.start.newChild();
     }
 
