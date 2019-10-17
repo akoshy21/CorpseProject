@@ -171,19 +171,19 @@ public class PlayerController : MonoBehaviour
     /// More similar functionality to my spike game, will launch the player at a classic pong "bounce" trajectory
     /// (usually make <c>collidingObject</c> the transform of the object that is calling this function)
     /// </summary>
-    public void LaunchMirrored(Transform collidingObject)
+    public void LaunchMirrored(GameObject collidingObject)
     {
         //Add a force relative to your current velocity
-        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.up);
+        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.transform.up);
         flingForce.y += ExtraHeight;
         rb.AddForce(flingForce * DeathForce);
     }
     /// <summary>
     /// Launches the player at trajectory mirrored to their velocity, but spins them around for a more floppy effect
     /// </summary>
-    public void LaunchMirrored(Transform collidingObject, bool spinRotation)
+    public void LaunchMirrored(GameObject collidingObject, bool spinRotation)
     {
-        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.up);
+        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.transform.up);
         flingForce.y += ExtraHeight;
         rb.AddForce(flingForce * DeathForce);
         rb.AddTorque(-flingForce.x * TorqueForce);
