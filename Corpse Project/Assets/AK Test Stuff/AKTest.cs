@@ -76,27 +76,32 @@ public class AKTest : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collide)
+//        collide = false;
+        if (obj == Testing.Spike && collision.gameObject.CompareTag("Player"))
         {
-            collide = false;
-            if (obj == Testing.Spike)
+            PlayerController controller = collision.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
+            RagdollManager ragdoll = collision.transform.parent.gameObject.GetComponent<RagdollManager>();
+
+            if (controller != null && !controller.dead)
             {
-                Debug.Log("BOINK");
-                PlayerController.Die();
+                Debug.Log("BOINK: " + collision.gameObject.name);
+                controller.Die();
+                ragdoll.CreateRagdoll();
             }
-            if (collision.gameObject.CompareTag("Ground"))
+        }
+        
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (obj == Testing.Legs)
             {
-                if (obj == Testing.Legs)
-                {
-                    onGround = true;
-                }
+                onGround = true;
             }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        collide = true;
+//        collide = true;
 
         if (collision.gameObject.CompareTag("Ground"))
         {

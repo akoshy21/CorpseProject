@@ -10,18 +10,15 @@ public class Starter : MonoBehaviour
     public int bodyCount = 1;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         start = this;
     }
 
     public void newChild()
     {
-        if (!delay && bodyCount < 1)
-        {
-            bodyCount++;
-            Instantiate(prefab);
-            PlayerController.dead = false;
-        }
+		bodyCount++;
+		Instantiate(prefab);
+//		PlayerController.dead = false;
     }
 }

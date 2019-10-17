@@ -145,7 +145,7 @@ public class AltPlayerController : MonoBehaviour
     //       
     //    }
 
-    //A very small delay between when you are able to jump again because im losing my mind
+    ///A very small delay between when you are able to jump again because im losing my mind
     private IEnumerator TinyJumpDelay()
     {
         canJump = false;
@@ -153,7 +153,7 @@ public class AltPlayerController : MonoBehaviour
         canJump = true;
     }
 
-    //Extra juice option, adds a small time pause (think Smash) when hitting something (not used rn)
+    ///Extra juice option, adds a small time pause (think Smash) when hitting something (not used rn)
     private IEnumerator HitDelay()
     {
         Time.timeScale = 0;
@@ -169,7 +169,7 @@ public class AltPlayerController : MonoBehaviour
     //-----------------------------------------------------------//
 
 
-    //Kills the player and turns them into an uncontrollable corpse
+    ///Kills the player and turns them into an uncontrollable corpse
     public void Die()
     {
         Destroy(this); //removes this script so u cant control it anymore
@@ -177,7 +177,7 @@ public class AltPlayerController : MonoBehaviour
         //other stuff if we want it
     }
 
-    //Launches the player a certain amount
+    ///Launches the player a certain amount
     public void Launch(float launchForce, Vector3 launchDirection)
     {
         rb.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);

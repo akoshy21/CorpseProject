@@ -5,12 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    //SHOULD I MAKE THIS A SINGLETON??
     // public static PlayerController player;
 
-    public static bool dead;
-
+    public bool dead;
 
     public float MoveSpeed;
     public float JumpHeight;
@@ -18,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public float ExtraHeight;
     public float TorqueForce;
     [Space(20)] 
-    public GameObject DeathParticles;
     public AudioClip HitSound, TerrainHitSound, JumpSound;
     public bool canMove = true;
 
@@ -29,10 +25,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastVel;
     private AudioSource aso;
 
+    private RagdollManager myRagdoll;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         aso = GetComponent<AudioSource>();
+        myRagdoll = gameObject.GetComponentInParent<RagdollManager>();
+        Debug.Log("Ragdoll script is: " + myRagdoll);
     }
 
     private void FixedUpdate()
@@ -174,24 +174,22 @@ public class PlayerController : MonoBehaviour
     //-----------------------------------------------------------//
 
     
-    //Kills the player and turns them into an uncontrollable corpse
-    public static void Die()
+    ///Kills the player and turns them into an uncontrollable corpse
+    public void Die()
     {
         if (!dead)
         {
             dead = true;
             Debug.Log("death");
-            RagdollManager.body.dead = true;
-            // Destroy(this); //removes this script so u cant control it anymore
-
-            //other stuff if we want it
+//            myRagdoll.dead = true;
+//            myRagdoll.CreateRagdoll();
+//            RagdollManager.body.dead = true;
         }
     }
 
-    //Launches the player a certain amount
+    ///Launches the player a certain amount
     public void Launch(float launchForce, Vector3 launchDirection)
     {
         rb.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
-        //thats it rn
     }
 }
