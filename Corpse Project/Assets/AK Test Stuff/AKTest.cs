@@ -63,7 +63,7 @@ public class AKTest : MonoBehaviour
             if (restoreRotation && onGround)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
-                Debug.Log("Rotating " + transform.rotation.eulerAngles);
+                //Debug.Log("Rotating " + transform.rotation.eulerAngles);
                 if (Mathf.Abs(Quaternion.Angle(originalRotation, transform.rotation)) <= 2) ;
                 {
                     restoreRotation = false;
@@ -77,7 +77,7 @@ public class AKTest : MonoBehaviour
         if (obj == Testing.Spike)
         {
             Debug.Log("BOINK");
-            AKTest.player.dead = true;
+            PlayerController.Die();
         }
         if (collision.gameObject.CompareTag("Ground"))
         {

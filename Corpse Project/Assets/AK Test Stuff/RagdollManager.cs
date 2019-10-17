@@ -5,12 +5,16 @@ using UnityEngine;
 public class RagdollManager : MonoBehaviour
 {
     public bool dead;
-    public static RagdollManager player;
+    public static RagdollManager body;
+    public GameObject newBod;
+    public Transform start;
+
+    public bool dying = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = this;
+        body = this;
 
         for (int i = 0; i < transform.childCount; ++i)
         {
@@ -22,16 +26,20 @@ public class RagdollManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dead)
+        if (dead && dying)
         {
+            dying = false;
             for (int i = 0; i < transform.childCount; ++i)
             {
-                //transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                if (transform.GetChild(i).gameObject.GetComponent<PlayerController>() != null)
+                {
+                    Destroy(transform.GetChild(i).gameObject.GetComponent<PlayerController>());
+                }
                 transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-                print("For loop: " + transform.GetChild(i));
-
+                body.transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
             }
+            body = null;
+            Instantiate(newBod, start.position, Quaternion.identity);
         }
     }
 }

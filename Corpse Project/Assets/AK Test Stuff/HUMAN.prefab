@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1484004404742869045}
-  - component: {fileID: 1484004404742869046}
+  - component: {fileID: 1868952375}
   m_Layer: 0
   m_Name: HUMAN
-  m_TagString: Untagged
+  m_TagString: PlayerOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1484004404742869044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.48, y: -0.31, z: -4.966797}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2611, y: 0.2611, z: 0.2611}
   m_Children:
   - {fileID: 1484004405526530526}
   - {fileID: 1484004405439239683}
@@ -39,7 +39,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1484004404742869046
+--- !u!114 &1868952375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,13 +48,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1484004404742869044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a750b9f3e4aac43a9af1d8b6b54722, type: 3}
+  m_Script: {fileID: 11500000, guid: 743a243551dd6e04cab97f360d668f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: 0
   dead: 0
-  restoreRotation: 0
-  rotateSpeed: 0
+  newBod: {fileID: 1484004404742869044}
+  start: {fileID: 0}
+  dying: 1
 --- !u!1 &1484004405020263603
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8cfe2fc3a3f4d20a50c0a3cf6b88b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 7
+  MoveSpeed: 3
   JumpHeight: 25
   DeathForce: 0
   ExtraHeight: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8cfe2fc3a3f4d20a50c0a3cf6b88b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 7
+  MoveSpeed: 3
   JumpHeight: 25
   DeathForce: 0
   ExtraHeight: 0
@@ -1263,8 +1263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8cfe2fc3a3f4d20a50c0a3cf6b88b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 7
-  JumpHeight: 50
+  MoveSpeed: 3
+  JumpHeight: 80
   DeathForce: 0
   ExtraHeight: 0
   TorqueForce: 0
@@ -1645,8 +1645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8cfe2fc3a3f4d20a50c0a3cf6b88b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 7
-  JumpHeight: 0
+  MoveSpeed: 3
+  JumpHeight: 50
   DeathForce: 0
   ExtraHeight: 0
   TorqueForce: 0
