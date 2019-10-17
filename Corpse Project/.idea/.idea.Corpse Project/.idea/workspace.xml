@@ -21,50 +21,57 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1072" />
+          <entry key="cs" value="1912" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="1072" />
+          <entry key="C#" value="1912" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="172" column="73" selection-start-line="172" selection-start-column="73" selection-end-line="172" selection-end-column="73" />
+            <state relative-caret-position="450">
+              <caret line="198" column="18" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
               <folding>
-                <marker date="1570930392078" expanded="false" signature="6:92" ph="..." />
-                <marker date="1570930392078" expanded="true" signature="139:5313" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
-                <marker date="1570930392078" expanded="true" signature="737:834" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="866:909" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="928:1403" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1295:1335" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1357:1397" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1476:1864" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1554:1631" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1673:1749" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1762:1830" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="1890:2789" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2059:2423" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2181:2413" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2436:2783" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2590:2773" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="2955:4155" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="3012:3847" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="3861:4141" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="3897:4130" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="4287:4395" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="4518:4642" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="4667:4866" ph="/* ----------------------------------------------------------- ... */" />
-                <marker date="1570930392078" expanded="true" signature="4962:5093" ph="{...}" />
-                <marker date="1570930392078" expanded="true" signature="5204:5311" ph="{...}" />
+                <marker date="1571277212517" expanded="false" signature="6:92" ph="..." />
+                <marker date="1571277212517" expanded="true" signature="139:6383" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
+                <marker date="1571277212517" expanded="true" signature="739:836" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="868:911" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="930:1405" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="1297:1337" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="1359:1399" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="1479:1867" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="1557:1634" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="1676:1752" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="1765:1833" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="1893:2792" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="2062:2426" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="2184:2416" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="2439:2786" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="2593:2776" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="2802:2950" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+                <marker date="1571277212517" expanded="true" signature="3005:4181" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="3062:3873" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="3085:3351" ph="/* Add a force relative to your current velocity ... */" />
+                <marker date="1571277212517" expanded="true" signature="3390:3863" ph="/* Create particle effect at point of impact, for fun ... */" />
+                <marker date="1571277212517" expanded="true" signature="3887:4167" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="3923:4156" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="4314:4422" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="4545:4669" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="4694:4893" ph="/* ----------------------------------------------------------- ... */" />
+                <marker date="1571277212517" expanded="true" signature="4990:5121" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="5256:5363" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="5373:5623" ph="/// More similar functionality to my spike game, will launch the player at a classic pong &quot;bounce&quot; trajectory ... " />
+                <marker date="1571277212517" expanded="true" signature="5681:5918" ph="{...}" />
+                <marker date="1571277212517" expanded="true" signature="5923:6072" ph="/// Launches the player at trajectory mirrored to their velocity, but spins them around for a more floppy effect ... " />
+                <marker date="1571277212517" expanded="true" signature="6149:6381" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -81,6 +88,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" />
       </list>
     </option>
@@ -103,13 +111,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
       <pane id="UnityExplorer">
         <option name="show-hidden-items" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,7 +168,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1935000" />
+    <option name="totallyTimeSpent" value="4526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -175,17 +183,9 @@
     <frame x="125" y="23" width="1216" height="865" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24957411" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16354345" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unity" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unit Tests" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -193,11 +193,19 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Errors In Solution" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,37 +227,51 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4209">
+          <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="172" column="73" selection-start-line="172" selection-start-column="73" selection-end-line="172" selection-end-column="73" />
+        <state relative-caret-position="450">
+          <caret line="198" column="18" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
           <folding>
-            <marker date="1570930392078" expanded="false" signature="6:92" ph="..." />
-            <marker date="1570930392078" expanded="true" signature="139:5313" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
-            <marker date="1570930392078" expanded="true" signature="737:834" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="866:909" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="928:1403" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1295:1335" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1357:1397" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1476:1864" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1554:1631" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1673:1749" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1762:1830" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="1890:2789" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2059:2423" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2181:2413" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2436:2783" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2590:2773" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="2955:4155" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="3012:3847" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="3861:4141" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="3897:4130" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="4287:4395" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="4518:4642" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="4667:4866" ph="/* ----------------------------------------------------------- ... */" />
-            <marker date="1570930392078" expanded="true" signature="4962:5093" ph="{...}" />
-            <marker date="1570930392078" expanded="true" signature="5204:5311" ph="{...}" />
+            <marker date="1571277212517" expanded="false" signature="6:92" ph="..." />
+            <marker date="1571277212517" expanded="true" signature="139:6383" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="151:231" ph="/* SHOULD I MAKE THIS A SINGLETON?? ... */" />
+            <marker date="1571277212517" expanded="true" signature="739:836" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="868:911" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="930:1405" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="1297:1337" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="1359:1399" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="1479:1867" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="1557:1634" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="1676:1752" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="1765:1833" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="1893:2792" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="2062:2426" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="2184:2416" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="2439:2786" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="2593:2776" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="2802:2950" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+            <marker date="1571277212517" expanded="true" signature="3005:4181" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="3062:3873" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="3085:3351" ph="/* Add a force relative to your current velocity ... */" />
+            <marker date="1571277212517" expanded="true" signature="3390:3863" ph="/* Create particle effect at point of impact, for fun ... */" />
+            <marker date="1571277212517" expanded="true" signature="3887:4167" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="3923:4156" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="4314:4422" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="4545:4669" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="4694:4893" ph="/* ----------------------------------------------------------- ... */" />
+            <marker date="1571277212517" expanded="true" signature="4990:5121" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="5256:5363" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="5373:5623" ph="/// More similar functionality to my spike game, will launch the player at a classic pong &quot;bounce&quot; trajectory ... " />
+            <marker date="1571277212517" expanded="true" signature="5681:5918" ph="{...}" />
+            <marker date="1571277212517" expanded="true" signature="5923:6072" ph="/// Launches the player at trajectory mirrored to their velocity, but spins them around for a more floppy effect ... " />
+            <marker date="1571277212517" expanded="true" signature="6149:6381" ph="{...}" />
           </folding>
         </state>
       </provider>
