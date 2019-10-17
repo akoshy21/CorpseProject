@@ -6,14 +6,7 @@ EditorSettings:
   serializedVersion: 8
   m_ExternalVersionControlSupport: Hidden Meta Files
   m_SerializationMode: 2
-<<<<<<< HEAD
   m_LineEndingsForNewScripts: 2
-<<<<<<< HEAD
-=======
-  m_LineEndingsForNewScripts: 1
->>>>>>> origin/carsen
-=======
->>>>>>> origin/Luke
   m_DefaultBehaviorMode: 0
   m_PrefabRegularEnvironment: {fileID: 0}
   m_PrefabUIEnvironment: {fileID: 0}
@@ -23,11 +16,7 @@ EditorSettings:
   m_EtcTextureFastCompressor: 1
   m_EtcTextureNormalCompressor: 2
   m_EtcTextureBestCompressor: 4
-<<<<<<< HEAD
   m_ProjectGenerationIncludedExtensions: txt;xml;fnt;cd;asmdef;asmref;rsp
-=======
-  m_ProjectGenerationIncludedExtensions: txt;xml;fnt;cd;asmdef;rsp;asmref
->>>>>>> origin/Luke
   m_ProjectGenerationRootNamespace: 
   m_CollabEditorSettings:
     inProgressEnabled: 1
