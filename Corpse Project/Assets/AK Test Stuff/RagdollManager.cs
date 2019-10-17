@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class RagdollManager : MonoBehaviour
 {
+//  public static RagdollManager body;
+//  public GameObject newBod;
+//  public bool dying = true;
     public bool dead;
-//    public static RagdollManager body;
-//    public GameObject newBod;
     public Transform start;
+    public float rotateSpeed;
 
-//    public bool dying = true;
+    private PlayerController controller;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         start = FindObjectOfType<Starter>().transform;
+        controller = GetComponentInChildren<PlayerController>();
+        
         Starter.start.delay = false;
 
         for (int i = 0; i < transform.childCount; ++i)
@@ -27,10 +32,10 @@ public class RagdollManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-//        if (dead)
-//        {
-//            CreateRagdoll();
-//        }
+        if (controller.grounded)
+        {
+            CorrectRotation();
+        }
     }
 
     public void CreateRagdoll()
@@ -51,21 +56,11 @@ public class RagdollManager : MonoBehaviour
         Starter.start.newChild();
     }
 
-//    private void CorrectRotation()
-//    {
-//        if (transform.rotation != originalRotation)
-//        {
-//            restoreRotation = true;
-//        }
-//
-//        if (restoreRotation && onGround)
-//        {
-//            transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
-//            //Debug.Log("Rotating " + transform.rotation.eulerAngles);
-//            if (Mathf.Abs(Quaternion.Angle(originalRotation, transform.rotation)) <= 2) ;
-//            {
-//                restoreRotation = false;
-//            }
-//        }
-//    }
+    private void CorrectRotation()
+    {
+        if (Mathf.Abs(Quaternion.Angle(Quaternion.identity, transform.rotation)) <= 2)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.time * rotateSpeed);
+        }
+    }
 }

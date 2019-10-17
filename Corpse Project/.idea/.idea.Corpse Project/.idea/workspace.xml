@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba65862f-8da9-4417-b6c7-691cc87394bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Corpse Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Corpse Project/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Corpse Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Corpse Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AK Test Stuff/AKTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AK Test Stuff/AKTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AK Test Stuff/RagdollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AK Test Stuff/RagdollManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AK Test Stuff/Starter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AK Test Stuff/Starter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/AnnamariaScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AnnamariaScene.unity" afterDir="false" />
     </list>
@@ -28,12 +24,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1669" />
+          <entry key="cs" value="2135" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="1669" />
+          <entry key="C#" value="2135" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -50,36 +46,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="452">
+              <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
               <folding>
-                <marker date="1571329879285" expanded="false" signature="6:92" ph="..." />
-                <marker date="1571329879285" expanded="true" signature="139:5669" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="713:935" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="967:1010" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="1029:1513" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="1396:1436" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="1458:1498" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="1586:1974" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="1664:1741" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="1783:1859" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="1872:1940" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="2000:2899" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="2169:2533" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="2291:2523" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="2546:2893" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="2700:2883" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="2905:4521" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
-                <marker date="1571329879285" expanded="true" signature="4561:4669" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="4792:4916" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="4941:5140" ph="/* ----------------------------------------------------------- ... */" />
-                <marker date="1571329879285" expanded="true" signature="5237:5470" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="5262:5464" ph="{...}" />
-                <marker date="1571329879285" expanded="true" signature="5330:5454" ph="/* myRagdoll.dead = true; ... */" />
-                <marker date="1571329879285" expanded="true" signature="5582:5667" ph="{...}" />
+                <marker date="1571331506716" expanded="false" signature="6:92" ph="..." />
+                <marker date="1571331506716" expanded="true" signature="139:6186" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="739:961" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="993:1036" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="1055:2044" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="1499:1853" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="1554:1843" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="1634:1734" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="1755:1829" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="1927:1967" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="1989:2029" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="2117:2505" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="2195:2272" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="2314:2390" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="2403:2471" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="2531:3416" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="2686:3050" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="2808:3040" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="3063:3410" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="3217:3400" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="3422:5038" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+                <marker date="1571331506716" expanded="true" signature="5078:5186" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="5309:5433" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="5458:5657" ph="/* ----------------------------------------------------------- ... */" />
+                <marker date="1571331506716" expanded="true" signature="5754:5987" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="5779:5981" ph="{...}" />
+                <marker date="1571331506716" expanded="true" signature="5847:5971" ph="/* myRagdoll.dead = true; ... */" />
+                <marker date="1571331506716" expanded="true" signature="6099:6184" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -88,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/AKTest.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
+            <state relative-caret-position="622">
               <caret line="84" column="38" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
               <folding>
                 <marker date="1571329998798" expanded="false" signature="6:78" ph="..." />
@@ -118,23 +118,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/RagdollManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="-102">
+              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
               <folding>
-                <marker date="1571330227533" expanded="false" signature="6:78" ph="..." />
-                <marker date="1571330227533" expanded="true" signature="123:2129" ph="{...}" />
-                <marker date="1571330227533" expanded="true" signature="248:333" ph="/* public bool dying = true; ... */" />
-                <marker date="1571330227533" expanded="true" signature="350:682" ph="{...}" />
-                <marker date="1571330227533" expanded="true" signature="504:676" ph="{...}" />
-                <marker date="1571330227533" expanded="true" signature="740:827" ph="{...}" />
-                <marker date="1571330227533" expanded="true" signature="747:821" ph="/* if (dead) ... */" />
-                <marker date="1571330227533" expanded="true" signature="860:1532" ph="{...}" />
-                <marker date="1571330227533" expanded="true" signature="921:1425" ph="{...}" />
-                <marker date="1571330227533" expanded="true" signature="1022:1208" ph="{...}" />
-                <marker date="1571330227533" expanded="true" signature="1534:2127" ph="/* private void CorrectRotation() ... */" />
+                <marker date="1571331008298" expanded="false" signature="6:78" ph="..." />
+                <marker date="1571331008298" expanded="true" signature="123:1960" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="126:224" ph="/* public static RagdollManager body; ... */" />
+                <marker date="1571331008298" expanded="true" signature="422:828" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="650:822" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="886:982" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="925:976" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="1015:1687" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="1076:1580" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="1177:1363" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="1723:1958" ph="{...}" />
+                <marker date="1571331008298" expanded="true" signature="1816:1952" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -173,8 +174,8 @@
         <option value="$PROJECT_DIR$/Assets/AK Test Stuff/AltPlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/AK Test Stuff/Starter.cs" />
         <option value="$PROJECT_DIR$/Assets/AK Test Stuff/AKTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/AK Test Stuff/RagdollManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -249,12 +250,12 @@
       <option name="presentableId" value="Default" />
       <updated>1570928357300</updated>
       <workItem from="1570928361433" duration="1935000" />
-      <workItem from="1571323353160" duration="6059000" />
+      <workItem from="1571323353160" duration="7318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8253000" />
+    <option name="totallyTimeSpent" value="9512000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -345,9 +346,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/Starter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <marker date="1571328852545" expanded="false" signature="6:78" ph="..." />
+            <marker date="1571328852545" expanded="true" signature="116:454" ph="{...}" />
+            <marker date="1571328852545" expanded="true" signature="305:339" ph="{...}" />
+            <marker date="1571328852545" expanded="true" signature="367:452" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/AKTest.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
+        <state relative-caret-position="622">
           <caret line="84" column="38" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
           <folding>
             <marker date="1571329998798" expanded="false" signature="6:78" ph="..." />
@@ -376,68 +390,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <marker date="1571329879285" expanded="false" signature="6:92" ph="..." />
-            <marker date="1571329879285" expanded="true" signature="139:5669" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="713:935" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="967:1010" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="1029:1513" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="1396:1436" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="1458:1498" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="1586:1974" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="1664:1741" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="1783:1859" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="1872:1940" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="2000:2899" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="2169:2533" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="2291:2523" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="2546:2893" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="2700:2883" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="2905:4521" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
-            <marker date="1571329879285" expanded="true" signature="4561:4669" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="4792:4916" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="4941:5140" ph="/* ----------------------------------------------------------- ... */" />
-            <marker date="1571329879285" expanded="true" signature="5237:5470" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="5262:5464" ph="{...}" />
-            <marker date="1571329879285" expanded="true" signature="5330:5454" ph="/* myRagdoll.dead = true; ... */" />
-            <marker date="1571329879285" expanded="true" signature="5582:5667" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/Starter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <marker date="1571328852545" expanded="false" signature="6:78" ph="..." />
-            <marker date="1571328852545" expanded="true" signature="116:454" ph="{...}" />
-            <marker date="1571328852545" expanded="true" signature="305:339" ph="{...}" />
-            <marker date="1571328852545" expanded="true" signature="367:452" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/AK Test Stuff/RagdollManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="-102">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
-            <marker date="1571330227533" expanded="false" signature="6:78" ph="..." />
-            <marker date="1571330227533" expanded="true" signature="123:2129" ph="{...}" />
-            <marker date="1571330227533" expanded="true" signature="248:333" ph="/* public bool dying = true; ... */" />
-            <marker date="1571330227533" expanded="true" signature="350:682" ph="{...}" />
-            <marker date="1571330227533" expanded="true" signature="504:676" ph="{...}" />
-            <marker date="1571330227533" expanded="true" signature="740:827" ph="{...}" />
-            <marker date="1571330227533" expanded="true" signature="747:821" ph="/* if (dead) ... */" />
-            <marker date="1571330227533" expanded="true" signature="860:1532" ph="{...}" />
-            <marker date="1571330227533" expanded="true" signature="921:1425" ph="{...}" />
-            <marker date="1571330227533" expanded="true" signature="1022:1208" ph="{...}" />
-            <marker date="1571330227533" expanded="true" signature="1534:2127" ph="/* private void CorrectRotation() ... */" />
+            <marker date="1571331008298" expanded="false" signature="6:78" ph="..." />
+            <marker date="1571331008298" expanded="true" signature="123:1960" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="126:224" ph="/* public static RagdollManager body; ... */" />
+            <marker date="1571331008298" expanded="true" signature="422:828" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="650:822" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="886:982" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="925:976" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="1015:1687" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="1076:1580" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="1177:1363" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="1723:1958" ph="{...}" />
+            <marker date="1571331008298" expanded="true" signature="1816:1952" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Carsens Test Assets/PlayerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+          <folding>
+            <marker date="1571331506716" expanded="false" signature="6:92" ph="..." />
+            <marker date="1571331506716" expanded="true" signature="139:6186" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="739:961" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="993:1036" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="1055:2044" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="1499:1853" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="1554:1843" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="1634:1734" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="1755:1829" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="1927:1967" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="1989:2029" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="2117:2505" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="2195:2272" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="2314:2390" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="2403:2471" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="2531:3416" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="2686:3050" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="2808:3040" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="3063:3410" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="3217:3400" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="3422:5038" ph="/* Not sure if we need any of these things if the actual object is the one calling OnTrigger/Collision ... */" />
+            <marker date="1571331506716" expanded="true" signature="5078:5186" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="5309:5433" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="5458:5657" ph="/* ----------------------------------------------------------- ... */" />
+            <marker date="1571331506716" expanded="true" signature="5754:5987" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="5779:5981" ph="{...}" />
+            <marker date="1571331506716" expanded="true" signature="5847:5971" ph="/* myRagdoll.dead = true; ... */" />
+            <marker date="1571331506716" expanded="true" signature="6099:6184" ph="{...}" />
           </folding>
         </state>
       </provider>

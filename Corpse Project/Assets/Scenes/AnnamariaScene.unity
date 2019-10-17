@@ -557,5 +557,10 @@ PrefabInstance:
       propertyPath: start
       value: 
       objectReference: {fileID: 1829368222}
+    - target: {fileID: 8474521753913347844, guid: 63bd93b7b4e804b01a23e5dd71ec7583,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bd93b7b4e804b01a23e5dd71ec7583, type: 3}

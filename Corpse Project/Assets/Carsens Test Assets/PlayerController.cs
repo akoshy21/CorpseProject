@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [Space(20)] 
     public AudioClip HitSound, TerrainHitSound, JumpSound;
     public bool canMove = true;
+    public bool grounded;
 
     private bool canJump = true;
     private Rigidbody2D rb;
@@ -44,11 +45,29 @@ public class PlayerController : MonoBehaviour
     {
         //Always check for raycasts to the ground
         Ray2D ray = new Ray2D(transform.position, Vector2.down);
-        Debug.DrawRay(ray.origin, ray.direction * 1f, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction * 1.2f, Color.green);
 
         Vector3 raySize = transform.localScale;
-        groundCheck = Physics2D.BoxCastAll(ray.origin, raySize, 0f, ray.direction, 0.4f);
-        
+        groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.2f);
+//        groundCheck = Physics2D.BoxCastAll(ray.origin, raySize, 0f, ray.direction, 1f);
+
+        if (groundCheck.Length > 0)
+        {
+            foreach (var hit in groundCheck)
+            {
+                if (hit.collider.gameObject.CompareTag("Ground"))
+                {
+                    grounded = true;
+                    break;
+                }
+                else
+                {
+                    grounded = false;
+                }
+            }
+        }
+        else 
+            grounded = false;
         
         if (canMove)
         {
@@ -86,7 +105,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         //makes a timer that counts down whenever not touching the ground. gives short window to jump when falling off a ledge
-        if (groundCheck.Length > 0)
+        if (grounded)
         {
             coyoteTimer = 0.1f;
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
