@@ -15,6 +15,7 @@ public class RagdollManager : MonoBehaviour
     void Start()
     {
         body = this;
+        Starter.start.delay = false;
 
         for (int i = 0; i < transform.childCount; ++i)
         {
@@ -29,17 +30,19 @@ public class RagdollManager : MonoBehaviour
         if (dead && dying)
         {
             dying = false;
-            for (int i = 0; i < transform.childCount; ++i)
+            for (int i = 0; i < transform.childCount; i++)
             {
                 if (transform.GetChild(i).gameObject.GetComponent<PlayerController>() != null)
                 {
                     Destroy(transform.GetChild(i).gameObject.GetComponent<PlayerController>());
+                    Debug.Log("DESTROYING " + transform.GetChild(i));
                 }
                 transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                 body.transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
             }
+            Starter.start.bodyCount--;
             body = null;
-            Instantiate(newBod, start.position, Quaternion.identity);
+            Starter.start.newChild();
         }
     }
 }

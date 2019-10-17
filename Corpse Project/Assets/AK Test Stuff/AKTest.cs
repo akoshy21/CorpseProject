@@ -8,6 +8,8 @@ public class AKTest : MonoBehaviour
 
     public Testing obj;
 
+    bool collide;
+
     Quaternion originalRotation;
     public static AKTest player;
     public bool dead, restoreRotation;
@@ -74,22 +76,28 @@ public class AKTest : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (obj == Testing.Spike)
+        if (collide)
         {
-            Debug.Log("BOINK");
-            PlayerController.Die();
-        }
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            if (obj == Testing.Legs)
+            collide = false;
+            if (obj == Testing.Spike)
             {
-                onGround = true;
+                Debug.Log("BOINK");
+                PlayerController.Die();
+            }
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                if (obj == Testing.Legs)
+                {
+                    onGround = true;
+                }
             }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        collide = true;
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             if (obj == Testing.Legs)

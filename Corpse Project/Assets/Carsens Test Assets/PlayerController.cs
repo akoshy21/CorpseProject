@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     //SHOULD I MAKE THIS A SINGLETON??
     // public static PlayerController player;
 
+    public static bool dead;
+
+
     public float MoveSpeed;
     public float JumpHeight;
     public float DeathForce;
@@ -174,11 +177,15 @@ public class PlayerController : MonoBehaviour
     //Kills the player and turns them into an uncontrollable corpse
     public static void Die()
     {
-        Debug.Log("death");
-        RagdollManager.body.dead = true;
-        // Destroy(this); //removes this script so u cant control it anymore
+        if (!dead)
+        {
+            dead = true;
+            Debug.Log("death");
+            RagdollManager.body.dead = true;
+            // Destroy(this); //removes this script so u cant control it anymore
 
-        //other stuff if we want it
+            //other stuff if we want it
+        }
     }
 
     //Launches the player a certain amount

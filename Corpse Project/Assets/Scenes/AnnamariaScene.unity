@@ -443,8 +443,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1829368222}
+  - component: {fileID: 1829368223}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,6 +465,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829368223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829368221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cde0c2b5a502b4186fb93f2b385596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1484004404742869044, guid: 836af29e39163de44a684aaeb44da7c3, type: 3}
+  delay: 0
+  bodyCount: 0
 --- !u!1001 &1484004405225573564
 PrefabInstance:
   m_ObjectHideFlags: 0
