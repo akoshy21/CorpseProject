@@ -13,7 +13,7 @@ public class GlassFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        velocityDivide = 5f;
+        velocityDivide = 4.9f;
     }
 
     // Update is called once per frame
