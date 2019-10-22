@@ -76,7 +76,6 @@ public class AKTest : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-//        collide = false;
         if (obj == Testing.Spike && collision.gameObject.CompareTag("Player"))
         {
             PlayerController controller = collision.transform.parent.gameObject.GetComponentInChildren<PlayerController>();

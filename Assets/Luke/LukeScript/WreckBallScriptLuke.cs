@@ -54,11 +54,11 @@ public class WreckBallScriptLuke : MonoBehaviour
             {
                 
                 PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-                controller.LaunchMirrored(ball, other);
-                controller.Die();
-                other.transform.parent.GetComponent<RagdollManager>().CreateRagdoll();
-                Debug.Log("Smash");
-                
+                if (controller != null  && !controller.dead)
+                {
+                    controller.LaunchMirrored(gameObject, other);
+                    controller.Die();
+                }
             }
 
             if (other.gameObject.CompareTag("PlayerTwo"))

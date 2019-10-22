@@ -167,7 +167,6 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             dead = true;
-            Debug.Log("death");
             myRagdoll.CreateRagdoll();
         }
     }
