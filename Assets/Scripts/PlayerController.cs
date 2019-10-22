@@ -23,14 +23,13 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimer;
     private RaycastHit2D[] groundCheck;
     private Vector3 lastVel;
-    private AudioSource aso;
+    private bool flingCheck;
 
     private RagdollManager myRagdoll;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        aso = GetComponent<AudioSource>();
         myRagdoll = GetComponentInParent<RagdollManager>();
     }
 
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 raySize = transform.localScale;
         groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.2f);
-//        groundCheck = Physics2D.BoxCastAll(ray.origin, raySize, 0f, ray.direction, 1f);
 
         if (groundCheck.Length > 0)
         {
@@ -55,6 +53,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.CompareTag("Player"))
                 {
+                    //Annoyingly long check just to see if one of the objects tagged "player" is a part of this object or not
+                    //If it is, we dont want to be able to jump off of ourselves
                     bool notMe = true;
                     for (int i = 0; i < transform.parent.childCount; i++)
                     {
@@ -193,20 +193,7 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("RB: " + rb);
         rb.AddForce(flingForce * DeathForce, ForceMode2D.Impulse);
-    }
-    /// <summary>
-    /// Launches the player at trajectory mirrored to their velocity, but spins them around for a more floppy effect
-    /// </summary>
-    public void LaunchMirrored(GameObject collidingObject, Collision2D collisionData, bool spinRotation)
-    {
-        Vector2 flingForce = Vector2.Reflect(lastVel, collidingObject.transform.up);
-        flingForce.y += ExtraHeight;
-        if (collidingObject.GetComponent<Rigidbody2D>() != null)
-        {
-            flingForce += collidingObject.GetComponent<Rigidbody2D>().velocity;
-        }
-        
-        rb.AddForce(flingForce * DeathForce, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
     }
+
 }

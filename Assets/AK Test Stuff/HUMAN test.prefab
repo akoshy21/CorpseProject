@@ -60,6 +60,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -144,7 +145,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -240,14 +241,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   MoveSpeed: 3
-  JumpHeight: 50
-  DeathForce: 0
-  ExtraHeight: 0
-  TorqueForce: 0
-  HitSound: {fileID: 8300000, guid: 31cd1a0d0f032453595a8f3a671d13f6, type: 3}
-  TerrainHitSound: {fileID: 8300000, guid: 6fb94f364b2b34e40bdca39a0900ae5f, type: 3}
-  JumpSound: {fileID: 8300000, guid: 2e55bdec22f8e4fa588c19dbd8df7a4b, type: 3}
+  JumpHeight: 40
+  DeathForce: 10
+  ExtraHeight: 5
+  TorqueForce: 5
   canMove: 1
+  grounded: 0
 --- !u!1 &6990627335364525951
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +306,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -460,6 +460,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -567,7 +568,6 @@ GameObject:
   - component: {fileID: 6990627335685846511}
   - component: {fileID: 6990627335685846480}
   - component: {fileID: 6990627335685846481}
-  - component: {fileID: 6990627335685846508}
   - component: {fileID: 6990627335685846507}
   - component: {fileID: 6990627335685846506}
   m_Layer: 0
@@ -616,6 +616,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -710,28 +711,6 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
---- !u!114 &6990627335685846508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990627335685846482}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8cfe2fc3a3f4d20a50c0a3cf6b88b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dead: 0
-  MoveSpeed: 3
-  JumpHeight: 80
-  DeathForce: 0
-  ExtraHeight: 0
-  TorqueForce: 0
-  HitSound: {fileID: 8300000, guid: 31cd1a0d0f032453595a8f3a671d13f6, type: 3}
-  TerrainHitSound: {fileID: 8300000, guid: 6fb94f364b2b34e40bdca39a0900ae5f, type: 3}
-  JumpSound: {fileID: 8300000, guid: 2e55bdec22f8e4fa588c19dbd8df7a4b, type: 3}
-  canMove: 1
 --- !u!82 &6990627335685846507
 AudioSource:
   m_ObjectHideFlags: 0
@@ -903,6 +882,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1056,6 +1036,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1163,7 +1144,6 @@ GameObject:
   - component: {fileID: 6990627336252012701}
   - component: {fileID: 6990627336252012702}
   - component: {fileID: 6990627336252012703}
-  - component: {fileID: 6990627335500336844}
   - component: {fileID: 6990627335500336843}
   m_Layer: 0
   m_Name: Leg UL
@@ -1211,6 +1191,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1305,28 +1286,6 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
---- !u!114 &6990627335500336844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990627336252012672}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8cfe2fc3a3f4d20a50c0a3cf6b88b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dead: 0
-  MoveSpeed: 3
-  JumpHeight: 25
-  DeathForce: 0
-  ExtraHeight: 0
-  TorqueForce: 0
-  HitSound: {fileID: 8300000, guid: 31cd1a0d0f032453595a8f3a671d13f6, type: 3}
-  TerrainHitSound: {fileID: 8300000, guid: 6fb94f364b2b34e40bdca39a0900ae5f, type: 3}
-  JumpSound: {fileID: 8300000, guid: 2e55bdec22f8e4fa588c19dbd8df7a4b, type: 3}
-  canMove: 1
 --- !u!114 &6990627335500336843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1356,7 +1315,6 @@ GameObject:
   - component: {fileID: 6990627336268216166}
   - component: {fileID: 6990627336268216163}
   - component: {fileID: 6990627336268216162}
-  - component: {fileID: 6990627336076217024}
   - component: {fileID: 6990627336076217055}
   m_Layer: 0
   m_Name: Leg UR
@@ -1404,6 +1362,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1498,28 +1457,6 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
---- !u!114 &6990627336076217024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990627336268216167}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8cfe2fc3a3f4d20a50c0a3cf6b88b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dead: 0
-  MoveSpeed: 3
-  JumpHeight: 25
-  DeathForce: 0
-  ExtraHeight: 0
-  TorqueForce: 0
-  HitSound: {fileID: 8300000, guid: 31cd1a0d0f032453595a8f3a671d13f6, type: 3}
-  TerrainHitSound: {fileID: 8300000, guid: 6fb94f364b2b34e40bdca39a0900ae5f, type: 3}
-  JumpSound: {fileID: 8300000, guid: 2e55bdec22f8e4fa588c19dbd8df7a4b, type: 3}
-  canMove: 1
 --- !u!114 &6990627336076217055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,5 +1525,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  newBod: {fileID: 6990627336511482887}
   start: {fileID: 0}
+  rotateSpeed: 2
