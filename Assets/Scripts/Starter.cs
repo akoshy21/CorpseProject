@@ -18,7 +18,7 @@ public class Starter : MonoBehaviour
     public void newChild()
     {
 		bodyCount++;
-		Instantiate(prefab);
+		Instantiate(prefab, transform.position, prefab.transform.rotation);
 //		PlayerController.dead = false;
     }
 }

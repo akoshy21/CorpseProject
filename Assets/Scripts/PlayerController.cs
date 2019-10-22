@@ -194,5 +194,15 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(flingForce * DeathForce, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
     }
+    
+    
+    //-----------------------------------------------------------//
+    //         GET FUNCTIONS (for calling from other scripts)    //
+    //-----------------------------------------------------------//
+
+    public Vector3 GetVelocity()
+    {
+        return rb.velocity;
+    }
 
 }

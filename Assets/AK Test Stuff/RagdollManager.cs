@@ -15,7 +15,7 @@ public class RagdollManager : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         start = FindObjectOfType<Starter>().transform;
         controller = GetComponentInChildren<PlayerController>();
