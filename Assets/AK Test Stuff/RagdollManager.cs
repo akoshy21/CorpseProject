@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RagdollManager : MonoBehaviour
 {
+    // Annamaria Koshy
+
 //  public static RagdollManager body;
 //  public GameObject newBod;
 //  public bool dying = true;

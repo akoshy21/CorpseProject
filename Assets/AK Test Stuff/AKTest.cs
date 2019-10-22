@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AKTest : MonoBehaviour
 {
+    // Annamaria Koshy
+
     public enum Testing { Ragdoll, Spike, Legs };
 
     public Testing obj;

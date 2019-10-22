@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Starter : MonoBehaviour
 {
+    // Annamaria Koshy
+
     public static Starter start;
     public GameObject prefab;
     public bool delay;
