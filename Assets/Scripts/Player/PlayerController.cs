@@ -23,16 +23,14 @@ public class PlayerController : MonoBehaviour
     private float coyoteTimer;
     private RaycastHit2D[] groundCheck;
     private Vector3 lastVel;
-    private AudioSource aso;
+    private bool flingCheck;
 
     private RagdollManager myRagdoll;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        aso = GetComponent<AudioSource>();
         myRagdoll = GetComponentInParent<RagdollManager>();
-        Debug.Log("Ragdoll script is: " + myRagdoll);
     }
 
     private void FixedUpdate()
@@ -48,7 +46,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 raySize = transform.localScale;
         groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.2f);
-//        groundCheck = Physics2D.BoxCastAll(ray.origin, raySize, 0f, ray.direction, 1f);
 
         if (groundCheck.Length > 0)
         {
@@ -56,8 +53,23 @@ public class PlayerController : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.CompareTag("Player"))
                 {
-                    grounded = true;
-                    break;
+                    //Annoyingly long check just to see if one of the objects tagged "player" is a part of this object or not
+                    //If it is, we dont want to be able to jump off of ourselves
+                    bool notMe = true;
+                    for (int i = 0; i < transform.parent.childCount; i++)
+                    {
+                        if (hit.collider.gameObject.Equals(transform.parent.GetChild(i).gameObject))
+                        {
+                            notMe = false;
+                        }
+                    }
+
+                    if (notMe)
+                    {
+                        grounded = true;
+                        break;
+                    }
+
                 }
                 else
                 {
@@ -149,14 +161,14 @@ public class PlayerController : MonoBehaviour
     //-----------------------------------------------------------//
 
 
-    ///Kills the player and turns them into an uncontrollable corpse
+    ///Kills the player and turns them into an uncontrollable corpse. REMEMBER TO CALL THIS LAST
     public void Die()
     {
         if (!dead)
         {
             dead = true;
             Debug.Log("death");
-//            myRagdoll.CreateRagdoll();
+            myRagdoll.CreateRagdoll();
         }
     }
 
@@ -164,28 +176,23 @@ public class PlayerController : MonoBehaviour
     public void Launch(float launchForce, Vector3 launchDirection)
     {
         rb.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
-        //thats it rn
     }
 
     /// <summary>
     /// More similar functionality to my spike game, will launch the player at a classic pong "bounce" trajectory
     /// (usually make <c>collidingObject</c> the transform of the object that is calling this function)
     /// </summary>
-    public void LaunchMirrored(GameObject collidingObject)
+    public void LaunchMirrored(GameObject collidingObject, Collision2D collisionData)
     {
         //Add a force relative to your current velocity
-        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.transform.up);
+        Vector2 flingForce = Vector2.Reflect(lastVel, -collisionData.GetContact(0).normal);
         flingForce.y += ExtraHeight;
-        rb.AddForce(flingForce * DeathForce);
-    }
-    /// <summary>
-    /// Launches the player at trajectory mirrored to their velocity, but spins them around for a more floppy effect
-    /// </summary>
-    public void LaunchMirrored(GameObject collidingObject, bool spinRotation)
-    {
-        Vector2 flingForce = Vector2.Reflect(lastVel, -collidingObject.transform.transform.up);
-        flingForce.y += ExtraHeight;
-        rb.AddForce(flingForce * DeathForce);
+        if (collidingObject.GetComponent<Rigidbody2D>() != null)
+        {
+            flingForce += collidingObject.GetComponent<Rigidbody2D>().velocity;
+        }
+        rb.AddForce(flingForce * DeathForce, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
     }
+
 }
