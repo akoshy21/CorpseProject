@@ -741,5 +741,10 @@ PrefabInstance:
       propertyPath: start
       value: 
       objectReference: {fileID: 1829368222}
+    - target: {fileID: 6990627336999761881, guid: 63bd93b7b4e804b01a23e5dd71ec7583,
+        type: 3}
+      propertyPath: TorqueForce
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bd93b7b4e804b01a23e5dd71ec7583, type: 3}

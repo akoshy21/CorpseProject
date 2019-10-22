@@ -191,7 +191,6 @@ public class PlayerController : MonoBehaviour
         {
             flingForce += collidingObject.GetComponent<Rigidbody2D>().velocity;
         }
-        Debug.Log("RB: " + rb);
         rb.AddForce(flingForce * DeathForce, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
     }
