@@ -22,11 +22,11 @@ public class RagdollManager : MonoBehaviour
         
         Starter.start.delay = false;
 
-        for (int i = 0; i < transform.childCount; ++i)
-        {
-            //transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            print("For loop: " + transform.GetChild(i));
-        }
+//        for (int i = 0; i < transform.childCount; ++i)
+//        {
+//            //transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+//            print("For loop: " + transform.GetChild(i));
+//        }
     }
 
     // Update is called once per frame
@@ -45,14 +45,12 @@ public class RagdollManager : MonoBehaviour
             if (transform.GetChild(i).gameObject.GetComponent<PlayerController>() != null)
             {
                 Destroy(transform.GetChild(i).gameObject.GetComponent<PlayerController>());
-                Debug.Log("DESTROYING " + transform.GetChild(i));
+//                Debug.Log("DESTROYING " + transform.GetChild(i));
             }
             transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
         
-        Starter.start.bodyCount--;
-//        body = null;
         Starter.start.newChild();
     }
 
