@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
         {
             dead = true;
             Debug.Log("death");
-//            myRagdoll.CreateRagdoll();
+            myRagdoll.CreateRagdoll();
         }
     }
 
@@ -176,7 +176,6 @@ public class PlayerController : MonoBehaviour
     public void Launch(float launchForce, Vector3 launchDirection)
     {
         rb.AddForce(launchDirection * launchForce, ForceMode2D.Impulse);
-        //thats it rn
     }
 
     /// <summary>
@@ -200,7 +199,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void LaunchMirrored(GameObject collidingObject, Collision2D collisionData, bool spinRotation)
     {
-        Vector2 flingForce = Vector2.Reflect(lastVel, collisionData.GetContact(0).normal);
+        Vector2 flingForce = Vector2.Reflect(lastVel, collidingObject.transform.up);
         flingForce.y += ExtraHeight;
         if (collidingObject.GetComponent<Rigidbody2D>() != null)
         {

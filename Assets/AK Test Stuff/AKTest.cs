@@ -80,14 +80,13 @@ public class AKTest : MonoBehaviour
         if (obj == Testing.Spike && collision.gameObject.CompareTag("Player"))
         {
             PlayerController controller = collision.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-            RagdollManager ragdoll = collision.transform.parent.gameObject.GetComponent<RagdollManager>();
-
+ 
             if (controller != null && !controller.dead)
             {
                 Debug.Log("BOINK: " + collision.gameObject.name);
+                
                 controller.LaunchMirrored(gameObject, collision);
                 controller.Die();
-                ragdoll.CreateRagdoll();
             }
         }
         
