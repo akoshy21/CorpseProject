@@ -85,6 +85,7 @@ public class AKTest : MonoBehaviour
             if (controller != null && !controller.dead)
             {
                 Debug.Log("BOINK: " + collision.gameObject.name);
+                controller.LaunchMirrored(gameObject, collision);
                 controller.Die();
                 ragdoll.CreateRagdoll();
             }
