@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit2D[] groundCheck;
     private Vector3 lastVel;
     private bool flingCheck;
+    private float walkCycleTimer;
 
     private RagdollManager myRagdoll;
 
@@ -97,40 +98,50 @@ public class PlayerController : MonoBehaviour
     ///Moves the player with velocity (and lerps hooray)
     void Move()
     {
-        JointMotor2D rightMotor = RightLeg.motor;
-        JointMotor2D leftMotor = LeftLeg.motor;
-
         Vector3 vel = rb.velocity;
         if (Input.GetKey(KeyCode.A))
         {
             vel.x = Mathf.Lerp(vel.x, -MoveSpeed, 0.1f);
-            
-//            rightMotor.motorSpeed = 0;
-//            leftMotor.motorSpeed = -50;
-//            RightLeg.useMotor = true;
-            LeftLeg.useMotor = true;
-
         }
         else if (Input.GetKey(KeyCode.D))
         {
             vel.x = Mathf.Lerp(vel.x, MoveSpeed, 0.1f);
-
-//            rightMotor.motorSpeed = -50;
-            RightLeg.useMotor = true;
-//            LeftLeg.useMotor = true;
-
         }
         else
         {
             vel.x = Mathf.Lerp(vel.x, 0, 0.1f);
-            RightLeg.useMotor = false;
-            LeftLeg.useMotor = false;
         }
 
         rb.velocity = vel;
+        
+        WalkCycle();
     }
 
+    void WalkCycle()
+    {
+        JointMotor2D rightMotor = RightLeg.motor;
+        JointMotor2D leftMotor = LeftLeg.motor;
 
+        if (rb.velocity.x > 1f)
+        {
+            RightLeg.useMotor = true;
+//            LeftLeg.useMotor = true;
+            if (Math.Abs(RightLeg.jointAngle - RightLeg.limits.max) < 1f ||
+                Math.Abs(RightLeg.jointAngle - RightLeg.limits.min) < 1f)
+            {
+                rightMotor.motorSpeed *= -1;
+            }
+
+        }
+        else
+        {
+            RightLeg.useMotor = false;
+            rightMotor.motorSpeed = -50;
+        }
+
+        RightLeg.motor = rightMotor;
+    }    
+    
     void Jump()
     {
         //makes a timer that counts down whenever not touching the ground. gives short window to jump when falling off a ledge
