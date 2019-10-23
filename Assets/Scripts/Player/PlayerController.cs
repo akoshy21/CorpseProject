@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// @author: Carsen Decker
 public class PlayerController : MonoBehaviour
 {
     // public static PlayerController player;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [Space(20)]
     public bool canMove = true;
     public bool grounded;
+    public HingeJoint2D RightLeg, LeftLeg;
 
     private bool canJump = true;
     private Rigidbody2D rb;
@@ -95,18 +97,34 @@ public class PlayerController : MonoBehaviour
     ///Moves the player with velocity (and lerps hooray)
     void Move()
     {
+        JointMotor2D rightMotor = RightLeg.motor;
+        JointMotor2D leftMotor = LeftLeg.motor;
+
         Vector3 vel = rb.velocity;
         if (Input.GetKey(KeyCode.A))
         {
             vel.x = Mathf.Lerp(vel.x, -MoveSpeed, 0.1f);
+            
+//            rightMotor.motorSpeed = 0;
+//            leftMotor.motorSpeed = -50;
+//            RightLeg.useMotor = true;
+            LeftLeg.useMotor = true;
+
         }
         else if (Input.GetKey(KeyCode.D))
         {
             vel.x = Mathf.Lerp(vel.x, MoveSpeed, 0.1f);
+
+//            rightMotor.motorSpeed = -50;
+            RightLeg.useMotor = true;
+//            LeftLeg.useMotor = true;
+
         }
         else
         {
             vel.x = Mathf.Lerp(vel.x, 0, 0.1f);
+            RightLeg.useMotor = false;
+            LeftLeg.useMotor = false;
         }
 
         rb.velocity = vel;
@@ -193,6 +211,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(flingForce * DeathForce, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
     }
+    
     
     
     //-----------------------------------------------------------//
