@@ -9,6 +9,9 @@ public class Starter : MonoBehaviour
     public static Starter start;
     public GameObject PlayerPrefab;
     public int bodyCount = 1;
+    public float spawnDelay = 1;
+
+    private bool spawning;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,8 +21,21 @@ public class Starter : MonoBehaviour
 
     public void newChild()
     {
-		bodyCount++;
-		Instantiate(PlayerPrefab, transform.position, PlayerPrefab.transform.rotation);
-//		PlayerController.dead = false;
+        if (!spawning)
+        {
+            StartCoroutine(SpawnDelay());
+        }
+    }
+
+    IEnumerator SpawnDelay()
+    {
+        spawning = true;
+        
+        yield return new WaitForSeconds(spawnDelay);
+        
+        bodyCount++;
+        Instantiate(PlayerPrefab, transform.position, PlayerPrefab.transform.rotation);
+
+        spawning = false;
     }
 }

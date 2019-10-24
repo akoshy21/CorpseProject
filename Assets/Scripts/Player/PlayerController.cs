@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
 
     public float MoveSpeed;
     public float JumpHeight;
-    public float DeathForce;
+//    public float DeathForce;
     public float ExtraHeight;
     public float TorqueForce;
+    public bool facingRight = true;
     [Space(20)]
     public bool canMove = true;
     public bool grounded;
@@ -29,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastVel;
     private float footStartXRight, footStartXLeft;
     private bool reverseStep;
-
     private RagdollManager myRagdoll;
 
     void Awake()
@@ -90,10 +90,12 @@ public class PlayerController : MonoBehaviour
         Vector3 vel = rb.velocity;
         if (Input.GetKey(KeyCode.A))
         {
+            facingRight = false;
             vel.x = Mathf.Lerp(vel.x, -MoveSpeed, 0.1f);
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            facingRight = true;
             vel.x = Mathf.Lerp(vel.x, MoveSpeed, 0.1f);
         }
         else
