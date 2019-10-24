@@ -17,12 +17,26 @@ public class Lethal : MonoBehaviour
             PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
             if (pC != null && !pC.dead)
             {
-                pC.Die();
+                //pC.Die();
             }
             
             
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
+            if (pC != null && !pC.dead)
+            {
+                pC.Die();
+            }
+
+
+        }
+    }
+
+
 }

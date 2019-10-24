@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RagdollManager : MonoBehaviour
 {
+
+// Annamaria Koshy
+
     public bool dead;
     public Transform start;
     public float rotateSpeed;
