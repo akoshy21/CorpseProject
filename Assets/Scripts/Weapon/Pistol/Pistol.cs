@@ -40,7 +40,7 @@ public class Pistol : Weapon
                 PistolBullet b = Instantiate(pistolBulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<PistolBullet>();
 
                 //**ADD CALCUATION FOR BULLET DIRECTION***
-                b.setIntialvelocity(new Vector3(b.bulletSpeed, 0, 0));
+                b.SetIntialVelocity(new Vector3(b.bulletSpeed, 0, 0));
                 
                 
                 delayed = true;

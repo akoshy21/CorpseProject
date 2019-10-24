@@ -41,6 +41,16 @@ public abstract class Weapon : MonoBehaviour
             //Testing equip until player controller can be modified
             GunTest GunTest = player.transform.parent.GetComponent<GunTest>();
 
+            if (player.transform.parent == null)
+            {
+                throw new System.Exception("Weapon failed to Equip, parent = null");
+            }
+
+            if (GunTest == null)
+            {
+                throw new System.Exception("Weapon failed to Equip, gunTest = null");
+            }
+
             if(GunTest.gunlocation == null)
             {
                 throw new System.Exception("Weapon failed to Equip, gunLocation = null");

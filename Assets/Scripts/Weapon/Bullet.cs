@@ -92,7 +92,7 @@ public abstract class Bullet : MonoBehaviour
     /// To be called when bullet is instiated to set its intial direction
     /// </summary>
     /// <param name="velocity">Normalized Vector3 direction for bullet to move</param>
-    public void setIntialvelocity(Vector3 velocity)
+    public void SetIntialVelocity(Vector3 velocity)
     {
         intialVelocity = velocity;
     }
