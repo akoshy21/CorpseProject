@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var hit in groundCheck)
             {
-                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.gameObject.CompareTag("Corpse"))
+//                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.gameObject.CompareTag("Corpse"))
+                if(!hit.collider.gameObject.CompareTag("Player"))
                 {
                     grounded = true;
                 }
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             RightLeg.useMotor = false;
             LeftLeg.useMotor = false;
+            reverseStep = false;
         }
     }
 

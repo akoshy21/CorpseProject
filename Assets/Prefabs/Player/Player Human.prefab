@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  MoveSpeed: 9
+  MoveSpeed: 4
   JumpHeight: 40
   DeathForce: 10
   ExtraHeight: 5
@@ -621,8 +621,8 @@ MonoBehaviour:
   LeftLeg: {fileID: 1109334938705680463}
   RightFoot: {fileID: 3708862897770606007}
   LeftFoot: {fileID: 7633319551453697166}
-  DistanceFromStraight: 0.05
-  LegMotorSpeed: 70
+  DistanceFromStraight: 0.315
+  LegMotorSpeed: 90
 --- !u!1 &6990627335364525951
 GameObject:
   m_ObjectHideFlags: 0
