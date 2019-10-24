@@ -20,15 +20,17 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
     public HingeJoint2D RightLeg, LeftLeg;
     public Transform RightFoot, LeftFoot;
-    public Transform RightLegJoint, LeftLegJoint;
     public float DistanceFromStraight;
+    [Space(20)]
+    public float LegMotorSpeed;
 
     private bool canJump = true;
     private Rigidbody2D rb;
     private float coyoteTimer;
     private RaycastHit2D[] groundCheck;
     private Vector3 lastVel;
-    private float footStartXPos;
+    private float footStartXRight, footStartXLeft;
+    private bool reverseStep;
 
     private RagdollManager myRagdoll;
 
@@ -36,7 +38,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         myRagdoll = GetComponentInParent<RagdollManager>();
-        footStartXPos = RightFoot.transform.localPosition.x;
+        footStartXRight = RightFoot.transform.localPosition.x;
+        footStartXLeft = LeftFoot.transform.localPosition.x;
     }
 
     private void FixedUpdate()
@@ -100,11 +103,21 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.velocity = vel;
-        
-        WalkCycle();
+
+        if (grounded)
+        {
+            WalkCycle();
+        }
+        else
+        {
+            RightLeg.useMotor = false;
+            LeftLeg.useMotor = false;
+        }
     }
 
-    
+    /// <summary>
+    /// Alternates stepping forward with either leg in order to "walk" properly
+    /// </summary>
     void WalkCycle()
     {
         JointMotor2D rightMotor = RightLeg.motor;
@@ -114,12 +127,50 @@ public class PlayerController : MonoBehaviour
         LeftFoot.rotation = Quaternion.Euler(Vector2.down);
         
         Rigidbody2D rightRb = RightFoot.GetComponent<Rigidbody2D>();
- 
-        if (Input.GetKey(KeyCode.D) && Mathf.Abs(RightFoot.transform.localPosition.x - footStartXPos) >= DistanceFromStraight)
+        Rigidbody2D leftRb = LeftFoot.GetComponent<Rigidbody2D>();
+
+        if (!reverseStep)
         {
-            rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed, 0.1f), rightRb.velocity.y);
+            if (Input.GetKey(KeyCode.D))
+            {
+                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
+                if (footStartXRight - RightFoot.transform.localPosition.x < DistanceFromStraight)
+                {
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed, 0.1f), rightRb.velocity.y);
+                }
+                else if (footStartXRight - RightFoot.transform.localPosition.x >= DistanceFromStraight)
+                {
+                    reverseStep = true;
+
+                    rightMotor.motorSpeed = LegMotorSpeed;
+                    RightLeg.motor = rightMotor;
+                    RightLeg.useMotor = true;
+
+                    LeftLeg.useMotor = false;
+                }
+            }
         }
-        
+        else if (reverseStep)
+        {
+            if (Input.GetKey(KeyCode.D))
+            {
+                if (footStartXLeft - LeftFoot.transform.localPosition.x < DistanceFromStraight)
+                {
+                    leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, MoveSpeed, 0.1f), leftRb.velocity.y);
+                }
+                else if (footStartXLeft - LeftFoot.transform.localPosition.x >= DistanceFromStraight)
+                {
+                    reverseStep = false;
+
+                    leftMotor.motorSpeed = LegMotorSpeed;
+                    LeftLeg.motor = leftMotor;
+                    LeftLeg.useMotor = true;
+
+                    RightLeg.useMotor = false;
+                }
+            }
+        }
+
     }    
     
     void Jump()
