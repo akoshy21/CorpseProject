@@ -8,7 +8,6 @@ public class RagdollManager : MonoBehaviour
 // Annamaria Koshy
 
     public bool dead;
-    public Transform start;
     public float rotateSpeed;
 
     private PlayerController controller;
@@ -18,7 +17,6 @@ public class RagdollManager : MonoBehaviour
 
     void Awake()
     {
-        start = FindObjectOfType<Starter>().transform;
         controller = GetComponentInChildren<PlayerController>();
         GetAllChildren(transform);
     }
