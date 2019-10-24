@@ -129,14 +129,15 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D rightRb = RightFoot.GetComponent<Rigidbody2D>();
         Rigidbody2D leftRb = LeftFoot.GetComponent<Rigidbody2D>();
 
-        if (!reverseStep)
+        if (Input.GetKey(KeyCode.D))
         {
-            if (Input.GetKey(KeyCode.D))
+            if (!reverseStep)
             {
+
                 Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
                 if (footStartXRight - RightFoot.transform.localPosition.x < DistanceFromStraight)
                 {
-                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 4, 0.1f), rightRb.velocity.y);
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 2, 0.1f), rightRb.velocity.y);
                 }
                 else if (footStartXRight - RightFoot.transform.localPosition.x >= DistanceFromStraight)
                 {
@@ -148,11 +149,9 @@ public class PlayerController : MonoBehaviour
 
                     LeftLeg.useMotor = false;
                 }
+
             }
-        }
-        else if (reverseStep)
-        {
-            if (Input.GetKey(KeyCode.D))
+            else if (reverseStep)
             {
                 if (footStartXLeft - LeftFoot.transform.localPosition.x < DistanceFromStraight)
                 {
@@ -170,7 +169,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
+        else
+        {
+            RightLeg.useMotor = false;
+            LeftLeg.useMotor = false;
+        }
     }    
     
     void Jump()
