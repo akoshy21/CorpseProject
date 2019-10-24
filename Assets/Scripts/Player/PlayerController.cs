@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     private float footStartXRight, footStartXLeft;
     private bool reverseStep;
     private RagdollManager myRagdoll;
+    
+    //edits by Kate Howell for Player Specific Movement
+    public int playerInt = 0;
 
     void Awake()
     {
@@ -38,6 +41,12 @@ public class PlayerController : MonoBehaviour
         myRagdoll = GetComponentInParent<RagdollManager>();
         footStartXRight = RightFoot.transform.localPosition.x;
         footStartXLeft = LeftFoot.transform.localPosition.x;
+        
+        //edits by Kate Howell for Player Specific Movement
+        if (playerInt < 1)
+        {
+            throw new SystemException("Player Int not Set on Player Controller: " + transform.name);
+        }
     }
 
     private void FixedUpdate()
@@ -87,20 +96,24 @@ public class PlayerController : MonoBehaviour
     ///Moves the player with velocity (and lerps hooray)
     void Move()
     {
+        
         Vector3 vel = rb.velocity;
-        if (Input.GetKey(KeyCode.A))
+        
+        if (playerInt == 1)//added by kate (:
         {
-            facingRight = false;
-            vel.x = Mathf.Lerp(vel.x, -MoveSpeed, 0.1f);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            facingRight = true;
-            vel.x = Mathf.Lerp(vel.x, MoveSpeed, 0.1f);
-        }
-        else
-        {
-            vel.x = Mathf.Lerp(vel.x, 0, 0.1f);
+            //will be -1, 1 or 0
+            float moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
+            
+            if (moveInput > 0)
+            {
+                facingRight = true;
+            }
+            else
+            {
+                facingRight = false;
+            }
+
+            vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput, .1f);               
         }
 
         rb.velocity = vel;
@@ -131,7 +144,9 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D rightRb = RightFoot.GetComponent<Rigidbody2D>();
         Rigidbody2D leftRb = LeftFoot.GetComponent<Rigidbody2D>();
 
-        if (Input.GetKey(KeyCode.D))
+        float moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
+
+        if (moveInput > 0)
         {
             if (!reverseStep)
             {
@@ -170,7 +185,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (moveInput < 0)
         {
             if (reverseStep)
             {
@@ -220,10 +235,11 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         //makes a timer that counts down whenever not touching the ground. gives short window to jump when falling off a ledge
+        float jumpInput = Input.GetAxisRaw("JumpPlayerOne");
         if (grounded)
         {
             coyoteTimer = 0.1f;
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+            if (jumpInput > 0)
             {
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 StartCoroutine(TinyJumpDelay());
@@ -233,7 +249,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             coyoteTimer -= Time.deltaTime;
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && coyoteTimer > 0)
+            if (jumpInput > 0 && coyoteTimer > 0)
             {
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 coyoteTimer = 0;

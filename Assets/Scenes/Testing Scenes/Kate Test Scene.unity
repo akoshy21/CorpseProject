@@ -372,6 +372,11 @@ PrefabInstance:
       propertyPath: start
       value: 
       objectReference: {fileID: 2996818754607783775}
+    - target: {fileID: 6990627336999761881, guid: 63bd93b7b4e804b01a23e5dd71ec7583,
+        type: 3}
+      propertyPath: playerInt
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bd93b7b4e804b01a23e5dd71ec7583, type: 3}
 --- !u!1001 &1132876971092999286
@@ -474,6 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 208156848}
   bodyCount: 1
+  spawnDelay: 1
 --- !u!4 &2996818754607783775
 Transform:
   m_ObjectHideFlags: 0
