@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac86855fa661d041bfa278989e6e5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6990627336511482887, guid: 63bd93b7b4e804b01a23e5dd71ec7583, type: 3}
-  delay: 0
+  PlayerPrefab: {fileID: 6990627336511482887, guid: 63bd93b7b4e804b01a23e5dd71ec7583,
+    type: 3}
   bodyCount: 1
