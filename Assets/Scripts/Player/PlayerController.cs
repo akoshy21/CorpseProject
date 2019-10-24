@@ -19,14 +19,16 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
     public bool grounded;
     public HingeJoint2D RightLeg, LeftLeg;
+    public Transform RightFoot, LeftFoot;
+    public Transform RightLegJoint, LeftLegJoint;
+    public float DistanceFromStraight;
 
     private bool canJump = true;
     private Rigidbody2D rb;
     private float coyoteTimer;
     private RaycastHit2D[] groundCheck;
     private Vector3 lastVel;
-    private bool flingCheck;
-    private float walkCycleTimer;
+    private float footStartXPos;
 
     private RagdollManager myRagdoll;
 
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         myRagdoll = GetComponentInParent<RagdollManager>();
+        footStartXPos = RightFoot.transform.localPosition.x;
     }
 
     private void FixedUpdate()
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        LegKinematics();
         //Always check for raycasts to the ground
         Ray2D ray = new Ray2D(transform.position, Vector2.down);
         Debug.DrawRay(ray.origin, ray.direction * 1.2f, Color.green);
@@ -117,29 +121,30 @@ public class PlayerController : MonoBehaviour
         WalkCycle();
     }
 
+    void LegKinematics()
+    {
+//        foreach (var joint in RightLegJoints)
+//        {
+//            Vector2 directionToEffector = RightFoot.GetChild(0).position - joint.position;
+//            Vector2 directionToGoal = RightGoalPositionTest.transform.position - joint.position;
+//            joint.rotation = Quaternion.FromToRotation(directionToEffector, directionToGoal);
+//        }
+    }
+
     void WalkCycle()
     {
         JointMotor2D rightMotor = RightLeg.motor;
         JointMotor2D leftMotor = LeftLeg.motor;
+        
+        RightFoot.rotation = Quaternion.Euler(Vector2.down);
+        
+        Rigidbody2D rightRb = RightFoot.GetComponent<Rigidbody2D>();
 
-        if (rb.velocity.x > 1f)
+        if (Input.GetKey(KeyCode.D) && Mathf.Abs(RightFoot.transform.localPosition.x - footStartXPos) >= DistanceFromStraight)
         {
-            RightLeg.useMotor = true;
-//            LeftLeg.useMotor = true;
-            if (Math.Abs(RightLeg.jointAngle - RightLeg.limits.max) < 1f ||
-                Math.Abs(RightLeg.jointAngle - RightLeg.limits.min) < 1f)
-            {
-                rightMotor.motorSpeed *= -1;
-            }
-
+            rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed, 0.1f), rightRb.velocity.y);
         }
-        else
-        {
-            RightLeg.useMotor = false;
-            rightMotor.motorSpeed = -50;
-        }
-
-        RightLeg.motor = rightMotor;
+        
     }    
     
     void Jump()
