@@ -9,12 +9,15 @@ public class RagdollManager : MonoBehaviour
     public float rotateSpeed;
 
     private PlayerController controller;
+    private List<GameObject> children = new List<GameObject>();
+
     
 
     void Awake()
     {
         start = FindObjectOfType<Starter>().transform;
         controller = GetComponentInChildren<PlayerController>();
+        GetAllChildren(transform);
     }
 
 
@@ -29,17 +32,33 @@ public class RagdollManager : MonoBehaviour
     
     public void CreateRagdoll()
     {
-        for (int i = 0; i < transform.childCount; i++)
+
+        foreach (var child in children)
         {
-            if (transform.GetChild(i).gameObject.GetComponent<PlayerController>() != null)
+            if (child.gameObject.GetComponent<PlayerController>() != null)
             {
-                Destroy(transform.GetChild(i).gameObject.GetComponent<PlayerController>());
+                Destroy(child.gameObject.GetComponent<PlayerController>());
             }
-            transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+            if (child.gameObject.GetComponent<Rigidbody2D>() != null)
+            {
+                child.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                child.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+            }
+
+            child.gameObject.tag = "Corpse";
         }
         
         Starter.start.newChild();
+    }
+
+    private void GetAllChildren(Transform currentTransform)
+    {
+        foreach (Transform child in currentTransform)
+        {
+            children.Add(child.gameObject);
+            GetAllChildren(child.transform);
+        }
     }
     
 

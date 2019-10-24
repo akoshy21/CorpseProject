@@ -46,37 +46,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        LegKinematics();
         //Always check for raycasts to the ground
         Ray2D ray = new Ray2D(transform.position, Vector2.down);
-        Debug.DrawRay(ray.origin, ray.direction * 1.2f, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction * 1.1f, Color.green);
 
         Vector3 raySize = transform.localScale;
-        groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.2f);
+        groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.1f);
 
         if (groundCheck.Length > 0)
         {
             foreach (var hit in groundCheck)
             {
-                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.CompareTag("Player"))
+                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.gameObject.CompareTag("Corpse"))
                 {
-                    //Annoyingly long check just to see if one of the objects tagged "player" is a part of this object or not
-                    //If it is, we dont want to be able to jump off of ourselves
-                    bool notMe = true;
-                    for (int i = 0; i < transform.parent.childCount; i++)
-                    {
-                        if (hit.collider.gameObject.Equals(transform.parent.GetChild(i).gameObject))
-                        {
-                            notMe = false;
-                        }
-                    }
-
-                    if (notMe)
-                    {
-                        grounded = true;
-                        break;
-                    }
-
+                    grounded = true;
                 }
                 else
                 {
@@ -121,25 +104,17 @@ public class PlayerController : MonoBehaviour
         WalkCycle();
     }
 
-    void LegKinematics()
-    {
-//        foreach (var joint in RightLegJoints)
-//        {
-//            Vector2 directionToEffector = RightFoot.GetChild(0).position - joint.position;
-//            Vector2 directionToGoal = RightGoalPositionTest.transform.position - joint.position;
-//            joint.rotation = Quaternion.FromToRotation(directionToEffector, directionToGoal);
-//        }
-    }
-
+    
     void WalkCycle()
     {
         JointMotor2D rightMotor = RightLeg.motor;
         JointMotor2D leftMotor = LeftLeg.motor;
         
         RightFoot.rotation = Quaternion.Euler(Vector2.down);
+        LeftFoot.rotation = Quaternion.Euler(Vector2.down);
         
         Rigidbody2D rightRb = RightFoot.GetComponent<Rigidbody2D>();
-
+ 
         if (Input.GetKey(KeyCode.D) && Mathf.Abs(RightFoot.transform.localPosition.x - footStartXPos) >= DistanceFromStraight)
         {
             rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed, 0.1f), rightRb.velocity.y);
@@ -187,7 +162,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
     }
 
-
+    
 
 
     //-----------------------------------------------------------//

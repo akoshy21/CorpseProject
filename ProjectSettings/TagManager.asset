@@ -8,6 +8,7 @@ TagManager:
   - PlayerOne
   - PlayerTwo
   - Spike
+  - Corpse
   layers:
   - Default
   - TransparentFX
