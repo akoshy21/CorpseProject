@@ -10,19 +10,19 @@ public class Lethal : MonoBehaviour
      */
     
     //this function is derived from a scirpt Carsen originally wrote on the Player Controller
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
-            if (pC != null && !pC.dead)
-            {
-                //pC.Die();
-            }
-            
-            
-        }
-    }
+//    private void OnCollisionEnter2D(Collision2D other)
+//    {
+//        if (other.gameObject.CompareTag("Player"))
+//        {
+//            PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
+//            if (pC != null && !pC.dead)
+//            {
+//                //pC.Die();
+//            }
+//            
+//            
+//        }
+//    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,6 +32,10 @@ public class Lethal : MonoBehaviour
             if (pC != null && !pC.dead)
             {
                 pC.Die();
+                Rigidbody2D collidedRb = other.GetComponent<Rigidbody2D>();
+                collidedRb.constraints = RigidbodyConstraints2D.FreezePosition;
+                
+                GetComponentInChildren<ParticleSystem>().Play();
             }
 
 
