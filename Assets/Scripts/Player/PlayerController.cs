@@ -6,9 +6,7 @@ using UnityEngine;
 // @author: Carsen Decker
 public class PlayerController : MonoBehaviour
 {
-    // public static PlayerController player;
-
-    public bool dead;
+    [HideInInspector] public bool dead;
 
     public float MoveSpeed;
     public float JumpHeight;
@@ -133,8 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!reverseStep)
             {
-
-                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
+//                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
                 if (footStartXRight - RightFoot.transform.localPosition.x < DistanceFromStraight)
                 {
                     rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 2, 0.1f), rightRb.velocity.y);
@@ -169,10 +166,50 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            if (reverseStep)
+            {
+//                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
+                if (footStartXRight - RightFoot.transform.localPosition.x > -DistanceFromStraight)
+                {
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, -MoveSpeed * 2, 0.1f), rightRb.velocity.y);
+                }
+                else if (footStartXRight - RightFoot.transform.localPosition.x <= -DistanceFromStraight)
+                {
+                    reverseStep = false;
+
+                    rightMotor.motorSpeed = -LegMotorSpeed;
+                    RightLeg.motor = rightMotor;
+                    RightLeg.useMotor = true;
+
+                    LeftLeg.useMotor = false;
+                }
+
+            }
+            else if (!reverseStep)
+            {
+                Debug.Log(footStartXRight - LeftFoot.transform.localPosition.x);
+                if (footStartXLeft - LeftFoot.transform.localPosition.x > -DistanceFromStraight)
+                {
+                    leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, -MoveSpeed * 4, 0.1f), leftRb.velocity.y);
+                }
+                else if (footStartXLeft - LeftFoot.transform.localPosition.x <= -DistanceFromStraight)
+                {
+                    reverseStep = true;
+
+                    leftMotor.motorSpeed = -LegMotorSpeed;
+                    LeftLeg.motor = leftMotor;
+                    LeftLeg.useMotor = true;
+                    RightLeg.useMotor = false;
+                }
+            }
+        }
         else
         {
             RightLeg.useMotor = false;
             LeftLeg.useMotor = false;
+            reverseStep = false;
         }
     }    
     
