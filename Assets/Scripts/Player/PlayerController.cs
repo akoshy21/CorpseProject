@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
                 if (footStartXRight - RightFoot.transform.localPosition.x < DistanceFromStraight)
                 {
-                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed, 0.1f), rightRb.velocity.y);
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 4, 0.1f), rightRb.velocity.y);
                 }
                 else if (footStartXRight - RightFoot.transform.localPosition.x >= DistanceFromStraight)
                 {
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (footStartXLeft - LeftFoot.transform.localPosition.x < DistanceFromStraight)
                 {
-                    leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, MoveSpeed, 0.1f), leftRb.velocity.y);
+                    leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, MoveSpeed * 4, 0.1f), leftRb.velocity.y);
                 }
                 else if (footStartXLeft - LeftFoot.transform.localPosition.x >= DistanceFromStraight)
                 {
