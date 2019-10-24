@@ -9,6 +9,7 @@ TagManager:
   - PlayerTwo
   - Spike
   - Corpse
+  - GunLocation
   layers:
   - Default
   - TransparentFX
