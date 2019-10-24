@@ -22,15 +22,6 @@ public class RagdollManager : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        if (controller.grounded)
-        {
-            CorrectRotation();
-        }
-    }
-
-    
     public void CreateRagdoll()
     {
 

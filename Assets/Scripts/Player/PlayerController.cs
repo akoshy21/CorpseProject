@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (!reverseStep)
             {
-                Debug.Log(footStartXRight - LeftFoot.transform.localPosition.x);
+//                Debug.Log(footStartXRight - LeftFoot.transform.localPosition.x);
                 if (footStartXLeft - LeftFoot.transform.localPosition.x > -DistanceFromStraight)
                 {
                     leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, -MoveSpeed * 4, 0.1f), leftRb.velocity.y);
