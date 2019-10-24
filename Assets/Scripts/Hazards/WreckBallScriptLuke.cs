@@ -6,7 +6,7 @@ public class WreckBallScriptLuke : MonoBehaviour
 {
 
     public Rigidbody2D rigbod;
-
+    public float killPower;
     public float rePushx;
     public float rePushy;
     public float speedCap;
@@ -56,7 +56,7 @@ public class WreckBallScriptLuke : MonoBehaviour
                 PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
                 if (controller != null  && !controller.dead)
                 {
-                    controller.LaunchMirrored(gameObject, other);
+                    controller.LaunchMirrored(gameObject, other, killPower);
                     controller.Die();
                 }
             }

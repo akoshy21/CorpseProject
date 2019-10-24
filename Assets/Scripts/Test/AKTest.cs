@@ -86,7 +86,7 @@ public class AKTest : MonoBehaviour
             {
                 Debug.Log("BOINK: " + collision.gameObject.name);
                 
-                controller.LaunchMirrored(gameObject, collision);
+                controller.LaunchMirrored(gameObject, collision, 10000f);
                 controller.Die();
             }
         }
