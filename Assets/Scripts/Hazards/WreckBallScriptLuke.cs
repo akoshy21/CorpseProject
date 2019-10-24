@@ -28,12 +28,12 @@ public class WreckBallScriptLuke : MonoBehaviour
         vel = rigbod.velocity;
         if (vel.magnitude < speedCap)
         {
-            if (ball.transform.position.x > xPos.transform.position.x)
+            if (transform.position.x > xPos.transform.position.x)
             {
                 rigbod.AddForce(new Vector2(-rePushx,rePushy), ForceMode2D.Impulse);
             }
             
-            if (ball.transform.position.x < xPos.transform.position.x)
+            if (transform.position.x < xPos.transform.position.x)
             {
                 rigbod.AddForce(new Vector2(rePushx,rePushy), ForceMode2D.Impulse);
             }
@@ -52,12 +52,13 @@ public class WreckBallScriptLuke : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-                controller.LaunchMirrored(ball, other);
-                controller.Die();
-                other.transform.parent.GetComponent<RagdollManager>().CreateRagdoll();
-                Debug.Log("Smash");
                 
+                PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
+                if (controller != null  && !controller.dead)
+                {
+                    controller.LaunchMirrored(gameObject, other);
+                    controller.Die();
+                }
             }
 
             if (other.gameObject.CompareTag("PlayerTwo"))
@@ -67,4 +68,5 @@ public class WreckBallScriptLuke : MonoBehaviour
         }
 
     }
+    
 }

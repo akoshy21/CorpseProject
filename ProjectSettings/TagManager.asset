@@ -8,7 +8,7 @@ TagManager:
   - PlayerOne
   - PlayerTwo
   - Spike
-  - GunLocation
+  - Corpse
   layers:
   - Default
   - TransparentFX
@@ -18,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - LegsP1
+  - LegsP2
   - 
   - 
   - 

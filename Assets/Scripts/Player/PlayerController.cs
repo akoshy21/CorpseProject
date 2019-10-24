@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// @author: Carsen Decker
 public class PlayerController : MonoBehaviour
 {
-    // public static PlayerController player;
-
-    public bool dead;
+    [HideInInspector] public bool dead;
 
     public float MoveSpeed;
     public float JumpHeight;
@@ -17,13 +16,19 @@ public class PlayerController : MonoBehaviour
     [Space(20)]
     public bool canMove = true;
     public bool grounded;
+    public HingeJoint2D RightLeg, LeftLeg;
+    public Transform RightFoot, LeftFoot;
+    public float DistanceFromStraight;
+    [Space(20)]
+    public float LegMotorSpeed;
 
     private bool canJump = true;
     private Rigidbody2D rb;
     private float coyoteTimer;
     private RaycastHit2D[] groundCheck;
     private Vector3 lastVel;
-    private bool flingCheck;
+    private float footStartXRight, footStartXLeft;
+    private bool reverseStep;
 
     private RagdollManager myRagdoll;
 
@@ -31,6 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         myRagdoll = GetComponentInParent<RagdollManager>();
+        footStartXRight = RightFoot.transform.localPosition.x;
+        footStartXLeft = LeftFoot.transform.localPosition.x;
     }
 
     private void FixedUpdate()
@@ -42,34 +49,19 @@ public class PlayerController : MonoBehaviour
     {
         //Always check for raycasts to the ground
         Ray2D ray = new Ray2D(transform.position, Vector2.down);
-        Debug.DrawRay(ray.origin, ray.direction * 1.2f, Color.green);
+        Debug.DrawRay(ray.origin, ray.direction * 1.1f, Color.green);
 
         Vector3 raySize = transform.localScale;
-        groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.2f);
+        groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.1f);
 
         if (groundCheck.Length > 0)
         {
             foreach (var hit in groundCheck)
             {
-                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.CompareTag("Player"))
+//                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.gameObject.CompareTag("Corpse"))
+                if(!hit.collider.gameObject.CompareTag("Player"))
                 {
-                    //Annoyingly long check just to see if one of the objects tagged "player" is a part of this object or not
-                    //If it is, we dont want to be able to jump off of ourselves
-                    bool notMe = true;
-                    for (int i = 0; i < transform.parent.childCount; i++)
-                    {
-                        if (hit.collider.gameObject.Equals(transform.parent.GetChild(i).gameObject))
-                        {
-                            notMe = false;
-                        }
-                    }
-
-                    if (notMe)
-                    {
-                        grounded = true;
-                        break;
-                    }
-
+                    grounded = true;
                 }
                 else
                 {
@@ -110,9 +102,119 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.velocity = vel;
+
+        if (grounded)
+        {
+            WalkCycle();
+        }
+        else
+        {
+            RightLeg.useMotor = false;
+            LeftLeg.useMotor = false;
+            reverseStep = false;
+        }
     }
 
+    /// <summary>
+    /// Alternates stepping forward with either leg in order to "walk" properly
+    /// </summary>
+    void WalkCycle()
+    {
+        JointMotor2D rightMotor = RightLeg.motor;
+        JointMotor2D leftMotor = LeftLeg.motor;
+        
+        RightFoot.rotation = Quaternion.Euler(Vector2.down);
+        LeftFoot.rotation = Quaternion.Euler(Vector2.down);
+        
+        Rigidbody2D rightRb = RightFoot.GetComponent<Rigidbody2D>();
+        Rigidbody2D leftRb = LeftFoot.GetComponent<Rigidbody2D>();
 
+        if (Input.GetKey(KeyCode.D))
+        {
+            if (!reverseStep)
+            {
+//                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
+                if (footStartXRight - RightFoot.transform.localPosition.x < DistanceFromStraight)
+                {
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 2, 0.1f), rightRb.velocity.y);
+                }
+                else if (footStartXRight - RightFoot.transform.localPosition.x >= DistanceFromStraight)
+                {
+                    reverseStep = true;
+
+                    rightMotor.motorSpeed = LegMotorSpeed;
+                    RightLeg.motor = rightMotor;
+                    RightLeg.useMotor = true;
+
+                    LeftLeg.useMotor = false;
+                }
+
+            }
+            else if (reverseStep)
+            {
+                if (footStartXLeft - LeftFoot.transform.localPosition.x < DistanceFromStraight)
+                {
+                    leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, MoveSpeed * 4, 0.1f), leftRb.velocity.y);
+                }
+                else if (footStartXLeft - LeftFoot.transform.localPosition.x >= DistanceFromStraight)
+                {
+                    reverseStep = false;
+
+                    leftMotor.motorSpeed = LegMotorSpeed;
+                    LeftLeg.motor = leftMotor;
+                    LeftLeg.useMotor = true;
+
+                    RightLeg.useMotor = false;
+                }
+            }
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            if (reverseStep)
+            {
+//                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
+                if (footStartXRight - RightFoot.transform.localPosition.x > -DistanceFromStraight)
+                {
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, -MoveSpeed * 2, 0.1f), rightRb.velocity.y);
+                }
+                else if (footStartXRight - RightFoot.transform.localPosition.x <= -DistanceFromStraight)
+                {
+                    reverseStep = false;
+
+                    rightMotor.motorSpeed = -LegMotorSpeed;
+                    RightLeg.motor = rightMotor;
+                    RightLeg.useMotor = true;
+
+                    LeftLeg.useMotor = false;
+                }
+
+            }
+            else if (!reverseStep)
+            {
+                Debug.Log(footStartXRight - LeftFoot.transform.localPosition.x);
+                if (footStartXLeft - LeftFoot.transform.localPosition.x > -DistanceFromStraight)
+                {
+                    leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, -MoveSpeed * 4, 0.1f), leftRb.velocity.y);
+                }
+                else if (footStartXLeft - LeftFoot.transform.localPosition.x <= -DistanceFromStraight)
+                {
+                    reverseStep = true;
+
+                    leftMotor.motorSpeed = -LegMotorSpeed;
+                    LeftLeg.motor = leftMotor;
+                    LeftLeg.useMotor = true;
+                    RightLeg.useMotor = false;
+                }
+            }
+        }
+        else
+        {
+            RightLeg.useMotor = false;
+            LeftLeg.useMotor = false;
+            reverseStep = false;
+        }
+    }    
+    
     void Jump()
     {
         //makes a timer that counts down whenever not touching the ground. gives short window to jump when falling off a ledge
@@ -153,7 +255,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
     }
 
-
+    
 
 
     //-----------------------------------------------------------//
@@ -167,7 +269,6 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             dead = true;
-            Debug.Log("death");
             myRagdoll.CreateRagdoll();
         }
     }
@@ -193,6 +294,17 @@ public class PlayerController : MonoBehaviour
         }
         rb.AddForce(flingForce * DeathForce, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
+    }
+    
+    
+    
+    //-----------------------------------------------------------//
+    //         GET FUNCTIONS (for calling from other scripts)    //
+    //-----------------------------------------------------------//
+
+    public Vector3 GetVelocity()
+    {
+        return rb.velocity;
     }
 
 }

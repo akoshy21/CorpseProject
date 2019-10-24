@@ -4,32 +4,23 @@ using UnityEngine;
 
 public class RagdollManager : MonoBehaviour
 {
-//  public static RagdollManager body;
-//  public GameObject newBod;
-//  public bool dying = true;
     public bool dead;
     public Transform start;
     public float rotateSpeed;
 
     private PlayerController controller;
+    private List<GameObject> children = new List<GameObject>();
+
     
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         start = FindObjectOfType<Starter>().transform;
         controller = GetComponentInChildren<PlayerController>();
-        
-        Starter.start.delay = false;
-
-//        for (int i = 0; i < transform.childCount; ++i)
-//        {
-//            //transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-//            print("For loop: " + transform.GetChild(i));
-//        }
+        GetAllChildren(transform);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (controller.grounded)
@@ -38,21 +29,42 @@ public class RagdollManager : MonoBehaviour
         }
     }
 
+    
     public void CreateRagdoll()
     {
-        for (int i = 0; i < transform.childCount; i++)
+
+        foreach (var child in children)
         {
-            if (transform.GetChild(i).gameObject.GetComponent<PlayerController>() != null)
+            if (child.gameObject.GetComponent<PlayerController>() != null)
             {
-                Destroy(transform.GetChild(i).gameObject.GetComponent<PlayerController>());
-//                Debug.Log("DESTROYING " + transform.GetChild(i));
+                Destroy(child.gameObject.GetComponent<PlayerController>());
             }
-            transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            transform.GetChild(i).gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+            if (child.gameObject.GetComponent<Rigidbody2D>() != null)
+            {
+                child.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                child.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+            }
+
+            child.gameObject.tag = "Corpse";
+            if (child.gameObject.layer != 0)
+            {
+                child.gameObject.layer = 0;
+            }
         }
         
         Starter.start.newChild();
     }
+
+    private void GetAllChildren(Transform currentTransform)
+    {
+        foreach (Transform child in currentTransform)
+        {
+            children.Add(child.gameObject);
+            GetAllChildren(child.transform);
+        }
+    }
+    
 
     private void CorrectRotation()
     {

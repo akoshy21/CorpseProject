@@ -5,8 +5,7 @@ using UnityEngine;
 public class Starter : MonoBehaviour
 {
     public static Starter start;
-    public GameObject prefab;
-    public bool delay;
+    public GameObject PlayerPrefab;
     public int bodyCount = 1;
 
     // Start is called before the first frame update
@@ -18,7 +17,7 @@ public class Starter : MonoBehaviour
     public void newChild()
     {
 		bodyCount++;
-		Instantiate(prefab);
+		Instantiate(PlayerPrefab, transform.position, PlayerPrefab.transform.rotation);
 //		PlayerController.dead = false;
     }
 }
