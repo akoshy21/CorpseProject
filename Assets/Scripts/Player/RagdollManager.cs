@@ -9,9 +9,11 @@ public class RagdollManager : MonoBehaviour
 
     public bool dead;
     public float rotateSpeed;
+    
 
     private PlayerController controller;
     private List<GameObject> children = new List<GameObject>();
+    private Starter spawn;
 
     
 
@@ -19,6 +21,15 @@ public class RagdollManager : MonoBehaviour
     {
         controller = GetComponentInChildren<PlayerController>();
         GetAllChildren(transform);
+
+        if (controller.playerInt == 1)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
+        }
+        else
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
+        }
     }
 
 
@@ -44,8 +55,10 @@ public class RagdollManager : MonoBehaviour
                 child.gameObject.layer = 0;
             }
         }
+
         
-        Starter.start.newChild();
+            
+        spawn.newChild();
     }
 
     private void GetAllChildren(Transform currentTransform)

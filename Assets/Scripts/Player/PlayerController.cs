@@ -32,8 +32,15 @@ public class PlayerController : MonoBehaviour
     private bool reverseStep;
     private RagdollManager myRagdoll;
     
-    //edits by Kate Howell for Player Specific Movement
-    public int playerInt = 0;
+    //gun control edits by Kate Howell
+    public bool weaponEquipped;
+    public Weapon weapon;
+    public Transform gunlocation;
+    public GameObject gunLocationRight;
+    public GameObject gunLocationLeft;
+
+    //player specific movement edits by Kate Howell
+    [HideInInspector]  public int playerInt = 0;
 
     void Awake()
     {
@@ -41,12 +48,25 @@ public class PlayerController : MonoBehaviour
         myRagdoll = GetComponentInParent<RagdollManager>();
         footStartXRight = RightFoot.transform.localPosition.x;
         footStartXLeft = LeftFoot.transform.localPosition.x;
+
+        //Player Specific Movement added by Kate
+        if (transform.parent.CompareTag("PlayerOne"))
+        {
+            playerInt = 1;
+        }
+        else if(transform.parent.CompareTag("PlayerTwo"))
+        {
+            playerInt = 2;
+        }
         
-        //edits by Kate Howell for Player Specific Movement
         if (playerInt < 1)
         {
-            throw new SystemException("Player Int not Set on Player Controller: " + transform.name);
+            throw new SystemException("Player Missing Correct Tag: " + transform.name);
         }
+        
+        //Gun Control added by Kate
+        gunlocation = gunLocationRight.transform;
+
     }
 
     private void FixedUpdate()
@@ -90,6 +110,15 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        
+        
+        //check for weapon attack - added by Kate
+        if (weaponEquipped)
+        {
+            GunControl();
+        }
+        
+        //Player Interaction - added by Kate
 
     }
 
@@ -98,23 +127,47 @@ public class PlayerController : MonoBehaviour
     {
         
         Vector3 vel = rb.velocity;
+
+        float moveInput = 0;
         
         if (playerInt == 1)//added by kate (:
         {
             //will be -1, 1 or 0
-            float moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
-            
-            if (moveInput > 0)
-            {
-                facingRight = true;
-            }
-            else
-            {
-                facingRight = false;
-            }
+            moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
 
-            vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput, .1f);               
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveInput = 1;
+            }else if (Input.GetKey(KeyCode.A))
+            {
+                moveInput = -1;
+            }
         }
+        else
+        {
+            moveInput = Input.GetAxisRaw("HorizontalPlayerTwo");    
+            
+            if (Input.GetKey(KeyCode.L))
+            {
+                moveInput = 1;
+            }else if (Input.GetKey(KeyCode.J))
+            {
+                moveInput = -1;
+            }
+        }
+        
+        
+        
+        if (moveInput > 0)
+        {
+            facingRight = true;
+        }
+        else if(moveInput != 0)
+        {
+            facingRight = false;
+        }
+
+        vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput, .1f);   
 
         rb.velocity = vel;
 
@@ -144,7 +197,33 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D rightRb = RightFoot.GetComponent<Rigidbody2D>();
         Rigidbody2D leftRb = LeftFoot.GetComponent<Rigidbody2D>();
 
-        float moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
+        float moveInput;
+        
+        if (playerInt == 1)//added by kate (:
+        {
+            //will be -1, 1 or 0
+            moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
+            
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveInput = 1;
+            }else if (Input.GetKey(KeyCode.A))
+            {
+                moveInput = -1;
+            }
+        }
+        else
+        {
+            moveInput = Input.GetAxisRaw("HorizontalPlayerTwo");  
+            
+            if (Input.GetKey(KeyCode.L))
+            {
+                moveInput = 1;
+            }else if (Input.GetKey(KeyCode.J))
+            {
+                moveInput = -1;
+            }
+        }
 
         if (moveInput > 0)
         {
@@ -235,7 +314,28 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         //makes a timer that counts down whenever not touching the ground. gives short window to jump when falling off a ledge
-        float jumpInput = Input.GetAxisRaw("JumpPlayerOne");
+        float jumpInput;
+        
+        if (playerInt == 1)//added by kate (:
+        {
+            //will be -1, 1 or 0
+            jumpInput = Input.GetAxisRaw("JumpPlayerOne");
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                jumpInput = 1;
+            }
+        }
+        else
+        {
+            jumpInput = Input.GetAxisRaw("JumpPlayerTwo");    
+            
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                jumpInput = 1;
+            }
+        }
+        
         if (grounded)
         {
             coyoteTimer = 0.1f;
@@ -273,7 +373,44 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    
+    //Gun Controller added by Kate
+    public void GunControl()
+    {
+        if (playerInt == 1)
+        {
+            float attackInput = Input.GetAxisRaw("FirePlayerOne");
+
+            if (attackInput > 0)
+            {
+                if (weaponEquipped)
+                {
+                    weapon.Attack();
+                }
+            }
+        }
+        else
+        {
+            float attackInput = Input.GetAxisRaw("FirePlayerTwo");
+
+            if (attackInput > 0)
+            {
+                if (weaponEquipped)
+                {
+                    weapon.Attack();
+                }
+            }
+        }
+        
+        //gun location based on direction
+        if (facingRight)
+        {
+            weapon.gunFacingRight(true);
+        }
+        else
+        {
+            weapon.gunFacingRight(false);
+        }
+    }
 
 
     //-----------------------------------------------------------//

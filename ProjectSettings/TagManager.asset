@@ -10,6 +10,8 @@ TagManager:
   - Spike
   - Corpse
   - GunLocation
+  - SpawnOne
+  - SpawnTwo
   layers:
   - Default
   - TransparentFX
