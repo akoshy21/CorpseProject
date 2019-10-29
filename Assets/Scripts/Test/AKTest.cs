@@ -6,7 +6,7 @@ public class AKTest : MonoBehaviour
 {
     // Annamaria Koshy
 
-    public enum Testing { Ragdoll, Spike, Legs };
+    public enum Testing { Ragdoll, Spike, Legs, Aim };
 
     public Testing obj;
 
@@ -14,7 +14,7 @@ public class AKTest : MonoBehaviour
 
     Quaternion originalRotation;
     public static AKTest player;
-    public bool dead, restoreRotation;
+    public bool dead, restoreRotation, start;
     public float rotateSpeed;
 
     bool onGround;
@@ -73,6 +73,12 @@ public class AKTest : MonoBehaviour
                     restoreRotation = false;
                 }
             }
+        }
+        else if (obj == Testing.Aim && Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 x = Input.mousePosition;
+            x.z = 0;
+            transform.position = x;
         }
     }
 

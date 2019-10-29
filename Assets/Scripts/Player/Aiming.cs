@@ -7,6 +7,7 @@ public class Aiming : MonoBehaviour
     // Annamaria Koshy
 
     public Transform armOne, armTwo, armOneUpper, armTwoUpper;
+    public Transform shoulderOne, shoulderTwo;
     public float RotationSpeed;
 
     private Quaternion lookRotation;
@@ -23,7 +24,6 @@ public class Aiming : MonoBehaviour
     {
 
         WhereToPoint(armOne);
-        WhereToPoint(armTwo);
 
         ///* if(player != dead) */
         //armOneUpper.RotateAround(armOneUpper.GetComponent<HingeJoint2D>().anchor,
@@ -47,27 +47,10 @@ public class Aiming : MonoBehaviour
         //t.rotation = Quaternion.Slerp(t.rotation, lookRotation, Time.deltaTime * RotationSpeed);
         //Debug.Log("ROTATING");
 
-        float angleChange = Vector3.Angle(t.GetComponent<HingeJoint2D>().anchor, Input.mousePosition);
-        float totalAng = t.GetComponent<HingeJoint2D>().jointAngle + angleChange;
-        JointMotor2D motor = t.GetComponent<HingeJoint2D>().motor;
+        float angleChange = Vector3.Angle(t.position, Input.mousePosition);
 
-        if (angleChange > 30)
-        {
-            t.GetComponent<HingeJoint2D>().useMotor = true;
-            if (totalAng > t.GetComponent<HingeJoint2D>().jointAngle)
-            {
-                motor.motorSpeed = RotationSpeed;
-            }
-            else
-            {
-                motor.motorSpeed = -RotationSpeed;
-            }
-        }
-        else
-        {
-            t.GetComponent<HingeJoint2D>().useMotor = false;
-        }
-
-        t.GetComponent<HingeJoint2D>().motor = motor;
+        t.Rotate(Vector3.forward, angleChange);
+        t.position = new Vector3(Mathf.Cos(angleChange) * armOne.transform.lossyScale.x + armOne.GetComponent<HingeJoint2D>().connectedAnchor.x, 
+            Mathf.Sin(angleChange) * armOne.transform.lossyScale.x + armOne.GetComponent<HingeJoint2D>().connectedAnchor.y);
     }
 }
