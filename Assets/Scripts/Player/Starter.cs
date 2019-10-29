@@ -16,7 +16,7 @@ public class Starter : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //start = this;
+        newChild();
     }
 
     public void newChild()
@@ -27,6 +27,7 @@ public class Starter : MonoBehaviour
         }
     }
 
+    //Spawning on delay by Carsen Decker
     IEnumerator SpawnDelay()
     {
         spawning = true;

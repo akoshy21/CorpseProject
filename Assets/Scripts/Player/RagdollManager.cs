@@ -6,6 +6,7 @@ public class RagdollManager : MonoBehaviour
 {
 
 // Annamaria Koshy
+//Slight restructuring by Carsen Decker
 
     public bool dead;
     public float rotateSpeed;

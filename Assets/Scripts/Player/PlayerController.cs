@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// @author: Carsen Decker
 public class PlayerController : MonoBehaviour
 {
+    //@author Carsen Decker
+    
     [HideInInspector] public bool dead;
-
     public float MoveSpeed;
     public float JumpHeight;
-//    public float DeathForce;
     public float ExtraHeight;
     public float TorqueForce;
     public bool facingRight = true;
@@ -26,7 +25,8 @@ public class PlayerController : MonoBehaviour
     private bool canJump = true;
     private Rigidbody2D rb;
     private float coyoteTimer;
-    private RaycastHit2D[] groundCheck;
+    private RaycastHit2D[] groundCheckRight, groundCheckLeft;
+    private bool groundedRight, groundedLeft;
     private Vector3 lastVel;
     private float footStartXRight, footStartXLeft;
     private bool reverseStep;
@@ -76,31 +76,57 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //Always check for raycasts to the ground
-        Ray2D ray = new Ray2D(transform.position, Vector2.down);
-        Debug.DrawRay(ray.origin, ray.direction * 1.1f, Color.green);
+        //Always check for raycasts to the ground from both feet
+        Ray2D rightRay = new Ray2D(RightFoot.position, Vector2.down);
+        Ray2D leftRay = new Ray2D(LeftFoot.position, Vector2.down);
 
-        Vector3 raySize = transform.localScale;
-        groundCheck = Physics2D.RaycastAll(ray.origin, ray.direction, 1.1f);
+        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.25f, Color.green);
+        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.25f, Color.green);
 
-        if (groundCheck.Length > 0)
+        groundCheckRight = Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.25f);
+        groundCheckLeft = Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.25f);
+
+//        if (groundCheckRight.Length == 0 && groundCheckLeft.Length == 0)
+//        {
+//            grounded = false;
+//        }
+        if (groundCheckRight.Length > 0)
         {
-            foreach (var hit in groundCheck)
+            foreach (var hit in groundCheckRight)
             {
-//                if (hit.collider.gameObject.CompareTag("Ground") || hit.collider.gameObject.CompareTag("Corpse"))
-                if(!hit.collider.gameObject.CompareTag("Player"))
-                {
-                    grounded = true;
-                }
+                if (!hit.collider.gameObject.CompareTag("Player"))
+                    groundedRight = true;
                 else
-                {
-                    grounded = false;
-                }
+                    groundedRight = false;
             }
         }
         else
-            grounded = false;
+            groundedRight = false;
 
+        if (groundCheckLeft.Length > 0)
+        {
+            foreach (var hit in groundCheckLeft)
+            {
+                if (!hit.collider.gameObject.CompareTag("Player"))
+                    groundedLeft = true;
+                else
+                    groundedLeft = false;
+            }
+        }
+        else
+            groundedLeft = false;
+
+        if (groundedRight || groundedLeft)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+
+
+        //If you can move or jump, accept those inputs
         if (canMove)
         {
             Move();
@@ -110,7 +136,6 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-        
         
         //check for weapon attack - added by Kate
         if (weaponEquipped)
