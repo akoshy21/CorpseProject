@@ -458,11 +458,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157202189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.55, y: 0.67, z: 0}
-  m_LocalScale: {x: 0.83594835, y: 0.90946746, z: 1}
+  m_LocalPosition: {x: -0.4974, y: 0.36476144, z: 0}
+  m_LocalScale: {x: 0.63000005, y: 0.555, z: 1}
   m_Children: []
-  m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 1
+  m_Father: {fileID: 6990627335885228553}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200902545
 GameObject:
@@ -821,10 +821,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0722f38493f2804089cfc59f1ce83dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armOne: {fileID: 6990627335369124797}
-  armTwo: {fileID: 6990627335796737600}
-  armOneUpper: {fileID: 6990627335263183230}
-  armTwoUpper: {fileID: 6990627336238519050}
+  armOne: {fileID: 6990627336238519050}
+  armTwo: {fileID: 6990627335263183230}
+  armOneUpper: {fileID: 6990627335369124797}
+  armTwoUpper: {fileID: 6990627335796737600}
   distAO: 0
   shoulderOne: {fileID: 157202190}
   shoulderTwo: {fileID: 0}
@@ -1775,7 +1775,7 @@ Transform:
   m_Children:
   - {fileID: 6572269093886200024}
   m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3708862897346794637
 Transform:
@@ -1983,7 +1983,7 @@ HingeJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6990627335263183219}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 6990627335796737604}
@@ -2079,7 +2079,7 @@ Transform:
   m_LocalScale: {x: 1.2991439, y: 0.38816798, z: 1}
   m_Children: []
   m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6990627335263183231
 SpriteRenderer:
@@ -2137,7 +2137,7 @@ HingeJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6990627335369124790}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 6990627335885228556}
@@ -2282,7 +2282,7 @@ Transform:
   m_LocalScale: {x: 1.2991439, y: 0.38816798, z: 1}
   m_Children: []
   m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!233 &6990627335567543896
 HingeJoint2D:
@@ -2388,7 +2388,7 @@ Transform:
   m_Children:
   - {fileID: 2295913543856676916}
   m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6990627335567543903
 SpriteRenderer:
@@ -2451,7 +2451,7 @@ Transform:
   m_LocalScale: {x: 1.2991439, y: 0.38816798, z: 1}
   m_Children: []
   m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6990627335796737601
 SpriteRenderer:
@@ -2576,7 +2576,7 @@ HingeJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6990627335796737605}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 6990627335885228556}
@@ -2606,8 +2606,9 @@ Transform:
   m_Children:
   - {fileID: 1807036961582342720}
   - {fileID: 1593746102}
+  - {fileID: 157202190}
   m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6990627335885228556
 Rigidbody2D:
@@ -2939,7 +2940,7 @@ Transform:
   m_LocalScale: {x: 1.2991439, y: 0.38816798, z: 1}
   m_Children: []
   m_Father: {fileID: 6990627336934888764}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6990627336238519051
 SpriteRenderer:
@@ -2997,7 +2998,7 @@ HingeJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6990627336238519055}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 6990627335369124785}
@@ -3175,7 +3176,6 @@ Transform:
   m_LocalScale: {x: 0.2611, y: 0.2611, z: 0.2611}
   m_Children:
   - {fileID: 6990627336118193367}
-  - {fileID: 157202190}
   - {fileID: 6990627336238519050}
   - {fileID: 6990627335369124797}
   - {fileID: 6990627335263183230}
