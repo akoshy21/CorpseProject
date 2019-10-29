@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 8689008482395821025}
   - component: {fileID: 9200899380986555354}
   - component: {fileID: 723275778788598711}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Leg LL
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   LegMotorSpeed: 90
   weaponEquipped: 0
   weapon: {fileID: 0}
-  gunlocation: {fileID: 0}
+  gunLocation: {fileID: 0}
   gunLocationRight: {fileID: 5921275248572231167}
   gunLocationLeft: {fileID: 4748635161212189446}
   playerInt: 2
@@ -1653,7 +1653,7 @@ GameObject:
   - component: {fileID: 2094565928789574441}
   - component: {fileID: 8419076394603877980}
   - component: {fileID: 3782750720556916385}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Leg LR
   m_TagString: Player
   m_Icon: {fileID: 0}

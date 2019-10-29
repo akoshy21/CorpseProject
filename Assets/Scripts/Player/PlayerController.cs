@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     //gun control edits by Kate Howell
     public bool weaponEquipped;
     public Weapon weapon;
-    public Transform gunlocation;
+    public Transform gunLocation;
     public GameObject gunLocationRight;
     public GameObject gunLocationLeft;
 
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         }
         
         //Gun Control added by Kate
-        gunlocation = gunLocationRight.transform;
+        gunLocation = gunLocationRight.transform;
 
     }
 
@@ -80,11 +80,11 @@ public class PlayerController : MonoBehaviour
         Ray2D rightRay = new Ray2D(RightFoot.position, Vector2.down);
         Ray2D leftRay = new Ray2D(LeftFoot.position, Vector2.down);
 
-        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.25f, Color.green);
-        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.25f, Color.green);
+        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.22f, Color.green);
+        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.22f, Color.green);
 
-        groundCheckRight = Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.25f);
-        groundCheckLeft = Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.25f);
+        groundCheckRight = Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.22f);
+        groundCheckLeft = Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.22f);
 
 //        if (groundCheckRight.Length == 0 && groundCheckLeft.Length == 0)
 //        {

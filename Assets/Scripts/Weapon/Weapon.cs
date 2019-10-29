@@ -18,37 +18,37 @@ public abstract class Weapon : MonoBehaviour
     public bool pointingRight = true;
 
     public abstract void Attack();
-
+    
+    
     //function equips and unequips weapon
     public void Equip(GameObject player)
     {
         PlayerController controller;
+        Transform currentTransform = player.transform;
         
         if (player.transform.parent == null)
         {
             throw new System.Exception("Weapon failed to Equip, parent = null");
         }
-        
-        if (!player.transform.parent.CompareTag("PlayerOne") || !player.transform.parent.CompareTag("PlayerOne"))
+
+        //Small code changes by Carsen Decker
+        while (currentTransform.parent != null || (!currentTransform.CompareTag("PlayerOne") && !currentTransform.CompareTag("PlayerTwo")))
         {
-             controller = player.transform.parent.transform.parent.GetComponentInChildren<PlayerController>();
-        }
-        else
-        {
-             controller = player.transform.parent.GetComponentInChildren<PlayerController>();
+            currentTransform = currentTransform.parent;
         }
 
+        if (currentTransform == null)
+        {
+            throw new System.Exception("Ah man the transform = null, something broke");
+        }
+
+        controller = currentTransform.GetComponentInChildren<PlayerController>();
 
         if (controller == null)
         {
-            controller = player.transform.parent.transform.parent.transform.parent.GetComponentInChildren<PlayerController>();
-            if (controller == null)
-            {
-                throw new System.Exception("Weapon failed to Equip, controller == null"); 
-            }
-            
+            throw new System.Exception("Weapon failed to Equip, controller == null"); 
         }
-        
+            
         
         if (equipped)
         {
@@ -63,8 +63,8 @@ public abstract class Weapon : MonoBehaviour
         }
         else
         {
-            transform.SetParent(controller.gunlocation);
-            transform.SetPositionAndRotation(controller.gunlocation.position, controller.gunlocation.rotation);
+            transform.SetParent(controller.gunLocation);
+            transform.SetPositionAndRotation(controller.gunLocation.position, controller.gunLocation.rotation);
 
             Destroy(this.GetComponent<Rigidbody2D>());
 
@@ -93,20 +93,25 @@ public abstract class Weapon : MonoBehaviour
 
     public void gunFacingRight(bool facingRight)
     {
+        SpriteRenderer[] sprites = GetComponents<SpriteRenderer>();
         if (pointingRight)
         {
             if (!facingRight)
             {
-                SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
-                spriteRenderer.flipY = true;
+                foreach (var spriteRenderer in sprites)
+                {
+                    spriteRenderer.flipY = true;
+                }
             }
         }
         else
         {
             if (facingRight)
             {
-                SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
-                spriteRenderer.flipY = false;
+                foreach (var spriteRenderer in sprites)
+                {
+                    spriteRenderer.flipY = false;
+                }
             }
         }
     }

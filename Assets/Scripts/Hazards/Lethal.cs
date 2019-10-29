@@ -34,7 +34,8 @@ public class Lethal : MonoBehaviour
                 pC.Die();
                 Rigidbody2D collidedRb = other.GetComponent<Rigidbody2D>();
                 collidedRb.constraints = RigidbodyConstraints2D.FreezePosition;
-                
+
+                GetComponentInChildren<ParticleSystem>().transform.position = collidedRb.transform.position;
                 GetComponentInChildren<ParticleSystem>().Play();
             }
 
