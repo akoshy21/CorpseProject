@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
         {
             facingRight = true;
         }
-        else if(moveInput != 0)
+        else if(moveInput < 0)
         {
             facingRight = false;
         }

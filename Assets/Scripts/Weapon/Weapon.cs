@@ -18,12 +18,13 @@ public abstract class Weapon : MonoBehaviour
     public bool pointingRight = true;
 
     public abstract void Attack();
-    
-    
+
+    private PlayerController controller;
+
     //function equips and unequips weapon
     public void Equip(GameObject player)
     {
-        PlayerController controller;
+//        PlayerController controller;
         Transform currentTransform = player.transform;
         
         if (player.transform.parent == null)
@@ -93,27 +94,37 @@ public abstract class Weapon : MonoBehaviour
 
     public void gunFacingRight(bool facingRight)
     {
-        SpriteRenderer[] sprites = GetComponents<SpriteRenderer>();
+//        SpriteRenderer[] sprites = GetComponents<SpriteRenderer>();
+        Vector3 tempScale = transform.localScale;
         if (pointingRight)
         {
             if (!facingRight)
             {
-                foreach (var spriteRenderer in sprites)
-                {
-                    spriteRenderer.flipY = true;
-                }
+                tempScale.x = tempScale.x * -1;
+                pointingRight = false;
+                transform.position = controller.gunLocationLeft.transform.position;
+//                foreach (var spriteRenderer in sprites)
+//                {
+//                    spriteRenderer.flipY = true;
+//                }
             }
         }
         else
         {
             if (facingRight)
             {
-                foreach (var spriteRenderer in sprites)
-                {
-                    spriteRenderer.flipY = false;
-                }
+                tempScale.x = tempScale.x * -1;
+                pointingRight = true;
+                transform.position = controller.gunLocationRight.transform.position;
+
+//                foreach (var spriteRenderer in sprites)
+//                {
+//                    spriteRenderer.flipY = false;
+//                }
             }
         }
+
+        transform.localScale = tempScale;
     }
 
 }
