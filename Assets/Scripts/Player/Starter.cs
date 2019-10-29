@@ -6,7 +6,7 @@ public class Starter : MonoBehaviour
 {
     // Annamaria Koshy
 
-    public static Starter start;
+    //public static Starter start;
     public GameObject PlayerPrefab;
     public int bodyCount = 1;
     public float spawnDelay = 1;
@@ -16,7 +16,7 @@ public class Starter : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        start = this;
+        //start = this;
     }
 
     public void newChild()

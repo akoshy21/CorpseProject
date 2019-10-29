@@ -26,7 +26,7 @@ public class Goal : MonoBehaviour
         if (collision.transform.parent.CompareTag("PlayerOne"))
         {
             PlayerController controller = collision.transform.parent.GetComponentInChildren<PlayerController>();
-            if (!controller.dead)
+            if (controller != null && !controller.dead)
             {
                 playerOneAtGoal = true;
             }
@@ -34,7 +34,7 @@ public class Goal : MonoBehaviour
         else if (collision.transform.parent.CompareTag("PlayerTwo"))
         {
             PlayerController controller = collision.transform.parent.GetComponentInChildren<PlayerController>();
-            if (!controller.dead)
+            if (controller != null && !controller.dead)
             {
                 playerTwoAtGoal = true;
             }
@@ -44,17 +44,7 @@ public class Goal : MonoBehaviour
         {
             
         }
-
-
-        //testing section
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerController controller = collision.transform.parent.GetComponentInChildren<PlayerController>();
-            if (!controller.dead)
-            {
-                SceneManager.LoadScene(nextSceneToLoad.handle);
-            }
-        }
+        
         
     }
 

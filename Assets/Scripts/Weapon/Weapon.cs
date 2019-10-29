@@ -15,12 +15,41 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField, Tooltip("If gun is equipped to a Player")]
     public bool equipped;
 
+    public bool pointingRight = true;
+
     public abstract void Attack();
 
     //function equips and unequips weapon
     public void Equip(GameObject player)
     {
-        PlayerController controller = player.transform.parent.GetComponentInChildren<PlayerController>();
+        PlayerController controller;
+        
+        if (player.transform.parent == null)
+        {
+            throw new System.Exception("Weapon failed to Equip, parent = null");
+        }
+        
+        if (!player.transform.parent.CompareTag("PlayerOne") || !player.transform.parent.CompareTag("PlayerOne"))
+        {
+             controller = player.transform.parent.transform.parent.GetComponentInChildren<PlayerController>();
+        }
+        else
+        {
+             controller = player.transform.parent.GetComponentInChildren<PlayerController>();
+        }
+
+
+        if (controller == null)
+        {
+            controller = player.transform.parent.transform.parent.transform.parent.GetComponentInChildren<PlayerController>();
+            if (controller == null)
+            {
+                throw new System.Exception("Weapon failed to Equip, controller == null"); 
+            }
+            
+        }
+        
+        
         if (equipped)
         {
             equipped = false;
@@ -34,44 +63,19 @@ public abstract class Weapon : MonoBehaviour
         }
         else
         {
-            equipped = true;
-            
-            
-
-            //Testing equip until player controller can be modified
-            GunTest GunTest = player.transform.parent.GetComponent<GunTest>();
-
-            if (player.transform.parent == null)
-            {
-                throw new System.Exception("Weapon failed to Equip, parent = null");
-            }
-
-            if (GunTest == null)
-            {
-                throw new System.Exception("Weapon failed to Equip, gunTest = null");
-            }
-
-            if(GunTest.gunlocation == null)
-            {
-                throw new System.Exception("Weapon failed to Equip, gunLocation = null");
-            }
-
-            this.transform.SetParent(GunTest.gunlocation.transform);
-            this.transform.SetPositionAndRotation(GunTest.gunlocation.transform.position, GunTest.gunlocation.transform.rotation);
-
-            if (this.transform.parent == null)
-            {
-                throw new System.Exception("Weapon failed to Equip, parent = null");
-            }
+            transform.SetParent(controller.gunlocation);
+            transform.SetPositionAndRotation(controller.gunlocation.position, controller.gunlocation.rotation);
 
             Destroy(this.GetComponent<Rigidbody2D>());
 
-            GunTest.weaponEquipped = true;
-            GunTest.weapon = this;
-            if(GunTest.weapon == null)
+            controller.weaponEquipped = true;
+            controller.weapon = this;
+            if(controller.weapon == null)
             {
                 throw new System.Exception("Weapon failed to Equip, GunTestweapon = null");
             }
+            
+            equipped = true;
         }
     }
 
@@ -85,6 +89,26 @@ public abstract class Weapon : MonoBehaviour
             }
         }
             
+    }
+
+    public void gunFacingRight(bool facingRight)
+    {
+        if (pointingRight)
+        {
+            if (!facingRight)
+            {
+                SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
+                spriteRenderer.flipY = true;
+            }
+        }
+        else
+        {
+            if (facingRight)
+            {
+                SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>();
+                spriteRenderer.flipY = false;
+            }
+        }
     }
 
 }
