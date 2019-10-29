@@ -8,15 +8,20 @@ public class Starter : MonoBehaviour
 
     //public static Starter start;
     public GameObject PlayerPrefab;
+    public bool SpawnOnStart;
     public int bodyCount = 1;
     public float spawnDelay = 1;
+    
 
     private bool spawning;
 
     // Start is called before the first frame update
     void Awake()
     {
-        newChild();
+        if (SpawnOnStart)
+        {
+            newChild();
+        }
     }
 
     public void newChild()
