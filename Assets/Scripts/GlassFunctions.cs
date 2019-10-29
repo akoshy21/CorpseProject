@@ -11,6 +11,9 @@ public class GlassFunctions : MonoBehaviour
     private float collisionSpeed; //Just logging the speed of the gameobject
     public SpriteRenderer glassRenderer;
     // Start is called before the first frame update
+    
+    //Luke Brockmann
+    
     void Start()
     {
         velocityDivide = 6f;
