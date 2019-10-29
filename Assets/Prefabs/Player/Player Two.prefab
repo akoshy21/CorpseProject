@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933145324605952367}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Knee Joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6789796225153513859}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Knee Joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 2370362365568243691}
   - component: {fileID: 2370362365568243694}
   - component: {fileID: 2370362365568243695}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Leg UR
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  MoveSpeed: 4
+  MoveSpeed: 3.5
   JumpHeight: 40
   ExtraHeight: 5
   TorqueForce: 20
@@ -1468,7 +1468,7 @@ GameObject:
   - component: {fileID: 7384868195605078193}
   - component: {fileID: 3686222174412721305}
   - component: {fileID: 5657555474820364482}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Leg UL
   m_TagString: Player
   m_Icon: {fileID: 0}
