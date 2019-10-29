@@ -74,11 +74,13 @@ public class AKTest : MonoBehaviour
                 }
             }
         }
-        else if (obj == Testing.Aim && Input.GetKeyDown(KeyCode.Space))
+        else if (obj == Testing.Aim)
         {
-            Vector3 x = Input.mousePosition;
-            x.z = 0;
-            transform.position = x;
+            Vector3 dir = Input.mousePosition - this.transform.position;
+
+            //Vector3 x = Input.mousePosition;
+            //x.z = 0;
+            //transform.position = x;
         }
     }
 

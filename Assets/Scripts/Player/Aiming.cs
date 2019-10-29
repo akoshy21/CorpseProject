@@ -7,6 +7,7 @@ public class Aiming : MonoBehaviour
     // Annamaria Koshy
 
     public Transform armOne, armTwo, armOneUpper, armTwoUpper;
+    public float distAO;
     public Transform shoulderOne, shoulderTwo;
     public float RotationSpeed;
 
@@ -17,6 +18,7 @@ public class Aiming : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        distAO = Vector3.Distance(armOne.position, shoulderOne.position);
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class Aiming : MonoBehaviour
     void WhereToPoint(Transform t)
     {
         ////find the vector pointing from our position to the target
-        //direction = (Input.mousePosition - t.position).normalized;
+        direction = (Input.mousePosition - t.position).normalized;
 
         ////create the rotation we need to be in to look at the target
         //lookRotation = Quaternion.LookRotation(direction);
@@ -48,9 +50,14 @@ public class Aiming : MonoBehaviour
         //Debug.Log("ROTATING");
 
         float angleChange = Vector3.Angle(t.position, Input.mousePosition);
+        
+        t.transform.position = shoulderOne.position + (direction * distAO);
 
-        t.Rotate(Vector3.forward, angleChange);
-        t.position = new Vector3(Mathf.Cos(angleChange) * armOne.transform.lossyScale.x + armOne.GetComponent<HingeJoint2D>().connectedAnchor.x, 
-            Mathf.Sin(angleChange) * armOne.transform.lossyScale.x + armOne.GetComponent<HingeJoint2D>().connectedAnchor.y);
+        Debug.DrawRay(t.position, direction, Color.red);
+
+        Quaternion ro = new Quaternion();
+        ro.eulerAngles = new Vector3(0, 0, -angleChange);
+        t.rotation = ro;
+        
     }
 }
