@@ -35,11 +35,15 @@ public class Pause : MonoBehaviour
 
     public void LoadMain()
     {
+        Time.timeScale = 1f;
+        GameManager.gm.paused = false;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ReloadScene()
     {
+        Time.timeScale = 1f;
+        GameManager.gm.paused = false;
         SceneManager.LoadScene(GameManager.gm.curScn);
     }
 }
