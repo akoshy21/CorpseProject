@@ -10,6 +10,8 @@ public abstract class Weapon : MonoBehaviour
      * This class serves as a abstract class to build weapons off of
      * 
      * This class allows you to attack, and allows you to equip and unequip the weapon
+     *
+     * Small fixes by Carsen Decker ;)
      */
 
     [SerializeField, Tooltip("If gun is equipped to a Player")]
@@ -32,7 +34,6 @@ public abstract class Weapon : MonoBehaviour
             throw new System.Exception("Weapon failed to Equip, parent = null");
         }
 
-        //Small code changes by Carsen Decker
         while (currentTransform.parent != null || (!currentTransform.CompareTag("PlayerOne") && !currentTransform.CompareTag("PlayerTwo")))
         {
             currentTransform = currentTransform.parent;
@@ -57,15 +58,29 @@ public abstract class Weapon : MonoBehaviour
             //unequip
             this.gameObject.AddComponent<Rigidbody2D>();
             this.transform.parent = null;
+            
             if(this.transform.parent != null)
             {
                 throw new System.Exception("Weapon failed to unequip, parent != null");
+            }
+            
+            foreach (var collider in GetComponentsInChildren<Collider2D>())
+            {
+                collider.enabled = true;
             }
         }
         else
         {
             transform.SetParent(controller.gunLocation);
-            transform.SetPositionAndRotation(controller.gunLocation.position, controller.gunLocation.rotation);
+            transform.position = controller.gunLocation.position;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            //turns off the colliders so it doesn't collide with the player and mess with it
+            foreach (var collider in GetComponentsInChildren<Collider2D>())
+            {
+                collider.enabled = false;
+            }
+//            transform.SetPositionAndRotation(controller.gunLocation.position, Quaternion.Euler(0, 0, 0));
 
             Destroy(this.GetComponent<Rigidbody2D>());
 
@@ -102,11 +117,9 @@ public abstract class Weapon : MonoBehaviour
             {
                 tempScale.x = tempScale.x * -1;
                 pointingRight = false;
+                transform.parent = controller.gunLocationLeft.transform;
                 transform.position = controller.gunLocationLeft.transform.position;
-//                foreach (var spriteRenderer in sprites)
-//                {
-//                    spriteRenderer.flipY = true;
-//                }
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
         else
@@ -115,12 +128,9 @@ public abstract class Weapon : MonoBehaviour
             {
                 tempScale.x = tempScale.x * -1;
                 pointingRight = true;
+                transform.parent = controller.gunLocationRight.transform;
                 transform.position = controller.gunLocationRight.transform.position;
-
-//                foreach (var spriteRenderer in sprites)
-//                {
-//                    spriteRenderer.flipY = false;
-//                }
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
 

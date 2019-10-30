@@ -55,9 +55,11 @@ public class Aiming : MonoBehaviour
 
         Debug.DrawRay(t.position, direction, Color.red);
 
-        Quaternion ro = new Quaternion();
-        ro.eulerAngles = new Vector3(0, 0, -angleChange);
+        Quaternion ro = Quaternion.Euler(new Vector3(0, 0, -angleChange));
+//        ro.eulerAngles = new Vector3(0, 0, -angleChange);
         t.rotation = ro;
-        
+
+//        ro.ro.FightThePower();
+
     }
 }
