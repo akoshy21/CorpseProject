@@ -6,10 +6,12 @@ public class Aiming : MonoBehaviour
 {
     // Annamaria Koshy
 
-    public Transform armOne, armTwo, armOneUpper, armTwoUpper;
-    public float distAO;
-    public Transform shoulderOne, shoulderTwo;
+    public Transform armL, armR, armLU, armRU;
+    public float distAL, distAR, distALU, distARU;
+    public Transform shoulderL, shoulderR;
     public float RotationSpeed;
+    [Space(20)]
+    public PlayerController pc;
 
     private Quaternion lookRotation;
     private Vector3 direction;
@@ -18,14 +20,27 @@ public class Aiming : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        distAO = Vector3.Distance(armOne.position, shoulderOne.position);
+        pc = GetComponentInChildren<PlayerController>();
+        distAR = Vector3.Distance(armR.position, shoulderR.position);
+        distAL = Vector3.Distance(armL.position, shoulderL.position);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
 
-        WhereToPoint(armOne);
+        if (pc.facingRight)
+        {
+            WhereToPoint(armR);
+        }
+        else
+        {
+            WhereToPoint(armL);
+        }
 
         ///* if(player != dead) */
         //armOneUpper.RotateAround(armOneUpper.GetComponent<HingeJoint2D>().anchor,
@@ -45,17 +60,19 @@ public class Aiming : MonoBehaviour
         ////create the rotation we need to be in to look at the target
         //lookRotation = Quaternion.LookRotation(direction);
 
-        ////rotate us over time according to speed until we are in the required rotation
-        //t.rotation = Quaternion.Slerp(t.rotation, lookRotation, Time.deltaTime * RotationSpeed);
-        //Debug.Log("ROTATING");
-
         float angleChange = Vector3.Angle(t.position, Input.mousePosition);
-        
-        t.transform.position = shoulderOne.position + (direction * distAO);
 
+        if (t.Equals(armL))
+        {
+            t.position = shoulderL.position + (direction * distAL);
+        }
+        else if (t.Equals(armR))
+        {
+            t.position = shoulderR.position + (direction * distAR);
+        }
         Debug.DrawRay(t.position, direction, Color.red);
 
-        Quaternion ro = Quaternion.Euler(new Vector3(0, 0, -angleChange));
+        Quaternion ro = Quaternion.Euler(new Vector3(0, 0, angleChange));
 //        ro.eulerAngles = new Vector3(0, 0, -angleChange);
         t.rotation = ro;
 
