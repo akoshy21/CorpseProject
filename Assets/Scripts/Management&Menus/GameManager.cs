@@ -7,9 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
-    [HideInInspector]
-    public bool paused;
-    public int curScn; //current scene
+    [HideInInspector] public bool paused;
+    [HideInInspector] public int curScn; //current scene
+    [HideInInspector] public int corpseCount1, corpseCount2, totalCorpses;
 
     private void Awake()
     {

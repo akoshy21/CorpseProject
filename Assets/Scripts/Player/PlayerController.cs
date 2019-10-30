@@ -450,6 +450,15 @@ public class PlayerController : MonoBehaviour
         {
             dead = true;
             myRagdoll.CreateRagdoll();
+
+            if (playerInt == 1)
+            {
+                GameManager.gm.corpseCount1++;
+            }
+            else if (playerInt == 2)
+            {
+                GameManager.gm.corpseCount2++;
+            }
         }
     }
 
