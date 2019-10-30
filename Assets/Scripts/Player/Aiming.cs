@@ -32,16 +32,17 @@ public class Aiming : MonoBehaviour
         {
             Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
-
-        if (pc.facingRight)
+        if (!GameManager.gm.paused)
         {
-            WhereToPoint(armR);
+            if (pc.facingRight)
+            {
+                WhereToPoint(armR);
+            }
+            else
+            {
+                WhereToPoint(armL);
+            }
         }
-        else
-        {
-            WhereToPoint(armL);
-        }
-
         ///* if(player != dead) */
         //armOneUpper.RotateAround(armOneUpper.GetComponent<HingeJoint2D>().anchor,
         //    Vector3.forward,
