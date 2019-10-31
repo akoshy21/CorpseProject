@@ -92,7 +92,7 @@ public class Goal : MonoBehaviour
 
         if (playerOneAtGoal && playerTwoAtGoal)
         {
-            GameManager.gm.lvlEnd = true;
+            LevelManager.lm.lvlEnd = true;
         }
     }
 

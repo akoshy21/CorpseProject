@@ -1,55 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // annamaria koshy
+    //akoshy
+
+    [HideInInspector] public int totalCorpses, p1Corpses, p2Corpses;
+    // p - par, c - corpses; one = world one, 1 = lvl 1
+    [HideInInspector] public int[,] lvlC, lvlP;
 
     public static GameManager gm;
-
-    public GameObject endScreen;
-
-    [HideInInspector] public bool paused;
- public int curScn; //current scene
-    [HideInInspector] public bool lvlEnd = false; //current scene
-    [HideInInspector] public int corpseCount1, corpseCount2, totalCorpses;
+    public int worldCount, lvlPWorld;
 
     private void Awake()
     {
-        gm = this;
-    }
-
-    void Start()
-    {
-        Time.timeScale = 1f;
-        curScn = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    void Update()
-    {
-        if (lvlEnd)
+        if (gm != null && gm != this)
         {
-            Pause();
-            endScreen.SetActive(true);
-            lvlEnd = false;
-        }
-    }
-
-
-    public void Pause()
-    {
-        Debug.Log("PAUSE");
-        if (paused)
-        {
-            paused = false;
-            Time.timeScale = 1f;
+            Destroy(this);
         }
         else
         {
-            paused = true;
-            Time.timeScale = 0f;
+            gm = this;
         }
+    }
+    private void Start()
+    {
+        SetUpParCorpseCount();
+    }
+
+    void SetUpParCorpseCount()
+    {
+        // assuming rn there are at max five lvls per world; there's probably a better way of doing this.
+        lvlC = new int[worldCount, 5];
+        lvlP = new int[worldCount, 5];
+    }
+
+    void SafetyRating()
+    {
+        //float temp, tot;
+
+        //for (int i = 0; i < lvlCount; i++)
+        //{
+            
+        //}
     }
 }

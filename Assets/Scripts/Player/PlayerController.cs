@@ -471,11 +471,11 @@ public class PlayerController : MonoBehaviour
 
             if (playerInt == 1)
             {
-                GameManager.gm.corpseCount1++;
+                LevelManager.lm.corpseCount1++;
             }
             else if (playerInt == 2)
             {
-                GameManager.gm.corpseCount2++;
+                LevelManager.lm.corpseCount2++;
             }
         }
     }

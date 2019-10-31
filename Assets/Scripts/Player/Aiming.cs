@@ -32,7 +32,7 @@ public class Aiming : MonoBehaviour
         {
             Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
-        if (!GameManager.gm.paused)
+        if (!LevelManager.lm.paused)
         {
             if (pc.facingRight)
             {

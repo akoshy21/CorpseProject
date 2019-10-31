@@ -39,7 +39,7 @@ public class AltAiming : MonoBehaviour
         {
             Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
-        if (!GameManager.gm.paused)
+        if (!LevelManager.lm.paused)
         {
             if (Input.GetMouseButton(0))
             {
