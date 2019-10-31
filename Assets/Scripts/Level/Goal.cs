@@ -20,7 +20,6 @@ public class Goal : MonoBehaviour
     [SerializeField, Tooltip("Handle of the Scene to be loaded when goal is activated")]
     public Scene nextSceneToLoad;
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.parent.CompareTag("PlayerOne"))
@@ -42,7 +41,7 @@ public class Goal : MonoBehaviour
 
         if(playerOneAtGoal && playerTwoAtGoal)
         {
-            
+            StartCoroutine(loadNextScene());   
         }
         
         

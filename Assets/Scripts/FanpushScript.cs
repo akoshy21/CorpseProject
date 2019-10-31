@@ -42,14 +42,7 @@ public class FanpushScript : MonoBehaviour
 
                 for (int i = 0; i < pushedPlayer.Count; i++)
                 {
-                    if (dir == Direction.Left)
-                    {
-                        pushedPlayer[i].GetComponent<Rigidbody2D>().AddForce(new Vector2(-pushForce, 0.5f), ForceMode2D.Impulse);
-                    }
-                    else if (dir == Direction.Right)
-                    {
-                        pushedPlayer[i].GetComponent<Rigidbody2D>().AddForce(new Vector2(pushForce, 0.5f), ForceMode2D.Impulse);
-                    }
+                    Push(pushedPlayer[i]);
                 }
 
                 tick = false;
@@ -87,7 +80,6 @@ public class FanpushScript : MonoBehaviour
             pushing = true;
             Debug.Log("Trigger Enter Procced");
             pushedPlayer.Add(other.gameObject);
-
         }
 
     }
@@ -97,7 +89,25 @@ public class FanpushScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             pushedPlayer.Remove(other.gameObject);
+            Push(other.gameObject, pushForce * 2);
             pushing = false;
+        }
+    }
+
+    void Push(GameObject go)
+    {
+        Push(go, pushForce);
+    }
+
+    void Push(GameObject go, float speed)
+    {
+        if (dir == Direction.Left)
+        {
+            go.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0.5f), ForceMode2D.Impulse);
+        }
+        else if (dir == Direction.Right)
+        {
+            go.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0.5f), ForceMode2D.Impulse);
         }
     }
 }
