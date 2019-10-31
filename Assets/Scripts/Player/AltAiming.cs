@@ -30,7 +30,7 @@ public class AltAiming : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.gm.paused)
+        if (!LevelManager.lm.paused)
         {
             //For now, begins aiming when the mouse is pressed
             if (Input.GetMouseButton(0))
