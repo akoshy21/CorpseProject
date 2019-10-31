@@ -71,7 +71,7 @@ public class AltAiming : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         mousePos.z = 0;
-
+        
         JointAngleLimits2D limits = new JointAngleLimits2D();
         Vector3 dir = (RightArmJoint.anchor - (Vector2)mousePos).normalized;
 //        limits.max 
