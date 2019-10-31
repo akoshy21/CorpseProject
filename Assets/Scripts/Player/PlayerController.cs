@@ -150,7 +150,6 @@ public class PlayerController : MonoBehaviour
     ///Moves the player with velocity (and lerps hooray)
     void Move()
     {
-        
         Vector3 vel = rb.velocity;
 
         float moveInput = 0;
@@ -257,6 +256,11 @@ public class PlayerController : MonoBehaviour
 //                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
                 if (footStartXRight - RightFoot.transform.localPosition.x < DistanceFromStraight)
                 {
+                    leftMotor.motorSpeed = LegMotorSpeed;
+                    LeftLeg.motor = leftMotor;
+                    LeftLeg.useMotor = true;
+                    RightLeg.useMotor = false;
+                    
                     rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 2, 0.1f), rightRb.velocity.y);
                 }
                 else if (footStartXRight - RightFoot.transform.localPosition.x >= DistanceFromStraight)
@@ -315,6 +319,12 @@ public class PlayerController : MonoBehaviour
 //                Debug.Log(footStartXRight - LeftFoot.transform.localPosition.x);
                 if (footStartXLeft - LeftFoot.transform.localPosition.x > -DistanceFromStraight)
                 {
+                    rightMotor.motorSpeed = -LegMotorSpeed;
+                    RightLeg.motor = rightMotor;
+                    RightLeg.useMotor = true;
+
+                    LeftLeg.useMotor = false;
+                    
                     leftRb.velocity = new Vector2(Mathf.Lerp(leftRb.velocity.x, -MoveSpeed * 4, 0.1f), leftRb.velocity.y);
                 }
                 else if (footStartXLeft - LeftFoot.transform.localPosition.x <= -DistanceFromStraight)
@@ -330,9 +340,16 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            RightLeg.useMotor = false;
-            LeftLeg.useMotor = false;
+            RightLeg.useMotor = true;
+            LeftLeg.useMotor = true;
+            
+            rightMotor.motorSpeed = 0;
+            RightLeg.motor = rightMotor;
+            leftMotor.motorSpeed = 0;
+            LeftLeg.motor = leftMotor;
+//            LeftLeg.useMotor = false;
             reverseStep = false;
+            
         }
     }    
     
