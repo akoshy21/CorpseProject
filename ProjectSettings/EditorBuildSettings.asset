@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/World 1/Level 3.unity
     guid: 5850a308afd23c14ea669e0c45f2a40d
   - enabled: 1
-    path: Assets/Scenes/World 1/FakeLevel2.unity
+    path: Assets/Scenes/World 1/LauchandSkip.unity
     guid: 4fabf9c23cd0d364d80c8edcf3f0d6d6
   m_configObjects: {}
