@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/World 1/Level 1.unity
     guid: eb5a57ee3011e4c00bd33481d34f64f9
+  - enabled: 1
+    path: Assets/Scenes/World 1/JumpSpikeLevel.unity
+    guid: bad480f77b6700a4a9b221de2c388361
+  - enabled: 1
+    path: Assets/Scenes/World 1/FakeLevelFast.unity
+    guid: ce323422ff164df4bae85ff4491b1b8b
   m_configObjects: {}
