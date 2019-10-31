@@ -44,7 +44,26 @@ public class MovingPlatfromFunctions : MonoBehaviour
         {
             rigbod.velocity = new Vector2(0f,0f);
         }
-        if ((buttonOrLever.GetComponent<ButtonScript>().buttonActive == true || buttonOrLever2.GetComponent<ButtonScript>().buttonActive == true) && buttonNeeded == true)
+
+        bool active = false;
+
+        if(buttonOrLever != null)
+        {
+            if(buttonOrLever.GetComponent<ButtonScript>().buttonActive == true)
+            {
+                active = true;
+            }
+        }
+
+        if(buttonOrLever2 != null)
+        {
+            if(buttonOrLever2.GetComponent<ButtonScript>().buttonActive == true)
+            {
+                active = true;
+            }
+        }
+
+        if (active && buttonNeeded == true)
         {
             
                 
