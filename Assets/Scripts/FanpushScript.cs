@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class FanpushScript : MonoBehaviour
 {
-    public bool pushLeft;
+    // written by luke, edited by annamaria
 
-    public bool pushRight;
+    public enum Direction { Left, Right, Off };
+    public Direction dir;
+
     private bool pushing;
     public float ticker;
     private float tickerCap;
     private bool tick;
-    public GameObject pushedPlayer;
+    public List<GameObject> pushedPlayer;
     public float pushForce;
     // Start is called before the first frame update
     void Start()
     {
         tickerCap = 0.2f;
+        pushedPlayer = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -31,30 +34,18 @@ public class FanpushScript : MonoBehaviour
             Debug.Log("push");
         }
 
-        if (ticker < tickerCap)
-        {
-            tick = false;
-        }
-
         if (pushing)
         {
-            if (pushLeft)
+            if (tick)
             {
-                if (tick)
-                {
-                    pushedPlayer.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-pushForce,0.5f),ForceMode2D.Impulse);
-                }
-            }
+                //Debug.Log("tickin");
 
-            
-            
-            if (pushRight)
-            {
-                if (tick)
+                for (int i = 0; i < pushedPlayer.Count; i++)
                 {
-                    pushedPlayer.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(pushForce,0.5f),ForceMode2D.Impulse);
-                    Debug.Log("Pushing");
+                    Push(pushedPlayer[i]);
                 }
+
+                tick = false;
             }
         }
     }
@@ -88,18 +79,35 @@ public class FanpushScript : MonoBehaviour
         {
             pushing = true;
             Debug.Log("Trigger Enter Procced");
-            pushedPlayer = other.gameObject;
-
+            pushedPlayer.Add(other.gameObject);
         }
 
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerOne")||other.CompareTag("PlayerTwo"))
+        if (other.CompareTag("Player"))
         {
-            
+            pushedPlayer.Remove(other.gameObject);
+            Push(other.gameObject, pushForce * 2);
             pushing = false;
+        }
+    }
+
+    void Push(GameObject go)
+    {
+        Push(go, pushForce);
+    }
+
+    void Push(GameObject go, float speed)
+    {
+        if (dir == Direction.Left)
+        {
+            go.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0.5f), ForceMode2D.Impulse);
+        }
+        else if (dir == Direction.Right)
+        {
+            go.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0.5f), ForceMode2D.Impulse);
         }
     }
 }

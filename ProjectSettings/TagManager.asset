@@ -12,6 +12,7 @@ TagManager:
   - GunLocation
   - SpawnOne
   - SpawnTwo
+  - Goal
   layers:
   - Default
   - TransparentFX

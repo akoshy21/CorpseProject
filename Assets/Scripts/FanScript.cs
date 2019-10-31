@@ -7,21 +7,19 @@ public class FanScript : MonoBehaviour
     public GameObject rightTrigger;
     public GameObject leftTrigger;
 
-    public bool pushLeft;
-
-    public bool pushRight;
+    public enum State { Left, Right, Off };
+    public State status;
     // Start is called before the first frame update
     
     //Luke Brockmann
     void Start()
     {
-        
-        if (pushRight)
+        if (status == State.Left)
         {
             rightTrigger.SetActive(true);
         }
 
-        if (pushLeft)
+        if (status == State.Right)
         {
             leftTrigger.SetActive(true);
         }

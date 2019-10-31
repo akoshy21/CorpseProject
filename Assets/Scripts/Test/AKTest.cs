@@ -6,7 +6,7 @@ public class AKTest : MonoBehaviour
 {
     // Annamaria Koshy
 
-    public enum Testing { Ragdoll, Spike, Legs, Aim };
+    public enum Testing { Ragdoll, Spike, Legs, Aim, Controller };
 
     public Testing obj;
 
@@ -81,6 +81,15 @@ public class AKTest : MonoBehaviour
             //Vector3 x = Input.mousePosition;
             //x.z = 0;
             //transform.position = x;
+        }
+        else if (obj == Testing.Controller)
+        {
+            if (Input.GetButtonDown("P1Jump"))
+            {
+                Debug.Log("FIRE");
+            }
+
+            Debug.Log("HorInput: " + Input.GetAxis("P2Horizontal"));
         }
     }
 

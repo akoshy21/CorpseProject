@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // annamaria koshy
+
     public static GameManager gm;
 
+    public GameObject endScreen;
+
     [HideInInspector] public bool paused;
-    [HideInInspector] public int curScn; //current scene
+ public int curScn; //current scene
+    [HideInInspector] public bool lvlEnd = false; //current scene
     [HideInInspector] public int corpseCount1, corpseCount2, totalCorpses;
 
     private void Awake()
@@ -16,15 +21,35 @@ public class GameManager : MonoBehaviour
         gm = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         curScn = SceneManager.GetActiveScene().buildIndex;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (lvlEnd)
+        {
+            Pause();
+            endScreen.SetActive(true);
+            lvlEnd = false;
+        }
+    }
+
+
+    public void Pause()
+    {
+        Debug.Log("PAUSE");
+        if (paused)
+        {
+            paused = false;
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            paused = true;
+            Time.timeScale = 0f;
+        }
     }
 }

@@ -1,24 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Goal : MonoBehaviour
+public class AltGoal : MonoBehaviour
 {
-    /*
-     * @author Kate Howell
-     * 
-     * This script loads nextSceneToLoad when both playerOne and playerTwo are colliding with this object
-     */
-
-    [SerializeField, Tooltip("Delay in Seconds that the scene loaded after the player collides with the goal")]
-    public int loadDelay;
+ // alternate goal code by Annamaria Koshy
 
     public bool playerOneAtGoal;
     public bool playerTwoAtGoal;
-
-    [SerializeField, Tooltip("Handle of the Scene to be loaded when goal is activated")]
-    public Scene nextSceneToLoad;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -39,11 +28,10 @@ public class Goal : MonoBehaviour
             }
         }
 
-        if(playerOneAtGoal && playerTwoAtGoal)
+        if (playerOneAtGoal && playerTwoAtGoal)
         {
+            GameManager.gm.lvlEnd = true;
         }
-        
-        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -56,14 +44,5 @@ public class Goal : MonoBehaviour
         {
             playerTwoAtGoal = false;
         }
-    }
-
-
-    IEnumerator loadNextScene()
-    {
-        yield return new WaitForSeconds(loadDelay);
-        SceneManager.LoadScene(nextSceneToLoad.handle);
-        yield return null;
-  
     }
 }

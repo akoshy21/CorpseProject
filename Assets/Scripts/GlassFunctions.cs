@@ -27,25 +27,28 @@ public class GlassFunctions : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        collisionSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
-        crashSlowSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x / velocityDivide;
-        
-        
-        
-        if (collisionSpeed > velocityCap)
+        if (other.gameObject.GetComponent<Rigidbody2D>() != null)
         {
-            Debug.Log("Shatter");
-         Shatter();   
-         other.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition
-             (new Vector2(-crashSlowSpeed,0.5f), new Vector2(0f, 7f),ForceMode2D.Impulse);
-        }
-        
-        
+            collisionSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
+            crashSlowSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x / velocityDivide;
 
-        if (other.gameObject.CompareTag("Player") == true && collisionSpeed > velocityCap)
-        {
-            PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-            controller.Die();
+
+
+            if (collisionSpeed > velocityCap)
+            {
+                Debug.Log("Shatter");
+                Shatter();
+                other.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition
+                    (new Vector2(-crashSlowSpeed, 0.5f), new Vector2(0f, 7f), ForceMode2D.Impulse);
+            }
+
+
+
+            if (other.gameObject.CompareTag("Player") == true && collisionSpeed > velocityCap)
+            {
+                PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
+                controller.Die();
+            }
         }
     }
 
