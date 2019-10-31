@@ -18,7 +18,7 @@ public class RagdollManager : MonoBehaviour
 
     
 
-    void Awake()
+    void Start()
     {
         controller = GetComponentInChildren<PlayerController>();
         GetAllChildren(transform);
@@ -26,10 +26,15 @@ public class RagdollManager : MonoBehaviour
         if (controller.playerInt == 1)
         {
             spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
+            Debug.Log("p1 spawner set to" + spawn.gameObject.name);
+        }
+        else if (controller.playerInt == 2)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
         }
         else
         {
-            spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
+            throw new System.Exception("Player int is not 1 or 2");
         }
     }
 
@@ -56,9 +61,7 @@ public class RagdollManager : MonoBehaviour
                 child.gameObject.layer = 0;
             }
         }
-
         
-            
         spawn.newChild();
     }
 

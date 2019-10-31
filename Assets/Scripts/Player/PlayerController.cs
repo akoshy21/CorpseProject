@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gunLocationLeft;
 
     //player specific movement edits by Kate Howell
-    [HideInInspector]  public int playerInt = 0;
+    public int playerInt = 0;
 
     void Awake()
     {

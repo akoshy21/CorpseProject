@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 2370362365324971146, guid: 62292e87841544a48a425dfb72d6f970,
     type: 3}
-  bodyCount: 1
+  SpawnOnStart: 1
   spawnDelay: 1
