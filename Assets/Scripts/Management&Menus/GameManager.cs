@@ -23,10 +23,10 @@ public class GameManager : MonoBehaviour
         {
             gm = this;
         }
+        SetUpParCorpseCount();
     }
     private void Start()
     {
-        SetUpParCorpseCount();
     }
 
     void SetUpParCorpseCount()
