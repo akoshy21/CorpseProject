@@ -23,6 +23,7 @@ public class MovingWall : MonoBehaviour
     private bool moveUp;
 
     public GameObject buttonOrLever;
+    public GameObject buttonOrLever2;
 
 
     // Start is called before the first frame update
@@ -34,12 +35,29 @@ public class MovingWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool active = false;
+
+        if (buttonOrLever != null)
+        {
+            if (buttonOrLever.GetComponent<ButtonScript>().buttonActive == true)
+            {
+                active = true;
+            }
+        }
+
+        if (buttonOrLever2 != null)
+        {
+            if (buttonOrLever2.GetComponent<ButtonScript>().buttonActive == true)
+            {
+                active = true;
+            }
+        }
 
         if (buttonOrLever.GetComponent<ButtonScript>().buttonActive == false)
         {
             rigbod.velocity = new Vector2(0f, 0f);
         }
-        if (buttonOrLever.GetComponent<ButtonScript>().buttonActive == true)
+        if (active)
         {
             if (turnOn)
             {
@@ -83,6 +101,18 @@ public class MovingWall : MonoBehaviour
             else
             {
                 rigbod.velocity = new Vector2(0f, 0f);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
+            if (controller != null)
+            {
+                controller.Die();
             }
         }
     }

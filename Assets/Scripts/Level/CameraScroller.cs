@@ -36,8 +36,15 @@ public class CameraScroller : MonoBehaviour
         playerOne = GameObject.FindGameObjectWithTag("PlayerOne");
         if(playerOne != null)
         {
-            GameObject torso = playerOne.GetComponentInChildren<PlayerController>().gameObject;
-            if(torso != null)
+            PlayerController controller = playerOne.GetComponentInChildren<PlayerController>();
+            GameObject torso = null;
+
+            if (controller != null)
+            {
+                torso = controller.gameObject;
+            }
+
+            if (torso != null)
             {
                 playerOne = torso;
             }
@@ -58,7 +65,14 @@ public class CameraScroller : MonoBehaviour
         playerTwo = GameObject.FindGameObjectWithTag("PlayerTwo");
         if (playerTwo != null)
         {
-            GameObject torso = playerTwo.GetComponentInChildren<PlayerController>().gameObject;
+            PlayerController controller = playerTwo.GetComponentInChildren<PlayerController>();
+            GameObject torso = null;
+
+            if (controller != null)
+            {
+                torso = controller.gameObject;
+            }
+
             if (torso != null)
             {
                 playerTwo = torso;
@@ -99,7 +113,7 @@ public class CameraScroller : MonoBehaviour
                 currentX = playerOneX;
             }
         }
-        float distanceBetweenPlayers = Mathf.Abs(playerOneX - playerTwoX);
+        //float distanceBetweenPlayers = Mathf.Abs(playerOneX - playerTwoX);
 
         Vector3 targetLocation = new Vector3(currentX, transform.position.y, transform.position.z);
         float distance = Vector3.Distance(transform.position, targetLocation);
