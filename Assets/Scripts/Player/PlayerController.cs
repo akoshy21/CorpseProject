@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         if (playerInt == 1)//added by kate (:
         {
             //will be -1, 1 or 0
-            moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
+            moveInput = Input.GetAxisRaw("P1Horizontal");
 
             if (Input.GetKey(KeyCode.D))
             {
@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            moveInput = Input.GetAxisRaw("HorizontalPlayerTwo");    
+            moveInput = Input.GetAxisRaw("P2Horizontal");    
             
             if (Input.GetKey(KeyCode.L))
             {
@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
         if (playerInt == 1)//added by kate (:
         {
             //will be -1, 1 or 0
-            moveInput = Input.GetAxisRaw("HorizontalPlayerOne");
+            moveInput = Input.GetAxisRaw("P1Horizontal");
             
             if (Input.GetKey(KeyCode.D))
             {
@@ -238,7 +238,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            moveInput = Input.GetAxisRaw("HorizontalPlayerTwo");  
+            moveInput = Input.GetAxisRaw("P2Horizontal");  
             
             if (Input.GetKey(KeyCode.L))
             {
@@ -361,7 +361,7 @@ public class PlayerController : MonoBehaviour
         if (playerInt == 1)//added by kate (:
         {
             //will be -1, 1 or 0
-            jumpInput = Input.GetAxisRaw("JumpPlayerOne");
+            jumpInput = Input.GetAxisRaw("P1Jump");
 
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -370,8 +370,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            jumpInput = Input.GetAxisRaw("JumpPlayerTwo");    
-            
+            jumpInput = Input.GetAxisRaw("P2Jump");
+            Debug.Log(playerInt + " is jumpin");
+
             if (Input.GetKeyDown(KeyCode.I))
             {
                 jumpInput = 1;
@@ -420,7 +421,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerInt == 1)
         {
-            float attackInput = Input.GetAxisRaw("FirePlayerOne");
+            float attackInput = Input.GetAxisRaw("P1Fire");
 
             if (attackInput > 0)
             {
@@ -432,7 +433,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            float attackInput = Input.GetAxisRaw("FirePlayerTwo");
+            float attackInput = Input.GetAxisRaw("P2Fire");
 
             if (attackInput > 0)
             {
