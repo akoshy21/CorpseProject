@@ -687,7 +687,7 @@ MonoBehaviour:
   LegMotorSpeed: 90
   weaponEquipped: 0
   weapon: {fileID: 0}
-  gunlocation: {fileID: 0}
+  gunLocation: {fileID: 0}
   gunLocationRight: {fileID: 1425973063072435570}
   gunLocationLeft: {fileID: 1950079883}
   playerInt: 1
