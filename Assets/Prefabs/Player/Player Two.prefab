@@ -226,7 +226,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2370362365324971147}
   - component: {fileID: 3782186030469476233}
-  - component: {fileID: 8774816371486487250}
   - component: {fileID: 8225099554807129093}
   m_Layer: 0
   m_Name: Player Two
@@ -271,30 +270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   rotateSpeed: 2
---- !u!114 &8774816371486487250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2370362365324971146}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0722f38493f2804089cfc59f1ce83dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armL: {fileID: 2370362366239181501}
-  armR: {fileID: 2370362365800265929}
-  armLU: {fileID: 2370362365906137610}
-  armRU: {fileID: 2370362366333886455}
-  distAL: 0
-  distAR: 0
-  distALU: 0
-  distARU: 0
-  shoulderL: {fileID: 2022489229602051028}
-  shoulderR: {fileID: 3320630508812427929}
-  RotationSpeed: 0
-  pc: {fileID: 2370362364697630548}
 --- !u!114 &8225099554807129093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +277,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370362365324971146}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d16f2f65a8fc044f9975de047c255fcc, type: 3}
   m_Name: 
@@ -311,15 +286,13 @@ MonoBehaviour:
   armR: {fileID: 2370362365800265929}
   armLU: {fileID: 2370362365906137610}
   armRU: {fileID: 2370362366333886455}
-  distAL: 0
-  distAR: 0
-  distALU: 0
-  distARU: 0
   shoulderL: {fileID: 2022489229602051028}
   shoulderR: {fileID: 3320630508812427929}
   RotationSpeed: 0
-  RightArmJoint: {fileID: 2370362366333886448}
-  LeftArmJoint: {fileID: 2370362365906137607}
+  RightArm: {fileID: 2370362366333886448}
+  LeftArm: {fileID: 2370362365906137607}
+  LowerRightArm: {fileID: 2370362365800265925}
+  LowerLeftArm: {fileID: 2370362366239181497}
   pc: {fileID: 2370362364697630548}
 --- !u!1 &2370362365568243690
 GameObject:
@@ -629,8 +602,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -3
+    m_UpperAngle: 3
 --- !u!1 &2370362365906137601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1215,7 @@ HingeJoint2D:
   m_ConnectedAnchor: {x: 0.45852625, y: 0.38933778}
   m_UseMotor: 0
   m_Motor:
-    m_MotorSpeed: 0
+    m_MotorSpeed: -100
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
@@ -1932,7 +1905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7827015649711585008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5124712, y: 0.38917127, z: 0}
+  m_LocalPosition: {x: 0.469, y: 0.38917127, z: 0}
   m_LocalScale: {x: 0.75363517, y: 0.61024725, z: 1}
   m_Children: []
   m_Father: {fileID: 2370362366456419262}

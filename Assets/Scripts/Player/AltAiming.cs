@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,12 +9,13 @@ public class AltAiming : MonoBehaviour
     // Modified by Carsen Decker
 
     public Transform armL, armR, armLU, armRU;
-    public float distAL, distAR, distALU, distARU;
+//    public float distAL, distAR, distALU, distARU;
     public Transform shoulderL, shoulderR;
     public float RotationSpeed;
     [Space(20)] 
-    public HingeJoint2D RightArmJoint;
-    public HingeJoint2D LeftArmJoint;
+    public HingeJoint2D RightArm;
+    public HingeJoint2D LeftArm;
+    public HingeJoint2D LowerRightArm, LowerLeftArm;
     
     [Space(20)]
     public PlayerController pc;
@@ -26,8 +28,8 @@ public class AltAiming : MonoBehaviour
     void Start()
     {
         pc = GetComponentInChildren<PlayerController>();
-        distAR = Vector3.Distance(armR.position, shoulderR.position);
-        distAL = Vector3.Distance(armL.position, shoulderL.position);
+//        distAR = Vector3.Distance(armR.position, shoulderR.position);
+//        distAL = Vector3.Distance(armL.position, shoulderL.position);
     }
 
     // Update is called once per frame
@@ -48,64 +50,56 @@ public class AltAiming : MonoBehaviour
                 }
                 else
                 {
-//                    WhereToPoint(armL);
+                    RightArm.useLimits = false;
+                    LowerRightArm.useLimits = false;
                 }
             }
             else
             {
-                
+                RightArm.useLimits = false;
+                LowerRightArm.useLimits = false;
+                RightArm.useMotor = false;
             }
         }
-        ///* if(player != dead) */
-        //armOneUpper.RotateAround(armOneUpper.GetComponent<HingeJoint2D>().anchor,
-        //    Vector3.forward,
-        //    Vector3.Angle(armOneUpper.GetComponent<HingeJoint2D>().anchor, Input.mousePosition) * Time.deltaTime * RotationSpeed);
-        //armTwoUpper.RotateAround(armTwoUpper.GetComponent<HingeJoint2D>().anchor,
-        //    Vector3.forward,
-        //    Vector3.Angle(armTwo.GetComponent<HingeJoint2D>().anchor, Input.mousePosition) * Time.deltaTime * RotationSpeed);
 
     }
 
     void MotorizeArm()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        mousePos.z = 0;
+        RightArm.useLimits = true;
+        LowerRightArm.useLimits = true;
+        RightArm.useMotor = true;
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
         JointAngleLimits2D limits = new JointAngleLimits2D();
-        Vector3 dir = (RightArmJoint.anchor - (Vector2)mousePos).normalized;
-//        limits.max 
-//        limits.max = Vector3.SignedAngle(RightArmJoint.anchor, mousePos, Vector3.up);
-//        limits.min = Vector3.SignedAngle(RightArmJoint.anchor, mousePos, Vector3.up) + 3;
+        Vector3 dir = (mousePos - shoulderR.transform.position).normalized;
+        float angle = Vector3.SignedAngle(RightArm.transform.right, dir, Vector3.back);
+        limits.max = angle;
+        limits.min = angle - 5;
+        
+        JointAngleLimits2D limitsLower = new JointAngleLimits2D();
+        Vector3 dirLower = (mousePos - shoulderR.transform.position);
+        float angleLower = Vector3.SignedAngle(LowerRightArm.transform.right, dirLower, Vector3.back);
+        limitsLower.max = angleLower;
+        limitsLower.min = angleLower - 5;
 
-        RightArmJoint.limits = limits;
+
+//
+        Debug.Log("Angle:" + Vector3.Angle(dir, RightArm.transform.right));
+        Debug.DrawRay(RightArm.transform.position, RightArm.transform.right, Color.blue);
+        Debug.DrawRay(RightArm.transform.position, dir, Color.red);
+        
+        if (Vector3.Angle(RightArm.transform.right, dir) > 5)
+        {
+            RightArm.limits = limits;
+        }
+
+        if (Vector3.Angle(LowerRightArm.transform.right, dirLower) > 5)
+        {
+            LowerRightArm.limits = limitsLower;
+        }
+
     }
     
-    void WhereToPoint(Transform t)
-    {
-        ////find the vector pointing from our position to the target
-        direction = (Input.mousePosition - t.position).normalized;
-
-        ////create the rotation we need to be in to look at the target
-        //lookRotation = Quaternion.LookRotation(direction);
-
-        float angleChange = Vector3.Angle(t.position, Input.mousePosition);
-
-        if (t.Equals(armL))
-        {
-            t.position = shoulderL.position + (direction * distAL);
-        }
-        else if (t.Equals(armR))
-        {
-            t.position = shoulderR.position + (direction * distAR);
-        }
-        Debug.DrawRay(t.position, direction, Color.red);
-
-        Quaternion ro = Quaternion.Euler(new Vector3(0, 0, -angleChange));
-//        ro.eulerAngles = new Vector3(0, 0, -angleChange);
-        t.rotation = ro;
-
-//        ro.ro.FightThePower();
-
-    }
 }
