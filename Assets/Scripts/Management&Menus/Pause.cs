@@ -17,7 +17,7 @@ public class Pause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButton("Pause"))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause"))
         {
             if (pauseScreen.activeSelf)
             {

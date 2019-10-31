@@ -371,7 +371,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             jumpInput = Input.GetAxisRaw("P2Jump");
-            Debug.Log(playerInt + " is jumpin");
+            //Debug.Log(playerInt + " is jumpin");
 
             if (Input.GetKeyDown(KeyCode.I))
             {
