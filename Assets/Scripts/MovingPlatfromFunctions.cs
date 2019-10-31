@@ -22,7 +22,7 @@ public class MovingPlatfromFunctions : MonoBehaviour
     private bool moveUp;
 
     public GameObject buttonOrLever;
-
+    public GameObject buttonOrLever2;
 
     void Start()
     {
@@ -44,11 +44,11 @@ public class MovingPlatfromFunctions : MonoBehaviour
         {
             rigbod.velocity = new Vector2(0f,0f);
         }
-        if (buttonOrLever.GetComponent<ButtonScript>().buttonActive == true)
+        if ((buttonOrLever.GetComponent<ButtonScript>().buttonActive == true || buttonOrLever2.GetComponent<ButtonScript>().buttonActive == true) && buttonNeeded == true)
         {
             
-                Debug.Log("Message recieved");
-                {
+                
+                
                     if (turnOn)
                     {
                         if (goUp)
@@ -103,7 +103,67 @@ public class MovingPlatfromFunctions : MonoBehaviour
                             }
                         }
                     }
-                }
+                
             }
+        if(buttonNeeded == false)
+        {
+             
+                
+                    if (turnOn)
+                    {
+                        if (goUp)
+                        {
+                            if (platform.transform.position.y > topRightBound.transform.position.y)
+                            {
+                                moveUp = false;
+                                moveDown = true;
+
+                            }
+
+                            if (platform.transform.position.y < leftBottomBound.transform.position.y)
+                            {
+                                moveUp = true;
+                                moveDown = false;
+                            }
+
+                            if (moveUp)
+                            {
+                                rigbod.velocity = (new Vector2(0f, moveSpeedUp));
+                            }
+
+                            if (moveDown)
+                            {
+                                Debug.Log("going down");
+                                rigbod.velocity = (new Vector2(0f, -moveSpeedUp));
+                            }
+                        }
+
+                        if (goUp == false)
+                        {
+                            if (platform.transform.position.x > topRightBound.transform.position.x)
+                            {
+                                moveRight = false;
+                                moveLeft = true;
+                            }
+
+                            if (platform.transform.position.x < leftBottomBound.transform.position.x)
+                            {
+                                moveRight = true;
+                                moveLeft = false;
+                            }
+
+                            if (moveRight)
+                            {
+                                rigbod.velocity = (new Vector2(moveSpeedSide, 0f));
+                            }
+
+                            if (moveLeft)
+                            {
+                                rigbod.velocity = (new Vector2(-moveSpeedSide, 0f));
+                            }
+                        }
+                    }
+                
+        }
         }
     }
