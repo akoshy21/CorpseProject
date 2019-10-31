@@ -31,7 +31,7 @@ public class ButtonScript : MonoBehaviour
 
             if (isLever)
             {
-                if (Input.GetKey(KeyCode.E))
+                if (Input.GetKey(KeyCode.E) || Input.GetButton("P1Interact") || Input.GetButton("P2Interact"))
                 {
                     buttonActive = true;
                     Debug.Log("Lever messge sent");

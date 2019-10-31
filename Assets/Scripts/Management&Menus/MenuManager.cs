@@ -26,16 +26,16 @@ public class MenuManager : MonoBehaviour
 
     public void LoadLevelOne()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("FakeLevel1");
     }
 
     public void LoadLevelTwo()
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("FakeLevelFast");
     }
 
     public void LoadLevelThree()
     {
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene("Level 1");
     }
 }

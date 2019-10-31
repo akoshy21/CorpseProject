@@ -45,11 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94080c33c11a0864abb6d9577f3909cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 3
   playerOneAtGoal: 0
   playerTwoAtGoal: 0
-  nextSceneToLoad:
-    m_Handle: 1
 --- !u!61 &7073214614031338451
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60,10 +57,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23957622, y: 0.021229744}
+  m_Offset: {x: 0.32085943, y: 0.16591692}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -74,7 +71,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.97231555, y: 1.1367178}
+  m_Size: {x: 1.4031782, y: 1.4260921}
   m_EdgeRadius: 0
 --- !u!212 &7073214614031338450
 SpriteRenderer:

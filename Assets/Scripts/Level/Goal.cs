@@ -71,7 +71,7 @@ public class Goal : MonoBehaviour
     /*-------------- ALT GOAL CODE -------------------*/
     //akoshy
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.parent.CompareTag("PlayerOne"))
         {
@@ -96,7 +96,7 @@ public class Goal : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerOne"))
         {
