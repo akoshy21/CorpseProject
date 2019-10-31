@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -746,9 +746,9 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.65847313
+      value: 0.5
       mode: 0
-      spread: 0
+      spread: 0.1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -865,7 +865,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.7
+      scalar: 12
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4800,7 +4800,7 @@ MonoBehaviour:
   dir: 0
   ticker: 0
   pushedPlayer: []
-  pushForce: 0
+  pushForce: 3
 --- !u!61 &7909929458766354913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4973,7 +4973,7 @@ MonoBehaviour:
   dir: 0
   ticker: 0
   pushedPlayer: []
-  pushForce: 1.5
+  pushForce: 3
 --- !u!61 &7909929459223005051
 BoxCollider2D:
   m_ObjectHideFlags: 0
