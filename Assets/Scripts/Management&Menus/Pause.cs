@@ -17,16 +17,16 @@ public class Pause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause"))
         {
             if (pauseScreen.activeSelf)
             {
-                GameManager.gm.paused = false;
+                LevelManager.lm.paused = false;
                 pauseScreen.SetActive(false);
                 Time.timeScale = 1f;
             }
             else {
-                GameManager.gm.paused = true;
+                LevelManager.lm.paused = true;
                 pauseScreen.SetActive(true);
                 Time.timeScale = 0f;
             }
@@ -36,14 +36,14 @@ public class Pause : MonoBehaviour
     public void LoadMain()
     {
         Time.timeScale = 1f;
-        GameManager.gm.paused = false;
+        LevelManager.lm.paused = false;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void ReloadScene()
     {
         Time.timeScale = 1f;
-        GameManager.gm.paused = false;
-        SceneManager.LoadScene(GameManager.gm.curScn);
+        LevelManager.lm.paused = false;
+        SceneManager.LoadScene(LevelManager.lm.curScn);
     }
 }

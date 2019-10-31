@@ -1,30 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gm;
+    //akoshy
 
-    [HideInInspector] public bool paused;
-    [HideInInspector] public int curScn; //current scene
-    [HideInInspector] public int corpseCount1, corpseCount2, totalCorpses;
+    [HideInInspector] public int totalCorpses, p1Corpses, p2Corpses;
+    // p - par, c - corpses; one = world one, 1 = lvl 1
+    [HideInInspector] public int[,] lvlC, lvlP;
+
+    public static GameManager gm;
+    public int worldCount, lvlPWorld;
 
     private void Awake()
     {
-        gm = this;
+        if (gm != null && gm != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            gm = this;
+        }
+        SetUpParCorpseCount();
+    }
+    private void Start()
+    {
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void SetUpParCorpseCount()
     {
-        curScn = SceneManager.GetActiveScene().buildIndex;
+        // assuming rn there are at max five lvls per world; there's probably a better way of doing this.
+        lvlC = new int[worldCount, 5];
+        lvlP = new int[worldCount, 5];
     }
 
-    // Update is called once per frame
-    void Update()
+    void SafetyRating()
     {
-        
+        //float temp, tot;
+
+        //for (int i = 0; i < lvlCount; i++)
+        //{
+            
+        //}
     }
 }

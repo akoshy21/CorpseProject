@@ -12,6 +12,7 @@ TagManager:
   - GunLocation
   - SpawnOne
   - SpawnTwo
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - 
   - LegsP1
   - LegsP2
-  - 
-  - 
+  - Wrecking ball
+  - Moving Platform
   - 
   - 
   - 

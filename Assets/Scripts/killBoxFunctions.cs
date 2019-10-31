@@ -21,7 +21,10 @@ public class killBoxFunctions : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-            controller.Die();
+            if(controller != null)
+            {
+                controller.Die();
+            }
             Debug.Log("player fell out");
         }
     }
