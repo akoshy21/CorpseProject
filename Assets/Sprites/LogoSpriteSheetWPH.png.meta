@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 63e2c3aebffdca84eaf36dfcd6d2e577
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7248124387054135141
+    second: LogoSpriteSheetWPH_0
+  - first:
+      213: -1269332874457295215
+    second: LogoSpriteSheetWPH_1
+  - first:
+      213: -8426287791811620855
+    second: LogoSpriteSheetWPH_2
+  - first:
+      213: -6763381015431999450
+    second: LogoSpriteSheetWPH_3
+  - first:
+      213: -3619487325735651563
+    second: LogoSpriteSheetWPH_4
+  - first:
+      213: -6265073961150298770
+    second: LogoSpriteSheetWPH_5
+  - first:
+      213: -846473064550891785
+    second: LogoSpriteSheetWPH_6
+  - first:
+      213: -482797961688161319
+    second: LogoSpriteSheetWPH_7
+  - first:
+      213: -6779143073323936421
+    second: LogoSpriteSheetWPH_8
+  - first:
+      213: 7795851571520839030
+    second: LogoSpriteSheetWPH_9
+  - first:
+      213: 4793168866843825718
+    second: LogoSpriteSheetWPH_10
+  - first:
+      213: 2599899094659873578
+    second: LogoSpriteSheetWPH_11
+  - first:
+      213: 4568775359008365177
+    second: LogoSpriteSheetWPH_12
+  - first:
+      213: -4286345839604055379
+    second: LogoSpriteSheetWPH_13
+  - first:
+      213: -550888091508979234
+    second: LogoSpriteSheetWPH_14
+  - first:
+      213: 5062690622177938649
+    second: LogoSpriteSheetWPH_15
+  - first:
+      213: -6099740429118904165
+    second: LogoSpriteSheetWPH_16
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2181
+        width: 312
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d1fe6710a1f2243ab5e844b83b511d
+      internalID: 7248124387054135141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 2195
+        width: 228
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429b6327c7ad88d4888e2ae428407f4e
+      internalID: -1269332874457295215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_2
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 2199
+        width: 214
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252c1be8ab6c5ae43903d8015f20e2b0
+      internalID: -8426287791811620855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_3
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 2181
+        width: 210
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1163491ee7b5734c818a276d683545d
+      internalID: -6763381015431999450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_4
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 2188
+        width: 209
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64f0d4d5b3bf074598d3d24fcf27cfc
+      internalID: -3619487325735651563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_5
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 2195
+        width: 185
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da03e62b99cd71d49961fa5a2e65e5be
+      internalID: -6265073961150298770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_6
+      rect:
+        serializedVersion: 2
+        x: 1712
+        y: 2174
+        width: 232
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17d5a377e51ca3f419be1021cbde35f0
+      internalID: -846473064550891785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_7
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 2185
+        width: 209
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6344343c2b6094db9a9875414b4f6b
+      internalID: -482797961688161319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_8
+      rect:
+        serializedVersion: 2
+        x: 2285
+        y: 2185
+        width: 199
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525e8cda647145447961204ba649cacb
+      internalID: -6779143073323936421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1246
+        width: 362
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8a00a194120ad4eac946d0ac086018
+      internalID: 7795851571520839030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_10
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 1249
+        width: 413
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd483d7d6d6127d4e9fdc260f1ff1c2e
+      internalID: 4793168866843825718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_11
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1253
+        width: 434
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561d26cbfdc7c9145b5192160eb94468
+      internalID: 2599899094659873578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_12
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 1257
+        width: 401
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfebf8109bcde0b4387a226c10ca9c9f
+      internalID: 4568775359008365177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_13
+      rect:
+        serializedVersion: 2
+        x: 2111
+        y: 1264
+        width: 444
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbecf1ba32e43a49a7a8e181127bf4d
+      internalID: -4286345839604055379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_14
+      rect:
+        serializedVersion: 2
+        x: 2676
+        y: 1264
+        width: 448
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb5d6898a77fc24695888fec6ac4d33
+      internalID: -550888091508979234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_15
+      rect:
+        serializedVersion: 2
+        x: 3223
+        y: 1242
+        width: 401
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c0281f0110559409aea32c484f5c23
+      internalID: 5062690622177938649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoSpriteSheetWPH_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 994
+        height: 819
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586c0fa6379417940a4ecfb53e7b665d
+      internalID: -6099740429118904165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0d4a122379f10b14a9b5d5982a05b635
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
