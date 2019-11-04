@@ -1458,8 +1458,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  MoveSpeed: 3.5
-  JumpHeight: 40
+  MoveSpeed: 4
+  JumpHeight: 53
+  PushForce: 320
   ExtraHeight: 5
   TorqueForce: 20
   facingRight: 1

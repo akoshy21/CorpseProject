@@ -8,8 +8,6 @@ public class AltAiming : MonoBehaviour
     // Derived from the script made by Annamaria Koshy
     // Modified by Carsen Decker
 
-//    public Transform armL, armR, armLU, armRU;
-//    public float distAL, distAR, distALU, distARU;
     public Transform shoulderL, shoulderR;
     [Space(20)] 
     public HingeJoint2D RightArm;

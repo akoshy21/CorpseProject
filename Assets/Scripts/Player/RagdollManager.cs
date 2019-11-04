@@ -6,7 +6,7 @@ public class RagdollManager : MonoBehaviour
 {
 
 // Annamaria Koshy
-//Slight restructuring by Carsen Decker
+// Slight restructuring by Carsen Decker
 
     public bool dead;
     public float rotateSpeed;
@@ -26,7 +26,7 @@ public class RagdollManager : MonoBehaviour
         if (controller.playerInt == 1)
         {
             spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
-            Debug.Log("p1 spawner set to" + spawn.gameObject.name);
+//            Debug.Log("p1 spawner set to" + spawn.gameObject.name);
         }
         else if (controller.playerInt == 2)
         {
@@ -47,6 +47,11 @@ public class RagdollManager : MonoBehaviour
             if (child.gameObject.GetComponent<PlayerController>() != null)
             {
                 Destroy(child.gameObject.GetComponent<PlayerController>());
+            }
+
+            if (child.GetComponent<AltAiming>() != null)
+            {
+                Destroy(child.GetComponent<AltAiming>());
             }
 
             if (child.gameObject.GetComponent<Rigidbody2D>() != null)

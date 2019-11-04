@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool dead;
     public float MoveSpeed;
     public float JumpHeight;
+    public float PushForce;
     public float ExtraHeight;
     public float TorqueForce;
     public bool facingRight = true;
@@ -23,13 +24,15 @@ public class PlayerController : MonoBehaviour
     public float LegMotorSpeed;
 
     private bool canJump = true;
+    private bool canPush = true;
     private Rigidbody2D rb;
     private float coyoteTimer;
-    private RaycastHit2D[] groundCheckRight, groundCheckLeft;
+    private List<RaycastHit2D> groundCheckRight, groundCheckLeft;
     private bool groundedRight, groundedLeft;
     private Vector3 lastVel;
     private float footStartXRight, footStartXLeft;
     private bool reverseStep;
+    private bool buttonReleased;
     private RagdollManager myRagdoll;
     
     //gun control edits by Kate Howell
@@ -77,20 +80,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Always check for raycasts to the ground from both feet
-        Ray2D rightRay = new Ray2D(RightFoot.position, Vector2.down);
-        Ray2D leftRay = new Ray2D(LeftFoot.position, Vector2.down);
+        Ray2D rightRay = new Ray2D(RightFoot.position, -RightFoot.transform.up);
+        Ray2D leftRay = new Ray2D(LeftFoot.position, -LeftFoot.transform.up);
+        Ray2D rightRayDown = new Ray2D(RightFoot.position, Vector2.down);
+        Ray2D leftRayDown = new Ray2D(LeftFoot.position, Vector2.down);
 
-        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.22f, Color.green);
-        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.22f, Color.green);
+        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.185f, Color.green);
+        Debug.DrawRay(rightRayDown.origin, rightRayDown.direction * 0.185f, Color.green);
+        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.185f, Color.green);
+        Debug.DrawRay(leftRayDown.origin, leftRayDown.direction * 0.185f, Color.green);
 
-        groundCheckRight = Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.22f);
-        groundCheckLeft = Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.22f);
 
-//        if (groundCheckRight.Length == 0 && groundCheckLeft.Length == 0)
-//        {
-//            grounded = false;
-//        }
-        if (groundCheckRight.Length > 0)
+        groundCheckRight = new List<RaycastHit2D>(Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.185f));
+        groundCheckRight.AddRange(Physics2D.RaycastAll(rightRayDown.origin, rightRayDown.direction, 0.185f));
+        
+        groundCheckLeft = new List<RaycastHit2D>(Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.185f));
+        groundCheckLeft.AddRange(Physics2D.RaycastAll(leftRayDown.origin, leftRayDown.direction, 0.185f));
+
+
+        if (groundCheckRight.Count > 0)
         {
             foreach (var hit in groundCheckRight)
             {
@@ -103,7 +111,7 @@ public class PlayerController : MonoBehaviour
         else
             groundedRight = false;
 
-        if (groundCheckLeft.Length > 0)
+        if (groundCheckLeft.Count > 0)
         {
             foreach (var hit in groundCheckLeft)
             {
@@ -136,12 +144,18 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        if (canPush)
+        {
+            Push();
+        }
         
         //check for weapon attack - added by Kate
         if (weaponEquipped)
         {
             GunControl();
         }
+        
         
         //Player Interaction - added by Kate
 
@@ -378,24 +392,38 @@ public class PlayerController : MonoBehaviour
                 jumpInput = 1;
             }
         }
+
+        if (jumpInput <= 0)
+        {
+            buttonReleased = true;
+        }
         
+        //If you are grounded when you jump
         if (grounded)
         {
             coyoteTimer = 0.1f;
-            if (jumpInput > 0)
+            rb.gravityScale = 1.5f;
+            if (jumpInput > 0 && buttonReleased)
             {
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 StartCoroutine(TinyJumpDelay());
                 coyoteTimer = 0;
+                buttonReleased = false;
             }
         }
+        //If you fall off something and try and jump in mid air
         else
         {
             coyoteTimer -= Time.deltaTime;
-            if (jumpInput > 0 && coyoteTimer > 0)
+            if (jumpInput > 0 && coyoteTimer > 0 && buttonReleased)
             {
                 rb.AddForce(new Vector2(0, JumpHeight), ForceMode2D.Impulse);
                 coyoteTimer = 0;
+                buttonReleased = false;
+            }
+            else if (jumpInput <= 0 && coyoteTimer <= 0)
+            {
+                rb.gravityScale = 8f;
             }
         }
     }
@@ -406,6 +434,13 @@ public class PlayerController : MonoBehaviour
         canJump = false;
         yield return new WaitForSeconds(0.1f);
         canJump = true;
+    }
+
+    private IEnumerator PushDelay()
+    {
+        canPush = false;
+        yield return new WaitForSeconds(0.4f);
+        canPush = true;
     }
 
     //Extra juice option, adds a small time pause (think Smash) when hitting something
@@ -452,6 +487,78 @@ public class PlayerController : MonoBehaviour
         else
         {
             weapon.gunFacingRight(false);
+        }
+    }
+
+    private void Push()
+    {
+        float pushInput = 0;
+        
+        if (playerInt == 1)
+        {
+            pushInput = Input.GetAxisRaw("P1Push");
+        }
+        else if (playerInt == 2)
+        {
+            pushInput = Input.GetAxisRaw("P2Push");
+        }
+
+        if (pushInput > 0)
+        {
+//            Debug.Log("Pushed");
+            RaycastHit2D[] pushHits = new RaycastHit2D[0];
+            if (facingRight)
+            {
+                pushHits = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, Vector2.right, 0.2f);
+            }
+            else
+            {
+                pushHits = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, Vector2.left, 0.2f);
+            }
+
+            if (pushHits.Length > 0)
+            {
+                foreach (var hits in pushHits)
+                {
+                    if (hits.collider.CompareTag("Player"))
+                    {
+                        Transform currentTf = hits.collider.transform;
+                        while (currentTf.parent != null || (!currentTf.CompareTag("PlayerOne") && !currentTf.CompareTag("PlayerTwo")))
+                        {
+                            currentTf = currentTf.parent;
+                        }
+                        
+                        Rigidbody2D hitRb = hits.collider.GetComponent<Rigidbody2D>();
+
+                        if (playerInt == 1 && currentTf.CompareTag("PlayerTwo"))
+                        {
+                            if (facingRight)
+                            {
+                                hitRb.AddForce(Vector2.right * PushForce);
+                            }
+                            else
+                            {
+                                hitRb.AddForce(Vector2.left * PushForce);
+                            }
+
+                            StartCoroutine(PushDelay());
+                        }
+                        else if (playerInt == 2 && currentTf.CompareTag("PlayerOne"))
+                        {
+                            if (facingRight)
+                            {
+                                hitRb.AddForce(Vector2.right * PushForce);
+                            }
+                            else
+                            {
+                                hitRb.AddForce(Vector2.left * PushForce);
+                            }
+
+                            StartCoroutine(PushDelay());
+                        }
+                    }
+                }
+            }
         }
     }
 
