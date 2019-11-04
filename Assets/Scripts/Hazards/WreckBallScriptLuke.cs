@@ -57,7 +57,8 @@ public class WreckBallScriptLuke : MonoBehaviour
                 if (controller != null  && !controller.dead)
                 {
                     controller.LaunchMirrored(gameObject, other, killPower);
-                    controller.Die();
+//                    controller.Die();
+                    controller.Explode();
                 }
             }
 
@@ -68,5 +69,6 @@ public class WreckBallScriptLuke : MonoBehaviour
         }
 
     }
+
     
 }

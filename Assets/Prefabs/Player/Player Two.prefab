@@ -277,7 +277,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370362365324971146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d16f2f65a8fc044f9975de047c255fcc, type: 3}
   m_Name: 
@@ -1472,6 +1472,8 @@ MonoBehaviour:
   LeftFoot: {fileID: 2884684432272372739}
   DistanceFromStraight: 0.315
   LegMotorSpeed: 90
+  BloodParticles: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+    type: 3}
   weaponEquipped: 0
   weapon: {fileID: 0}
   gunLocation: {fileID: 0}

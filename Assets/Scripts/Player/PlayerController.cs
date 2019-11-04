@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float DistanceFromStraight;
     [Space(20)]
     public float LegMotorSpeed;
+    public GameObject BloodParticles;
 
     private bool canJump = true;
     private bool canPush = true;
@@ -585,6 +587,24 @@ public class PlayerController : MonoBehaviour
                 LevelManager.lm.corpseCount2++;
             }
         }
+    }
+
+    public void Explode()
+    {
+        HingeJoint2D[] joints = transform.parent.GetComponentsInChildren<HingeJoint2D>();
+        foreach (HingeJoint2D joint in joints)
+        {
+            if (Random.value < 0.2f)
+            {
+                Rigidbody2D jointRb = joint.GetComponent<Rigidbody2D>();
+                jointRb.AddForce(jointRb.velocity * rb.velocity * 5.5f);
+                GameObject particles = Instantiate(BloodParticles, joint.transform);
+                particles.GetComponent<ParticleSystem>().Play();
+                Destroy(joint);
+            }
+        }
+
+        Die();
     }
 
     ///Launches the player a certain amount in a certain direction
