@@ -329,7 +329,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1723694548624706048}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b9f698101f62b4aa5b139bc442f93fd5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -483,7 +483,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1929330197880441240}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b9f698101f62b4aa5b139bc442f93fd5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4681901072322776499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d16f2f65a8fc044f9975de047c255fcc, type: 3}
   m_Name: 
@@ -1672,8 +1672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  MoveSpeed: 3.5
-  JumpHeight: 40
+  MoveSpeed: 4
+  JumpHeight: 53
+  PushForce: 320
   ExtraHeight: 5
   TorqueForce: 20
   facingRight: 1
@@ -1685,6 +1686,8 @@ MonoBehaviour:
   LeftFoot: {fileID: 574750268806447497}
   DistanceFromStraight: 0.315
   LegMotorSpeed: 90
+  BloodParticles: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+    type: 3}
   weaponEquipped: 0
   weapon: {fileID: 0}
   gunLocation: {fileID: 0}
