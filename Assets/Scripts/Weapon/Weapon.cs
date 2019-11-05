@@ -17,11 +17,28 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField, Tooltip("If gun is equipped to a Player")]
     public bool equipped;
 
+    [SerializeField, Tooltip("gun doesnt equip, shoots in intervals")]
+    public bool automated;
+
+    [SerializeField, Tooltip("rate in seconds new bullets will spawn if automated")]
+    public float automatedBulletSpawnRate = 3f;
+
+    public bool attacking;
+
     public bool pointingRight = true;
 
     public abstract void Attack();
 
     private PlayerController controller;
+
+    public void Update()
+    {
+        if (automated && !attacking)
+        {
+            StartCoroutine(automatedAttack());
+            attacking = true;
+        }
+    }
 
     //function equips and unequips weapon
     public void Equip(GameObject player)
@@ -97,7 +114,7 @@ public abstract class Weapon : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!equipped)
+        if (!equipped && !automated)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -135,6 +152,15 @@ public abstract class Weapon : MonoBehaviour
         }
 
         transform.localScale = tempScale;
+    }
+
+    public IEnumerator automatedAttack()
+    {
+        yield return new WaitForSeconds(automatedBulletSpawnRate);
+        Attack();
+        print("Attack");
+        StartCoroutine(automatedAttack());
+        
     }
 
 }
