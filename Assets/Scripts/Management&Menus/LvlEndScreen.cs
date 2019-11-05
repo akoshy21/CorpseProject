@@ -10,11 +10,11 @@ public class LvlEndScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        deathText.text = "Workplace Accidents: " + LevelManager.lm.totalCorpses;
+       // deathText.text = "Workplace Accidents: " + LevelManager.lm.totalCorpses;
     }
 
     public void LoadNext()
     {
-        SceneManager.LoadScene(++LevelManager.lm.curScn);
+        SceneManager.LoadScene(++GameManager.gm.lastScn);
     }
 }
