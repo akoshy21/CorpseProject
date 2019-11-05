@@ -581,10 +581,12 @@ public class PlayerController : MonoBehaviour
             if (playerInt == 1)
             {
                 LevelManager.lm.corpseCount1++;
+                LevelManager.lm.NewDeath(true);
             }
             else if (playerInt == 2)
             {
                 LevelManager.lm.corpseCount2++;
+                LevelManager.lm.NewDeath(false);
             }
         }
     }
