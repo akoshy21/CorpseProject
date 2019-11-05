@@ -81,6 +81,41 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        GroundCheck();
+        LeanCheck();
+        
+        //If you can move or jump, accept those inputs
+        if (canMove)
+        {
+            Move();
+        }
+
+        if (canJump)
+        {
+            Jump();
+        }
+
+        if (canPush)
+        {
+            Push();
+        }
+        
+        //check for weapon attack - added by Kate
+        if (weaponEquipped)
+        {
+            GunControl();
+        }
+        
+        
+        //Player Interaction - added by Kate
+
+    }
+
+    /// <summary>
+    /// VibeCheck()
+    /// </summary>
+    void GroundCheck()
+    {
         //Always check for raycasts to the ground from both feet
         Ray2D rightRay = new Ray2D(RightFoot.position, -RightFoot.transform.up);
         Ray2D leftRay = new Ray2D(LeftFoot.position, -LeftFoot.transform.up);
@@ -134,33 +169,15 @@ public class PlayerController : MonoBehaviour
         {
             grounded = false;
         }
+    }
 
-
-        //If you can move or jump, accept those inputs
-        if (canMove)
-        {
-            Move();
-        }
-
-        if (canJump)
-        {
-            Jump();
-        }
-
-        if (canPush)
-        {
-            Push();
-        }
+    void LeanCheck()
+    {
+        Ray2D rightRay = new Ray2D(transform.position, -transform.transform.up);
         
-        //check for weapon attack - added by Kate
-        if (weaponEquipped)
-        {
-            GunControl();
-        }
+        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.185f, Color.green);
         
-        
-        //Player Interaction - added by Kate
-
+        groundCheckRight = new List<RaycastHit2D>(Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.185f));
     }
 
     ///Moves the player with velocity (and lerps hooray)
@@ -425,7 +442,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (jumpInput <= 0 && coyoteTimer <= 0)
             {
-                rb.gravityScale = 8f;
+                rb.gravityScale = 10f;
             }
         }
     }
@@ -589,6 +606,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Alternative to Die(), kills the player and randomly makes their limbs fly off in a bloody mess
+    /// Formerly FuckingExplode()
+    /// </summary>
     public void Explode()
     {
         HingeJoint2D[] joints = transform.parent.GetComponentsInChildren<HingeJoint2D>();
