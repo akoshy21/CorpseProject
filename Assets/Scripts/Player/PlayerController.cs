@@ -157,10 +157,16 @@ public class PlayerController : MonoBehaviour
         {
             GunControl();
         }
-        
-        
+
+
         //Player Interaction - added by Kate
 
+
+        //resetpos added by annamaria
+        if ((Input.GetButtonDown("P1SoftReset") && playerInt == 1) || (Input.GetButtonDown("P2SoftReset") && playerInt == 2))
+        {
+            ResetPos();
+        }
     }
 
     ///Moves the player with velocity (and lerps hooray)
@@ -631,8 +637,24 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(flingForce * forceMultiplier, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
     }
-    
-    
+
+    public void ResetPos()
+    {
+        Starter spawn = null;
+
+        if (playerInt == 1)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
+        }
+        else if (playerInt == 2)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
+        }
+        spawn.spawnDelay = 0.1f;
+        spawn.newChild();
+        spawn.spawnDelay = 1;
+        Destroy(this.transform.parent.gameObject);
+    }
     
     //-----------------------------------------------------------//
     //         GET FUNCTIONS (for calling from other scripts)    //
