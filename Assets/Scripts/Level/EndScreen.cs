@@ -11,7 +11,7 @@ public class EndScreen : MonoBehaviour
     public GameObject bodyPrefab, pOneSpawn, pTwoSpawn;
     [Space(10)]
     public TextMeshProUGUI d1;
-    public TextMeshProUGUI d2, dTot;
+    public TextMeshProUGUI d2, dTot, dPM, dPM1, dPM2, sDP, sDP1, sDP2, lDP, lDP1, lDP2, safety;
 
     int bodOne, bodTwo; // bodycount 1, bodycount 2
     public int dCOne, dCTwo; // deathcount 1, deathcount 2
@@ -23,14 +23,35 @@ public class EndScreen : MonoBehaviour
         dCTwo = GameManager.gm.lvlC2[GameManager.gm.world, GameManager.gm.lvl];
         InvokeRepeating("NewBody", 0, 0.5f);
 
-        d1.text = dCOne.ToString();
-        d2.text = dCTwo.ToString();
-        dTot.text = (dCOne + dCTwo).ToString();
+        UpdateText();
     }
 
     private void Update()
     {
     }
+
+    void UpdateText()
+    {
+        d1.text = dCOne.ToString();
+        d2.text = dCTwo.ToString();
+        dTot.text = (dCOne + dCTwo).ToString();
+
+        safety.text = ((LevelManager.lm.par/(dCOne+dCTwo))*100).ToString("n2") +"%";
+
+        dPM.text = (GameManager.gm.lvlC[GameManager.gm.world, GameManager.gm.lvl]/LevelManager.lm.curTime).ToString("n2");
+        dPM1.text = (GameManager.gm.lvlC1[GameManager.gm.world, GameManager.gm.lvl] / LevelManager.lm.curTime).ToString("n2");
+        dPM2.text = (GameManager.gm.lvlC2[GameManager.gm.world, GameManager.gm.lvl] / LevelManager.lm.curTime).ToString("n2");
+
+        sDP.text = ShortestTimeSD(LevelManager.lm.timeSD).ToString("n2");
+        sDP1.text = ShortestTimeSD(LevelManager.lm.timeSD1).ToString("n2");
+        sDP2.text = ShortestTimeSD(LevelManager.lm.timeSD2).ToString("n2");
+
+        lDP.text = LongestTimeSD(LevelManager.lm.timeSD).ToString("n2");
+        lDP1.text = LongestTimeSD(LevelManager.lm.timeSD1).ToString("n2");
+        lDP2.text = LongestTimeSD(LevelManager.lm.timeSD2).ToString("n2");
+    }
+
+
 
     float LongestTimeSD(List<float> l)
     {
