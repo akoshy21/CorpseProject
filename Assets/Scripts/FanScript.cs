@@ -14,6 +14,8 @@ public class FanScript : MonoBehaviour
     //Luke Brockmann
     void Start()
     {
+        ParticleSystem wind = GetComponentInChildren<ParticleSystem>();
+        
         if (status == State.Left)
         {
             rightTrigger.SetActive(true);
@@ -22,6 +24,9 @@ public class FanScript : MonoBehaviour
         if (status == State.Right)
         {
             leftTrigger.SetActive(true);
+            Vector3 tempScale = wind.transform.localScale;
+            tempScale.y *= -1;
+            wind.transform.localScale = tempScale;
         }
         
     }

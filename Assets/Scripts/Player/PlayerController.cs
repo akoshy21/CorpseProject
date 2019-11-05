@@ -596,7 +596,7 @@ public class PlayerController : MonoBehaviour
         HingeJoint2D[] joints = transform.parent.GetComponentsInChildren<HingeJoint2D>();
         foreach (HingeJoint2D joint in joints)
         {
-            if (Random.value < 0.2f)
+            if (Random.value < 0.25f)
             {
                 Rigidbody2D jointRb = joint.GetComponent<Rigidbody2D>();
                 jointRb.AddForce(jointRb.velocity * rb.velocity * 5.5f);
