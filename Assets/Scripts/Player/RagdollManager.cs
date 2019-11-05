@@ -36,6 +36,11 @@ public class RagdollManager : MonoBehaviour
         {
             throw new System.Exception("Player int is not 1 or 2");
         }
+
+        if (dead)
+        {
+            CreateRagdoll();
+        }
     }
 
 
@@ -66,8 +71,11 @@ public class RagdollManager : MonoBehaviour
                 child.gameObject.layer = 0;
             }
         }
-        
-        spawn.newChild();
+
+        if (spawn != null)
+        {
+            spawn.newChild();
+        }
     }
 
     private void GetAllChildren(Transform currentTransform)

@@ -35,6 +35,8 @@ public class Lethal : MonoBehaviour
                 Rigidbody2D collidedRb = other.GetComponent<Rigidbody2D>();
                 collidedRb.constraints = RigidbodyConstraints2D.FreezePosition;
 
+                GameManager.gm.InstantiateSplatter(other, this.GetComponent<Collider2D>());
+
                 GetComponentInChildren<ParticleSystem>().transform.position = collidedRb.transform.position;
                 GetComponentInChildren<ParticleSystem>().Play();
             }

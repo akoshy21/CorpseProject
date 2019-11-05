@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     public GameObject endScreen;
 
     [HideInInspector] public bool paused;
- public int curScn; //current scene
+    public int curScn; //current scene
     [HideInInspector] public bool lvlEnd = false; //current scene
     [HideInInspector] public int corpseCount1, corpseCount2, totalCorpses;
 
@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
         SetPar();
         Time.timeScale = 1f;
         curScn = SceneManager.GetActiveScene().buildIndex;
+
     }
 
     void Update()
@@ -36,8 +37,12 @@ public class LevelManager : MonoBehaviour
         if (lvlEnd)
         {
             Pause();
-            endScreen.SetActive(true);
+            //endScreen.SetActive(true);
             SetDeaths();
+            SetLvl();
+            GameManager.gm.lastScn = curScn;
+
+            SceneManager.LoadScene("PileEndScene");
             lvlEnd = false;
         }
     }
@@ -75,18 +80,42 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void SetLvl()
+    {
+        switch (curLvl)
+        {
+            case Level.WorldOne_1:
+                GameManager.gm.lvl = 0;
+                break;
+            case Level.WorldOne_2:
+                GameManager.gm.lvl = 1;
+                break;
+            case Level.WorldOne_3:
+                GameManager.gm.lvl = 2;
+                break;
+            default:
+                break;
+        }
+    }
+
     void SetDeaths()
     {
         switch (curLvl)
         {
             case Level.WorldOne_1:
                 GameManager.gm.lvlC[0, 0] = totalCorpses;
+                GameManager.gm.lvlC1[0,0] = corpseCount1;
+                GameManager.gm.lvlC2[0, 0] = corpseCount2;
                 break;
             case Level.WorldOne_2:
                 GameManager.gm.lvlC[0, 1] = totalCorpses;
+                GameManager.gm.lvlC1[0, 1] = corpseCount1;
+                GameManager.gm.lvlC2[0, 1] = corpseCount2;
                 break;
             case Level.WorldOne_3:
                 GameManager.gm.lvlC[0, 2] = totalCorpses;
+                GameManager.gm.lvlC1[0, 2] = corpseCount1;
+                GameManager.gm.lvlC2[0, 2] = corpseCount2;
                 break;
             default:
                 break;

@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public int totalCorpses, p1Corpses, p2Corpses;
     // p - par, c - corpses; one = world one, 1 = lvl 1
-    [HideInInspector] public int[,] lvlC, lvlP;
+    [HideInInspector] public int[,] lvlC, lvlC1, lvlC2, lvlP;
+    [HideInInspector] public int world, lvl, lastScn;
 
+    public GameObject splatter;
     public static GameManager gm;
     public int worldCount, lvlPWorld;
 
@@ -32,7 +34,10 @@ public class GameManager : MonoBehaviour
     void SetUpParCorpseCount()
     {
         // assuming rn there are at max five lvls per world; there's probably a better way of doing this.
+
         lvlC = new int[worldCount, 5];
+        lvlC1 = new int[worldCount, 5];
+        lvlC2 = new int[worldCount, 5];
         lvlP = new int[worldCount, 5];
     }
 
@@ -44,5 +49,14 @@ public class GameManager : MonoBehaviour
         //{
             
         //}
+    }
+
+    public void InstantiateSplatter(Collider2D player, Collider2D surface)
+    {
+        Vector3 ptOne = surface.ClosestPoint(player.transform.position);
+        Vector3 ptTwo = player.ClosestPoint(ptOne);
+
+        Instantiate(splatter, ptOne, Quaternion.Euler(0, 0, Random.Range(0,360)));
+        Instantiate(splatter, ptTwo, Quaternion.Euler(0, 0, Random.Range(0, 360)),player.transform);
     }
 }
