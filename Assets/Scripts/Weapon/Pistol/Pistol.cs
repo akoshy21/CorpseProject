@@ -32,20 +32,24 @@ public class Pistol : Weapon
 
     public override void Attack()
     {
-        if (equipped)
+        if (automated || (equipped && !delayed))
         {
-            if (!delayed)
-            {
-                //currently not being affected by players position
-                PistolBullet b = Instantiate(pistolBulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<PistolBullet>();
+            //currently not being affected by players position
+            PistolBullet b = Instantiate(pistolBulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<PistolBullet>();
 
-                //**ADD CALCUATION FOR BULLET DIRECTION***
+            //**ADD CALCUATION FOR BULLET DIRECTION***
+            if (pointingRight)
+            {
                 b.SetIntialVelocity(new Vector3(b.bulletSpeed, 0, 0));
-                
-                
-                delayed = true;
-                StartCoroutine(Delay(shotDelay));
             }
+            else
+            {
+                b.SetIntialVelocity(new Vector3(b.bulletSpeed, 0, 0));
+            }
+
+
+            delayed = true;
+            StartCoroutine(Delay(shotDelay));
         } 
     }
 
