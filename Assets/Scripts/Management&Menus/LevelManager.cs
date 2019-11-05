@@ -19,10 +19,11 @@ public class LevelManager : MonoBehaviour
     public float timer;
     [HideInInspector] public bool lvlEnd = false; //current scene
     [HideInInspector] public int corpseCount1, corpseCount2, totalCorpses;
-    [HideInInspector] public float curTime, timeSD; // time since death
-    [HideInInspector] public List<float> timeSD1, timeSD2;
+    [HideInInspector] public float curTime; // time since death
+    [HideInInspector] public List<float> timeSD, timeSD1, timeSD2;
 
-    int ind1 = 0, ind2 = 0;
+    bool end = false;
+    int ind = 0, ind1 = 0, ind2 = 0;
 
     private void Awake()
     {
@@ -42,7 +43,8 @@ public class LevelManager : MonoBehaviour
         SetPar();
         Time.timeScale = 1f;
         curScn = SceneManager.GetActiveScene().buildIndex;
-
+        timeSD = new List<float>();
+        timeSD.Add(0);
         timeSD1 = new List<float>();
         timeSD1.Add(0);
         timeSD2 = new List<float>();
@@ -51,10 +53,13 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        curTime += Time.deltaTime;
-        timeSD += Time.deltaTime;
-        timeSD1[ind1] += Time.deltaTime;
-        timeSD2[ind2] += Time.deltaTime;
+        if (!end)
+        {
+            curTime += Time.deltaTime;
+            timeSD[ind] += Time.deltaTime;
+            timeSD1[ind1] += Time.deltaTime;
+            timeSD2[ind2] += Time.deltaTime;
+        }
 
         if (lvlEnd)
         {
@@ -66,6 +71,7 @@ public class LevelManager : MonoBehaviour
 
             SceneManager.LoadScene("PileEndScene");
             lvlEnd = false;
+            end = true;
         }
     }
 
@@ -122,14 +128,17 @@ public class LevelManager : MonoBehaviour
 
     public void NewDeath(bool pOne)
     {
-        timeSD = 0;
         if (pOne)
         {
+            timeSD.Add(0);
+            ind++;
             timeSD1.Add(0);
             ind1++;
         }
         else
         {
+            timeSD.Add(0);
+            ind++;
             timeSD2.Add(0);
             ind2++;
         }
