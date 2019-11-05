@@ -22,19 +22,21 @@ public class RagdollManager : MonoBehaviour
     {
         controller = GetComponentInChildren<PlayerController>();
         GetAllChildren(transform);
-
-        if (controller.playerInt == 1)
+        if (!dead)
         {
-            spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
-//            Debug.Log("p1 spawner set to" + spawn.gameObject.name);
-        }
-        else if (controller.playerInt == 2)
-        {
-            spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
-        }
-        else
-        {
-            throw new System.Exception("Player int is not 1 or 2");
+            if (controller.playerInt == 1)
+            {
+                spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
+                //            Debug.Log("p1 spawner set to" + spawn.gameObject.name);
+            }
+            else if (controller.playerInt == 2)
+            {
+                spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
+            }
+            else
+            {
+                throw new System.Exception("Player int is not 1 or 2");
+            }
         }
 
         if (dead)

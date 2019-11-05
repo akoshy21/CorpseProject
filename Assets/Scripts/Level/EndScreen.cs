@@ -8,7 +8,7 @@ public class EndScreen : MonoBehaviour
 {
     //annamaria koshy
 
-    public GameObject bodyPrefab, pOneSpawn, pTwoSpawn;
+    public GameObject bodyPrefabOne, bodyPrefabTwo, pOneSpawn, pTwoSpawn;
     [Space(10)]
     public TextMeshProUGUI d1;
     public TextMeshProUGUI d2, dTot, dPM, dPM1, dPM2, sDP, sDP1, sDP2, lDP, lDP1, lDP2, safety;
@@ -91,12 +91,12 @@ public class EndScreen : MonoBehaviour
     {
        if(dCOne > bodOne)
         {
-            Instantiate(bodyPrefab, pOneSpawn.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            Instantiate(bodyPrefabOne, pOneSpawn.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
             bodOne++;
         }
         if(dCTwo > bodTwo)
         {
-            Instantiate(bodyPrefab, pTwoSpawn.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            Instantiate(bodyPrefabTwo, pTwoSpawn.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
             bodTwo++;
         }
     }
