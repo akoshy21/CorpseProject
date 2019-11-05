@@ -81,41 +81,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        GroundCheck();
-        LeanCheck();
-        
-        //If you can move or jump, accept those inputs
-        if (canMove)
-        {
-            Move();
-        }
-
-        if (canJump)
-        {
-            Jump();
-        }
-
-        if (canPush)
-        {
-            Push();
-        }
-        
-        //check for weapon attack - added by Kate
-        if (weaponEquipped)
-        {
-            GunControl();
-        }
-        
-        
-        //Player Interaction - added by Kate
-
-    }
-
-    /// <summary>
-    /// VibeCheck()
-    /// </summary>
-    void GroundCheck()
-    {
         //Always check for raycasts to the ground from both feet
         Ray2D rightRay = new Ray2D(RightFoot.position, -RightFoot.transform.up);
         Ray2D leftRay = new Ray2D(LeftFoot.position, -LeftFoot.transform.up);
@@ -169,15 +134,39 @@ public class PlayerController : MonoBehaviour
         {
             grounded = false;
         }
-    }
 
-    void LeanCheck()
-    {
-        Ray2D rightRay = new Ray2D(transform.position, -transform.transform.up);
+
+        //If you can move or jump, accept those inputs
+        if (canMove)
+        {
+            Move();
+        }
+
+        if (canJump)
+        {
+            Jump();
+        }
+
+        if (canPush)
+        {
+            Push();
+        }
         
-        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.185f, Color.green);
-        
-        groundCheckRight = new List<RaycastHit2D>(Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.185f));
+        //check for weapon attack - added by Kate
+        if (weaponEquipped)
+        {
+            GunControl();
+        }
+
+
+        //Player Interaction - added by Kate
+
+
+        //resetpos added by annamaria
+        if ((Input.GetButtonDown("P1SoftReset") && playerInt == 1) || (Input.GetButtonDown("P2SoftReset") && playerInt == 2))
+        {
+            ResetPos();
+        }
     }
 
     ///Moves the player with velocity (and lerps hooray)
@@ -442,7 +431,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (jumpInput <= 0 && coyoteTimer <= 0)
             {
-                rb.gravityScale = 10f;
+                rb.gravityScale = 8f;
             }
         }
     }
@@ -608,10 +597,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Alternative to Die(), kills the player and randomly makes their limbs fly off in a bloody mess
-    /// Formerly FuckingExplode()
-    /// </summary>
     public void Explode()
     {
         HingeJoint2D[] joints = transform.parent.GetComponentsInChildren<HingeJoint2D>();
@@ -652,8 +637,24 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(flingForce * forceMultiplier, ForceMode2D.Impulse);
         rb.AddTorque(-flingForce.x * TorqueForce);
     }
-    
-    
+
+    public void ResetPos()
+    {
+        Starter spawn = null;
+
+        if (playerInt == 1)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
+        }
+        else if (playerInt == 2)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
+        }
+        spawn.spawnDelay = 0.1f;
+        spawn.newChild();
+        spawn.spawnDelay = 1;
+        Destroy(this.transform.parent.gameObject);
+    }
     
     //-----------------------------------------------------------//
     //         GET FUNCTIONS (for calling from other scripts)    //
