@@ -16,7 +16,7 @@ public class LetterFall : MonoBehaviour
     void Start()
     {
         timer = 0f;
-        rigbod.isKinematic = false;
+        rigbod.isKinematic = true;
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class LetterFall : MonoBehaviour
         
         if (Input.anyKeyDown)
         {
-            rigbod.isKinematic = true;
+            rigbod.isKinematic = false;
         }
     }
 }

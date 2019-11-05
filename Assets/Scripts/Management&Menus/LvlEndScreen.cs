@@ -15,6 +15,8 @@ public class LvlEndScreen : MonoBehaviour
 
     public void LoadNext()
     {
+        if(LevelManager.lm != null)
+           Destroy(LevelManager.lm.gameObject);
         SceneManager.LoadScene(++GameManager.gm.lastScn);
     }
 }
