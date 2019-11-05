@@ -6,8 +6,12 @@ public class Aiming : MonoBehaviour
 {
     // Annamaria Koshy
 
-    public Transform armOne, armTwo, armOneUpper, armTwoUpper;
+    public Transform armL, armR, armLU, armRU;
+    public float distAL, distAR, distALU, distARU;
+    public Transform shoulderL, shoulderR;
     public float RotationSpeed;
+    [Space(20)]
+    public PlayerController pc;
 
     private Quaternion lookRotation;
     private Vector3 direction;
@@ -16,15 +20,29 @@ public class Aiming : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pc = GetComponentInChildren<PlayerController>();
+        distAR = Vector3.Distance(armR.position, shoulderR.position);
+        distAL = Vector3.Distance(armL.position, shoulderL.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        WhereToPoint(armOne);
-        WhereToPoint(armTwo);
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
+        if (!LevelManager.lm.paused)
+        {
+            if (pc.facingRight)
+            {
+                WhereToPoint(armR);
+            }
+            else
+            {
+                WhereToPoint(armL);
+            }
+        }
         ///* if(player != dead) */
         //armOneUpper.RotateAround(armOneUpper.GetComponent<HingeJoint2D>().anchor,
         //    Vector3.forward,
@@ -38,36 +56,28 @@ public class Aiming : MonoBehaviour
     void WhereToPoint(Transform t)
     {
         ////find the vector pointing from our position to the target
-        //direction = (Input.mousePosition - t.position).normalized;
+        direction = (Input.mousePosition - t.position).normalized;
 
         ////create the rotation we need to be in to look at the target
         //lookRotation = Quaternion.LookRotation(direction);
 
-        ////rotate us over time according to speed until we are in the required rotation
-        //t.rotation = Quaternion.Slerp(t.rotation, lookRotation, Time.deltaTime * RotationSpeed);
-        //Debug.Log("ROTATING");
+        float angleChange = Vector3.Angle(t.position, Input.mousePosition);
 
-        float angleChange = Vector3.Angle(t.GetComponent<HingeJoint2D>().anchor, Input.mousePosition);
-        float totalAng = t.GetComponent<HingeJoint2D>().jointAngle + angleChange;
-        JointMotor2D motor = t.GetComponent<HingeJoint2D>().motor;
-
-        if (angleChange > 30)
+        if (t.Equals(armL))
         {
-            t.GetComponent<HingeJoint2D>().useMotor = true;
-            if (totalAng > t.GetComponent<HingeJoint2D>().jointAngle)
-            {
-                motor.motorSpeed = RotationSpeed;
-            }
-            else
-            {
-                motor.motorSpeed = -RotationSpeed;
-            }
+            t.position = shoulderL.position + (direction * distAL);
         }
-        else
+        else if (t.Equals(armR))
         {
-            t.GetComponent<HingeJoint2D>().useMotor = false;
+            t.position = shoulderR.position + (direction * distAR);
         }
+        Debug.DrawRay(t.position, direction, Color.red);
 
-        t.GetComponent<HingeJoint2D>().motor = motor;
+        Quaternion ro = Quaternion.Euler(new Vector3(0, 0, -angleChange));
+//        ro.eulerAngles = new Vector3(0, 0, -angleChange);
+        t.rotation = ro;
+
+//        ro.ro.FightThePower();
+
     }
 }

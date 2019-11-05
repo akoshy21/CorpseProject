@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1950079883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1950079884}
+  m_Layer: 0
+  m_Name: GunLocationLeft
+  m_TagString: GunLocation
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1950079884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950079883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.89, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6990627335243723571}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470687025943412136
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807036961963678586}
   m_Layer: 0
-  m_Name: GunLocation
+  m_Name: GunLocationRight
   m_TagString: GunLocation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -433,6 +463,7 @@ Transform:
   m_LocalScale: {x: 1.326902, y: 1.63868, z: 1}
   m_Children:
   - {fileID: 1807036961963678586}
+  - {fileID: 1950079884}
   m_Father: {fileID: 6990627336511482886}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -643,9 +674,9 @@ MonoBehaviour:
   dead: 0
   MoveSpeed: 4
   JumpHeight: 40
-  DeathForce: 10
   ExtraHeight: 5
   TorqueForce: 20
+  facingRight: 1
   canMove: 1
   grounded: 0
   RightLeg: {fileID: 6990627336268216162}
@@ -654,6 +685,12 @@ MonoBehaviour:
   LeftFoot: {fileID: 7633319551453697166}
   DistanceFromStraight: 0.315
   LegMotorSpeed: 90
+  weaponEquipped: 0
+  weapon: {fileID: 0}
+  gunLocation: {fileID: 0}
+  gunLocationRight: {fileID: 1425973063072435570}
+  gunLocationLeft: {fileID: 1950079883}
+  playerInt: 1
 --- !u!1 &6990627335364525951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,7 +1626,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6990627336511482886}
   - component: {fileID: 8474521753913347844}
-  - component: {fileID: 243256531092186511}
   m_Layer: 0
   m_Name: Player Human
   m_TagString: PlayerOne
@@ -1632,23 +1668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  start: {fileID: 0}
   rotateSpeed: 2
---- !u!114 &243256531092186511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990627336511482887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 190a98dd7bf7e0a4086841ef35c5aded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponEquipped: 0
-  weapon: {fileID: 0}
-  gunlocation: {fileID: 1425973063072435570}
 --- !u!1 &7743749086332248967
 GameObject:
   m_ObjectHideFlags: 0

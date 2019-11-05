@@ -6,20 +6,40 @@ public class Starter : MonoBehaviour
 {
     // Annamaria Koshy
 
-    public static Starter start;
+    //public static Starter start;
     public GameObject PlayerPrefab;
-    public int bodyCount = 1;
+    public bool SpawnOnStart;
+    public float spawnDelay = 1;
+    
+
+    private bool spawning;
 
     // Start is called before the first frame update
     void Awake()
     {
-        start = this;
+        if (SpawnOnStart)
+        {
+            newChild();
+        }
     }
 
     public void newChild()
     {
-		bodyCount++;
-		Instantiate(PlayerPrefab, transform.position, PlayerPrefab.transform.rotation);
-//		PlayerController.dead = false;
+        if (!spawning)
+        {
+            StartCoroutine(SpawnDelay());
+        }
+    }
+
+    //Spawning on delay by Carsen Decker
+    IEnumerator SpawnDelay()
+    {
+        spawning = true;
+        
+        yield return new WaitForSeconds(spawnDelay);
+        
+        Instantiate(PlayerPrefab, transform.position, PlayerPrefab.transform.rotation);
+
+        spawning = false;
     }
 }

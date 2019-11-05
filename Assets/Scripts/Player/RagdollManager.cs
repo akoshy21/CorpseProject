@@ -6,19 +6,41 @@ public class RagdollManager : MonoBehaviour
 {
 
 // Annamaria Koshy
+// Slight restructuring by Carsen Decker
 
     public bool dead;
     public float rotateSpeed;
+    
 
     private PlayerController controller;
     private List<GameObject> children = new List<GameObject>();
+    private Starter spawn;
 
     
 
-    void Awake()
+    void Start()
     {
         controller = GetComponentInChildren<PlayerController>();
         GetAllChildren(transform);
+
+        if (controller.playerInt == 1)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnOne").GetComponent<Starter>();
+//            Debug.Log("p1 spawner set to" + spawn.gameObject.name);
+        }
+        else if (controller.playerInt == 2)
+        {
+            spawn = GameObject.FindGameObjectWithTag("SpawnTwo").GetComponent<Starter>();
+        }
+        else
+        {
+            throw new System.Exception("Player int is not 1 or 2");
+        }
+
+        if (dead)
+        {
+            CreateRagdoll();
+        }
     }
 
 
@@ -30,6 +52,11 @@ public class RagdollManager : MonoBehaviour
             if (child.gameObject.GetComponent<PlayerController>() != null)
             {
                 Destroy(child.gameObject.GetComponent<PlayerController>());
+            }
+
+            if (child.GetComponent<AltAiming>() != null)
+            {
+                Destroy(child.GetComponent<AltAiming>());
             }
 
             if (child.gameObject.GetComponent<Rigidbody2D>() != null)
@@ -44,8 +71,11 @@ public class RagdollManager : MonoBehaviour
                 child.gameObject.layer = 0;
             }
         }
-        
-        Starter.start.newChild();
+
+        if (spawn != null)
+        {
+            spawn.newChild();
+        }
     }
 
     private void GetAllChildren(Transform currentTransform)

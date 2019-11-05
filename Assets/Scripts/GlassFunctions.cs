@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +11,18 @@ public class GlassFunctions : MonoBehaviour
     public GameObject glassCol;
     private float collisionSpeed; //Just logging the speed of the gameobject
     public SpriteRenderer glassRenderer;
+
+    private ParticleSystem shatterParticles;
+
+    private bool shattered;
     // Start is called before the first frame update
+    
+    //Luke Brockmann
+    
     void Start()
     {
         velocityDivide = 6f;
+        shatterParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -24,33 +33,46 @@ public class GlassFunctions : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        collisionSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
-        crashSlowSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x / velocityDivide;
-        
-        
-        
-        if (collisionSpeed > velocityCap)
+        if (other.gameObject.GetComponent<Rigidbody2D>() != null)
         {
-            Debug.Log("Shatter");
-         Shatter();   
-         other.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition
-             (new Vector2(-crashSlowSpeed,0.5f), new Vector2(0f, 7f),ForceMode2D.Impulse);
-        }
-        
-        
+            collisionSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
+            crashSlowSpeed = other.gameObject.GetComponent<Rigidbody2D>().velocity.x / velocityDivide;
 
-        if (other.gameObject.CompareTag("Player") == true && collisionSpeed > velocityCap)
-        {
-            PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-            controller.Die();
+
+
+            if (collisionSpeed > velocityCap && !shattered)
+            {
+//                Debug.Log("Shatter");
+                Shatter();
+                other.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition
+                    (new Vector2(-crashSlowSpeed, 0.5f), new Vector2(0f, 7f), ForceMode2D.Impulse);
+                
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
+                    controller.Die();
+                }
+
+                if (other.GetComponent<Rigidbody2D>().velocity.x < 0)
+                {
+                    Vector3 tempTf = shatterParticles.transform.localScale;
+                    tempTf.y *= -1;
+                    shatterParticles.transform.localScale = tempTf;
+                }
+            }
+
         }
     }
 
     public void Shatter()
     {
+        shattered = true;
         glassCol.SetActive(false);
+        
         //CARSEN CAN DO SOME COOL SHIT HERE WITH THE PARTICLE EFFECTS
-        glassRenderer.color = Color.red;
+        //^ hey thats me
+        glassRenderer.color = Color.clear;
+        shatterParticles.Play();
         
     }
 }

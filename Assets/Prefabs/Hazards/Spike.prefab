@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5855520076399475095}
   - component: {fileID: 883355891}
   - component: {fileID: 883355895}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spike
   m_TagString: Spike
   m_Icon: {fileID: 0}
@@ -30,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.05, y: -1.511, z: 0}
   m_LocalScale: {x: 0.57296485, y: 0.57296485, z: 0.57296485}
-  m_Children: []
+  m_Children:
+  - {fileID: 7279406931474605989}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dfbb75c209a14e54c9acb20b2c2204e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,11 +75,11 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_Sprite: {fileID: 8382717070696663976, guid: 32d029be84fd21a4ca79ec8b00bbc05f,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.05, y: 0.07}
+  m_Size: {x: 1.67, y: 1.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -109,18 +110,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07225144, y: 0.048167765}
+  m_Offset: {x: 0.013487995, y: -0.037717402}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.67, y: 1.15}
-    newSize: {x: 0.05, y: 0.07}
+    newSize: {x: 1.67, y: 1.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1401567, y: 0.7432517}
+  m_Size: {x: 1.2576836, y: 0.7161304}
   m_EdgeRadius: 0
 --- !u!61 &883355895
 BoxCollider2D:
@@ -135,16 +136,96 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010703415, y: -0.4468882}
+  m_Offset: {x: 0.0107034445, y: -0.49209106}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.67, y: 1.15}
-    newSize: {x: 0.05, y: 0.07}
+    newSize: {x: 1.67, y: 1.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5308487, y: 0.25622368}
+  m_Size: {x: 1.5308487, y: 0.16581798}
   m_EdgeRadius: 0
+--- !u!1001 &8303056278862922813
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5855520076399475304}
+    m_Modifications:
+    - target: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 826f882d8d42b4b47a8e2454e0f28b86, type: 3}
+--- !u!4 &7279406931474605989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+    type: 3}
+  m_PrefabInstance: {fileID: 8303056278862922813}
+  m_PrefabAsset: {fileID: 0}

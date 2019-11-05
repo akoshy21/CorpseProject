@@ -32,6 +32,8 @@ public abstract class Bullet : MonoBehaviour
 
     private Vector2 velocity;
 
+    private bool pointingRight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,11 @@ public abstract class Bullet : MonoBehaviour
         if(intialVelocity.x > 1)
         {
             intialVelocity.Normalize();
+        }
+
+        if (pointingRight)
+        {
+            intialVelocity = -intialVelocity;
         }
         velocityY = intialVelocity.y * bulletSpeed;
 

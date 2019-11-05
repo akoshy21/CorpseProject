@@ -32,6 +32,8 @@ public class PistolBullet : Bullet
             PlayerHit.Die();
         }
 
+        Destroy(this.gameObject);
+
         //bloodSpatter horrayy
     }
 }
