@@ -1665,7 +1665,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.665
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1784,6 +1784,12 @@ MonoBehaviour:
   gunLocationRight: {fileID: 850760084988965858}
   gunLocationLeft: {fileID: 7248437762664287432}
   playerInt: 2
+  scream1: {fileID: 8300000, guid: 94c4ccec3a9d5c24f8c47a53c9cc3b03, type: 3}
+  scream2: {fileID: 8300000, guid: 2aa4ce3aa5167004f89a719e15536e34, type: 3}
+  scream3: {fileID: 8300000, guid: f6135d8e40496084fa975550b0ab71d7, type: 3}
+  scream4: {fileID: 8300000, guid: 27ed8a739929cf64eaaf2115a8338bd3, type: 3}
+  scream5: {fileID: 8300000, guid: e4b71cbf27da4f148ae4c2f1ad33e50a, type: 3}
+  audiosource: {fileID: 6778279579118594414}
 --- !u!1 &7248437762664287432
 GameObject:
   m_ObjectHideFlags: 0

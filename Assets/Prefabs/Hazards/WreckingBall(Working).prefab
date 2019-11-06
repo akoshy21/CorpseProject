@@ -119,7 +119,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 9.85}
-  m_ConnectedAnchor: {x: 1.1413825, y: -13.167319}
+  m_ConnectedAnchor: {x: 1.1413829, y: -13.167319}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -135,7 +135,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958236053247843238}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -263,7 +263,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 9.88}
-  m_ConnectedAnchor: {x: 1.4241915, y: 2.524042}
+  m_ConnectedAnchor: {x: -0.19199991, y: 4.4962397}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -279,7 +279,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958236053799928309}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -407,7 +407,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.14, y: 9.92}
-  m_ConnectedAnchor: {x: 2.6809137, y: -11.661159}
+  m_ConnectedAnchor: {x: 2.6809163, y: -11.661155}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -423,7 +423,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958236054060819695}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -590,7 +590,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 9.73}
-  m_ConnectedAnchor: {x: 0.686264, y: -12.493783}
+  m_ConnectedAnchor: {x: 0.68626696, y: -12.493775}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -606,7 +606,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958236054377891849}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -734,7 +734,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 9.84}
-  m_ConnectedAnchor: {x: 1.3407848, y: -11.659171}
+  m_ConnectedAnchor: {x: 1.3407875, y: -11.659174}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -750,7 +750,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958236054380031854}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1044,7 +1044,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 9.83}
-  m_ConnectedAnchor: {x: 2.3643987, y: -12.126802}
+  m_ConnectedAnchor: {x: 2.3643951, y: -12.126806}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1060,7 +1060,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958236054980054514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1218,7 +1218,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 9.86}
-  m_ConnectedAnchor: {x: 0.23877819, y: -11.445265}
+  m_ConnectedAnchor: {x: 0.23878251, y: -11.445266}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1234,7 +1234,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3958236055213240660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     //@author Carsen Decker
     
+   
     [HideInInspector] public bool dead;
     public float MoveSpeed;
     public float JumpHeight;
@@ -48,6 +49,9 @@ public class PlayerController : MonoBehaviour
     //player specific movement edits by Kate Howell
     public int playerInt = 0;
 
+    private int randomSound;
+    public AudioClip scream1, scream2, scream3, scream4, scream5;
+    public AudioSource audiosource;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -730,6 +734,30 @@ public class PlayerController : MonoBehaviour
                 LevelManager.lm.corpseCount2++;
                 LevelManager.lm.NewDeath(false);
             }
+
+            randomSound = Random.Range(1, 6);
+
+            switch (randomSound)
+            {
+                    case 1:
+                        audiosource.PlayOneShot(scream1);
+                        break;
+                    case 2:
+                        audiosource.PlayOneShot(scream2);
+                        break;
+                    case 3:
+                        audiosource.PlayOneShot(scream3);
+                        break;
+                    case 4:
+                        audiosource.PlayOneShot(scream4);
+                        break;
+                    case 5:
+                        audiosource.PlayOneShot(scream5);
+                        break;
+                    default:
+                        break;         
+            }
+
         }
     }
 
