@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3460224804051616222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.59, y: -3.77, z: 0}
-  m_LocalScale: {x: 1.45, y: 0.127, z: 1}
+  m_LocalScale: {x: 0.40496403, y: 0.40496403, z: 0.40496403}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de8c3f9b60159ef4cb51e07a0203a039, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c92799396dd072e4ca1e82791f4c8d0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 5.635294, y: 2.2882352}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -121,4 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLever: 0
-  buttonActive: 0
+  buttonActive: 1
+  stayOn: 0
+  spriteRend: {fileID: 3460224804051616221}
+  buttonpressedsprite: {fileID: 21300000, guid: fd1184fcdd172c24cae7aa9fe9a80180,
+    type: 3}
+  buttonunpressedspirte: {fileID: 21300000, guid: c92799396dd072e4ca1e82791f4c8d0e,
+    type: 3}
+  leverOnSprite: {fileID: 21300000, guid: e1d2456b93d8e2a478ea5b89e98b3214, type: 3}
+  leverOffSprite: {fileID: 21300000, guid: 620c976cc5bc448438a9ada3bbbe393f, type: 3}
