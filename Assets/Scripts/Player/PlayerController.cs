@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float coyoteTimer;
     private List<RaycastHit2D> groundCheckRight, groundCheckLeft;
-    private bool groundedRight, groundedLeft;
+    private bool groundedRight, groundedLeft, onPlayer;
     private Vector3 lastVel;
     private float footStartXRight, footStartXLeft;
     private bool reverseStep;
@@ -84,81 +84,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //Always check for raycasts to the ground from both feet
-        Ray2D rightRay = new Ray2D(RightFoot.position, -RightFoot.transform.up);
-        Ray2D leftRay = new Ray2D(LeftFoot.position, -LeftFoot.transform.up);
-        Ray2D rightRayDown = new Ray2D(RightFoot.position, Vector2.down);
-        Ray2D leftRayDown = new Ray2D(LeftFoot.position, Vector2.down);
-
-        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.23f, Color.green);
-        Debug.DrawRay(rightRayDown.origin, rightRayDown.direction * 0.23f, Color.green);
-        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.23f, Color.green);
-        Debug.DrawRay(leftRayDown.origin, leftRayDown.direction * 0.23f, Color.green);
-
-
-        groundCheckRight = new List<RaycastHit2D>(Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.23f));
-        groundCheckRight.AddRange(Physics2D.RaycastAll(rightRayDown.origin, rightRayDown.direction, 0.23f));
+        GroundCheck();
         
-        groundCheckLeft = new List<RaycastHit2D>(Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.23f));
-        groundCheckLeft.AddRange(Physics2D.RaycastAll(leftRayDown.origin, leftRayDown.direction, 0.23f));
-
-
-        if (groundCheckRight.Count > 0)
-        {
-            foreach (var hit in groundCheckRight)
-            {
-                if (!hit.collider.gameObject.CompareTag("Player"))
-                    groundedRight = true;
-                else
-                    groundedRight = false;
-            }
-        }
-        else
-            groundedRight = false;
-
-        if (groundCheckLeft.Count > 0)
-        {
-            foreach (var hit in groundCheckLeft)
-            {
-                if (!hit.collider.gameObject.CompareTag("Player"))
-                    groundedLeft = true;
-                else
-                    groundedLeft = false;
-            }
-        }
-        else
-            groundedLeft = false;
-
-        if (groundedRight || groundedLeft)
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
-
-        if (!grounded)
-        {
-            JointAngleLimits2D airLimitsRight = new JointAngleLimits2D();
-            airLimitsRight.max = -25;
-            airLimitsRight.min = -30;
-            
-            JointAngleLimits2D airLimitsLeft = new JointAngleLimits2D();
-            airLimitsLeft.max = 30;
-            airLimitsLeft.min = 25;
-
-            RightLeg.limits = airLimitsRight;
-            LeftLeg.limits = airLimitsLeft;
-        }
-        else
-        {
-            RightLeg.limits = rightLegLimits;
-            LeftLeg.limits = leftLegLimits;
-        }
-        
-
-
         //If you can move or jump, accept those inputs
         if (canMove)
         {
@@ -189,6 +116,180 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetButtonDown("P1SoftReset") && playerInt == 1) || (Input.GetButtonDown("P2SoftReset") && playerInt == 2))
         {
             ResetPos();
+        }
+    }
+
+    void GroundCheck()
+    {
+        //Always check for raycasts to the ground from both feet
+        Ray2D rightRay = new Ray2D(RightFoot.position, -RightFoot.transform.up);
+        Ray2D leftRay = new Ray2D(LeftFoot.position, -LeftFoot.transform.up);
+        Ray2D rightRayDown = new Ray2D(RightFoot.position, Vector2.down);
+        Ray2D leftRayDown = new Ray2D(LeftFoot.position, Vector2.down);
+        
+        Ray2D torsoRay = new Ray2D(transform.position, Vector2.down);
+
+        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.23f, Color.green);
+        Debug.DrawRay(rightRayDown.origin, rightRayDown.direction * 0.23f, Color.green);
+        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.23f, Color.green);
+        Debug.DrawRay(leftRayDown.origin, leftRayDown.direction * 0.23f, Color.green);
+        
+        Debug.DrawRay(torsoRay.origin, torsoRay.direction * 0.4f, Color.blue);
+
+
+        groundCheckRight = new List<RaycastHit2D>(Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.23f));
+        groundCheckRight.AddRange(Physics2D.RaycastAll(rightRayDown.origin, rightRayDown.direction, 0.23f));
+        
+        groundCheckLeft = new List<RaycastHit2D>(Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.23f));
+        groundCheckLeft.AddRange(Physics2D.RaycastAll(leftRayDown.origin, leftRayDown.direction, 0.23f));
+
+        RaycastHit2D[] torsoCheck = Physics2D.RaycastAll(torsoRay.origin, torsoRay.direction, 0.4f);
+
+
+        if (groundCheckRight.Count > 0)
+        {
+            foreach (var hit in groundCheckRight)
+            {
+                //If anything the ray touches is not another player object, the right foot is grounded
+                if (!hit.collider.gameObject.CompareTag("Player"))
+                {
+                    groundedRight = true;
+                    break;
+                }
+                else if (hit.collider.CompareTag("Player"))
+                {                    
+                    Transform current = hit.collider.transform;
+                    while (current.parent != null || (!current.CompareTag("PlayerOne") && !current.CompareTag("PlayerTwo")))
+                    {
+                        current = current.parent;
+                    }
+
+                    if (playerInt == 1 && current.CompareTag("PlayerTwo"))
+                    {
+                        groundedRight = true;
+                        break;
+                    }
+                    else if (playerInt == 2 && current.CompareTag("PlayerOne"))
+                    {
+                        groundedRight = true;
+                        break;
+                    }
+                    else
+                        groundedRight = false;
+                }
+                else
+                {
+                    groundedRight = false;
+                }
+            }
+        }
+        else
+            groundedRight = false;
+
+        if (groundCheckLeft.Count > 0)
+        {
+            foreach (var hit in groundCheckLeft)
+            {
+                //If anything the ray touches is not another player object, the left foot is grounded
+                if (!hit.collider.gameObject.CompareTag("Player"))
+                {
+                    groundedLeft = true;
+                    break;
+                }
+                else if (hit.collider.CompareTag("Player"))
+                {                    
+                    Transform current = hit.collider.transform;
+                    while (current.parent != null || (!current.CompareTag("PlayerOne") && !current.CompareTag("PlayerTwo")))
+                    {
+                        current = current.parent;
+                    }
+
+                    if (playerInt == 1 && current.CompareTag("PlayerTwo"))
+                    {
+                        groundedLeft = true;
+                        break;
+                    }
+                    else if (playerInt == 2 && current.CompareTag("PlayerOne"))
+                    {
+                        groundedLeft = true;
+                        break;
+                    }
+                    else
+                        groundedLeft = false;
+                }
+                else
+                {
+                    groundedLeft = false;
+                }
+            }
+        }
+        else
+            groundedLeft = false;
+
+        if (torsoCheck.Length > 0)
+        {
+            foreach (RaycastHit2D hit in torsoCheck)
+            {
+                //If the raycast hits a player object, check and see if the object belongs to the opposite player 
+                if (hit.collider.CompareTag("Player"))
+                {                    
+                    Transform current = hit.collider.transform;
+                    while (current.parent != null || (!current.CompareTag("PlayerOne") && !current.CompareTag("PlayerTwo")))
+                    {
+                        current = current.parent;
+                    }
+
+                    if (playerInt == 1 && current.CompareTag("PlayerTwo"))
+                    {
+                        onPlayer = true;
+                        break;
+                    }
+                    else if (playerInt == 2 && current.CompareTag("PlayerOne"))
+                    {
+                        onPlayer = true;
+                        break;
+                    }
+                    else
+                        onPlayer = false;
+                }
+                else
+                    onPlayer = false;
+            } 
+        }
+        else
+        {
+            onPlayer = false;
+        }
+
+        //If either foot is grounded, the player is grounded
+        if (groundedRight || groundedLeft || onPlayer)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+
+        //If not grounded, put the legs at an angle that won't make them wonky and floppy when you land
+        if (!grounded)
+        {
+            JointAngleLimits2D airLimitsRight = new JointAngleLimits2D();
+            airLimitsRight.max = -25;
+            airLimitsRight.min = -30;
+            
+            JointAngleLimits2D airLimitsLeft = new JointAngleLimits2D();
+            airLimitsLeft.max = 30;
+            airLimitsLeft.min = 25;
+
+            RightLeg.limits = airLimitsRight;
+            LeftLeg.limits = airLimitsLeft;
+        }
+        //Otherwise use normal initial limits
+        else
+        {
+            RightLeg.limits = rightLegLimits;
+            LeftLeg.limits = leftLegLimits;
         }
     }
 
@@ -239,7 +340,7 @@ public class PlayerController : MonoBehaviour
         if(grounded)
             vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput, .1f);   
         else if(!grounded)
-            vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput * 2, .1f);
+            vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput * 1.75f, .1f);
 
         rb.velocity = vel;
 
@@ -524,6 +625,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Allows player to push another player away from them
+    /// </summary>
     private void Push()
     {
         float pushInput = 0;
@@ -541,6 +645,8 @@ public class PlayerController : MonoBehaviour
         {
 //            Debug.Log("Pushed");
             RaycastHit2D[] pushHits = new RaycastHit2D[0];
+            
+            //Push right if facing right, otherwise left
             if (facingRight)
             {
                 pushHits = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, Vector2.right, 0.2f);
@@ -550,13 +656,16 @@ public class PlayerController : MonoBehaviour
                 pushHits = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, Vector2.left, 0.2f);
             }
 
+            //If there is actually something in range of pushing...
             if (pushHits.Length > 0)
             {
                 foreach (var hits in pushHits)
                 {
+                    //Check if object in range is a player first
                     if (hits.collider.CompareTag("Player"))
                     {
                         Transform currentTf = hits.collider.transform;
+                        //Finds top parent w/ player number tag
                         while (currentTf.parent != null || (!currentTf.CompareTag("PlayerOne") && !currentTf.CompareTag("PlayerTwo")))
                         {
                             currentTf = currentTf.parent;
@@ -564,6 +673,7 @@ public class PlayerController : MonoBehaviour
                         
                         Rigidbody2D hitRb = hits.collider.GetComponent<Rigidbody2D>();
 
+                        //If player to be pushed is not yourself, then push it
                         if (playerInt == 1 && currentTf.CompareTag("PlayerTwo"))
                         {
                             if (facingRight)
