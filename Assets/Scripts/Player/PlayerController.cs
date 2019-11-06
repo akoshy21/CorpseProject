@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool reverseStep;
     private bool buttonReleased;
     private RagdollManager myRagdoll;
+    private JointAngleLimits2D rightLegLimits, leftLegLimits;
     
     //gun control edits by Kate Howell
     public bool weaponEquipped;
@@ -53,6 +54,8 @@ public class PlayerController : MonoBehaviour
         myRagdoll = GetComponentInParent<RagdollManager>();
         footStartXRight = RightFoot.transform.localPosition.x;
         footStartXLeft = LeftFoot.transform.localPosition.x;
+        rightLegLimits = RightLeg.limits;
+        leftLegLimits = LeftLeg.limits;
 
         //Player Specific Movement added by Kate
         if (transform.parent.CompareTag("PlayerOne"))
@@ -87,17 +90,17 @@ public class PlayerController : MonoBehaviour
         Ray2D rightRayDown = new Ray2D(RightFoot.position, Vector2.down);
         Ray2D leftRayDown = new Ray2D(LeftFoot.position, Vector2.down);
 
-        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.185f, Color.green);
-        Debug.DrawRay(rightRayDown.origin, rightRayDown.direction * 0.185f, Color.green);
-        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.185f, Color.green);
-        Debug.DrawRay(leftRayDown.origin, leftRayDown.direction * 0.185f, Color.green);
+        Debug.DrawRay(rightRay.origin, rightRay.direction * 0.23f, Color.green);
+        Debug.DrawRay(rightRayDown.origin, rightRayDown.direction * 0.23f, Color.green);
+        Debug.DrawRay(leftRay.origin, leftRay.direction * 0.23f, Color.green);
+        Debug.DrawRay(leftRayDown.origin, leftRayDown.direction * 0.23f, Color.green);
 
 
-        groundCheckRight = new List<RaycastHit2D>(Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.185f));
-        groundCheckRight.AddRange(Physics2D.RaycastAll(rightRayDown.origin, rightRayDown.direction, 0.185f));
+        groundCheckRight = new List<RaycastHit2D>(Physics2D.RaycastAll(rightRay.origin, rightRay.direction, 0.23f));
+        groundCheckRight.AddRange(Physics2D.RaycastAll(rightRayDown.origin, rightRayDown.direction, 0.23f));
         
-        groundCheckLeft = new List<RaycastHit2D>(Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.185f));
-        groundCheckLeft.AddRange(Physics2D.RaycastAll(leftRayDown.origin, leftRayDown.direction, 0.185f));
+        groundCheckLeft = new List<RaycastHit2D>(Physics2D.RaycastAll(leftRay.origin, leftRay.direction, 0.23f));
+        groundCheckLeft.AddRange(Physics2D.RaycastAll(leftRayDown.origin, leftRayDown.direction, 0.23f));
 
 
         if (groundCheckRight.Count > 0)
@@ -134,6 +137,26 @@ public class PlayerController : MonoBehaviour
         {
             grounded = false;
         }
+
+        if (!grounded)
+        {
+            JointAngleLimits2D airLimitsRight = new JointAngleLimits2D();
+            airLimitsRight.max = -25;
+            airLimitsRight.min = -30;
+            
+            JointAngleLimits2D airLimitsLeft = new JointAngleLimits2D();
+            airLimitsLeft.max = 30;
+            airLimitsLeft.min = 25;
+
+            RightLeg.limits = airLimitsRight;
+            LeftLeg.limits = airLimitsLeft;
+        }
+        else
+        {
+            RightLeg.limits = rightLegLimits;
+            LeftLeg.limits = leftLegLimits;
+        }
+        
 
 
         //If you can move or jump, accept those inputs
@@ -213,7 +236,10 @@ public class PlayerController : MonoBehaviour
             facingRight = false;
         }
 
-        vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput, .1f);   
+        if(grounded)
+            vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput, .1f);   
+        else if(!grounded)
+            vel.x = Mathf.Lerp(vel.x, MoveSpeed * moveInput * 2, .1f);
 
         rb.velocity = vel;
 
@@ -283,7 +309,7 @@ public class PlayerController : MonoBehaviour
                     LeftLeg.useMotor = true;
                     RightLeg.useMotor = false;
                     
-                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 2, 0.1f), rightRb.velocity.y);
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, MoveSpeed * 4, 0.1f), rightRb.velocity.y);
                 }
                 else if (footStartXRight - RightFoot.transform.localPosition.x >= DistanceFromStraight)
                 {
@@ -322,7 +348,7 @@ public class PlayerController : MonoBehaviour
 //                Debug.Log(footStartXRight - RightFoot.transform.localPosition.x);
                 if (footStartXRight - RightFoot.transform.localPosition.x > -DistanceFromStraight)
                 {
-                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, -MoveSpeed * 2, 0.1f), rightRb.velocity.y);
+                    rightRb.velocity = new Vector2(Mathf.Lerp(rightRb.velocity.x, -MoveSpeed * 4, 0.1f), rightRb.velocity.y);
                 }
                 else if (footStartXRight - RightFoot.transform.localPosition.x <= -DistanceFromStraight)
                 {
