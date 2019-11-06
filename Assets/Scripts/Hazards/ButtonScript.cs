@@ -9,6 +9,16 @@ public class ButtonScript : MonoBehaviour
     public bool buttonActive;
     private List<GameObject> entryList;
     public bool stayOn;
+
+    public SpriteRenderer sprite;
+
+    public Sprite buttonpressedsprite;
+
+    public Sprite buttonunpressedspirte;
+
+    public Sprite leverOnSprite;
+
+    public Sprite leverOffSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +28,18 @@ public class ButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (buttonActive == false)
+        {
+            
+        }
        
         if (entryList.Count > 0)
         {
-            Debug.Log("List go");
+            
             if (isLever == false)
             {
                 buttonActive = true;
-                Debug.Log("button message sent");
+                
             }
 
             if (isLever)
@@ -34,7 +47,7 @@ public class ButtonScript : MonoBehaviour
                 if (Input.GetKey(KeyCode.E) || Input.GetButton("P1Interact") || Input.GetButton("P2Interact"))
                 {
                     buttonActive = true;
-                    Debug.Log("Lever messge sent");
+                   
                 }
                 else
                 {
