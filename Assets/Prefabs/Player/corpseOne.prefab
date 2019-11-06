@@ -679,7 +679,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 100
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -60
     m_UpperAngle: 75
@@ -1101,7 +1101,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 100
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -60
     m_UpperAngle: 70
@@ -1117,7 +1117,7 @@ GameObject:
   - component: {fileID: 6080222459869818544}
   - component: {fileID: 2436396792812689606}
   m_Layer: 0
-  m_Name: Player One
+  m_Name: corpseOne
   m_TagString: PlayerOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1329,7 +1329,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: -200
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -90
     m_UpperAngle: 90
@@ -1514,7 +1514,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: -90
     m_UpperAngle: 90
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5954324550887107892}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e619954dd9c44dc18133e909afae58c, type: 3}
   m_Name: 
