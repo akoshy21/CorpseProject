@@ -673,8 +673,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0.45}
-  m_ConnectedAnchor: {x: 0.33159915, y: -0.5403108}
+  m_Anchor: {x: 0.0076501286, y: 0.33193597}
+  m_ConnectedAnchor: {x: 0.25094447, y: -0.8700641}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 100
@@ -1095,8 +1095,8 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.016144676, y: 0.4354896}
-  m_ConnectedAnchor: {x: -0.20585574, y: -0.7725104}
+  m_Anchor: {x: 0.008494172, y: 0.3243707}
+  m_ConnectedAnchor: {x: -0.2322893, y: -0.88362926}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 100
@@ -1509,7 +1509,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0.007850093, y: -0.3106514}
-  m_ConnectedAnchor: {x: -0.38540134, y: 0.6319381}
+  m_ConnectedAnchor: {x: -0.50634897, y: 0.6278501}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1517,7 +1517,7 @@ HingeJoint2D:
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: -90
-    m_UpperAngle: 90
+    m_UpperAngle: -270
 --- !u!1 &5954324550887107892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
-  MoveSpeed: 4
+  MoveSpeed: 3.75
   JumpHeight: 53
   PushForce: 320
   ExtraHeight: 5
@@ -1942,7 +1942,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0063208938, y: 0.0035448074}
+  m_Offset: {x: 0.0016438961, y: -0.57173115}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1953,7 +1953,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3666149, y: 2.1960049}
+  m_Size: {x: 1.0953469, y: 1.045453}
   m_EdgeRadius: 0
 --- !u!50 &1891112099028256363
 Rigidbody2D:
@@ -1996,7 +1996,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -10
+    m_UpperAngle: 10
