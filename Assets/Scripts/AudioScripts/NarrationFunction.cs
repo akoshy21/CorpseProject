@@ -7,26 +7,29 @@ public class NarrationFunction : MonoBehaviour
     public GameObject narratorPlayer;
     public AudioSource player;
     public AudioClip clip;
-
-    private bool turnOff;
+    private bool startCheck;
+    private bool turnOn;
     // Start is called before the first frame update
     void Start()
     {
-       narratorPlayer.SetActive(true); 
+       narratorPlayer.SetActive(true);
+       startCheck = false;
+       turnOn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKey && startCheck == false)
         {
-           player.PlayOneShot(clip);
-           turnOff = true;
+           turnOn = true;
+           startCheck = true;
         }
 
-        if (!player.isPlaying && turnOff)
+        if (turnOn == true)
         {
-            narratorPlayer.SetActive(false);
+            player.PlayOneShot(clip);
+            turnOn = false;
         }
     }
 }
