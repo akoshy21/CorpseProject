@@ -11,7 +11,7 @@ public class ButtonScript : MonoBehaviour
     public bool stayOn;
 
     public SpriteRenderer spriteRend;
-
+    public GameObject buttonBoxCollider;
     public Sprite buttonpressedsprite;
 
     public Sprite buttonunpressedspirte;
@@ -26,11 +26,13 @@ public class ButtonScript : MonoBehaviour
         if (isLever == false)
         {
             spriteRend.sprite = buttonunpressedspirte;
+            buttonBoxCollider.SetActive(true);
         }
 
         if (isLever)
         {
             spriteRend.sprite = leverOffSprite;
+            buttonBoxCollider.SetActive(false);
         }
     }
 
