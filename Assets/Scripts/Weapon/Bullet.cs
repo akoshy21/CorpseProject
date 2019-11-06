@@ -72,6 +72,10 @@ public abstract class Bullet : MonoBehaviour
             {
                 Hit(collision.transform.parent.GetComponentInChildren<PlayerController>());
             }
+            else if (collision.gameObject.CompareTag("Corpse"))
+            {
+                Destroy(this.gameObject);
+            }
             else
             {
                 Collide(collision.gameObject);
