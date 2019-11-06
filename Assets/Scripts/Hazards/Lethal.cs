@@ -9,6 +9,13 @@ public class Lethal : MonoBehaviour
      * @author Kate Howell
      */
     
+    private AudioSource aso;
+
+    private void Start()
+    {
+        aso = GetComponent<AudioSource>();
+    }
+
 //    private void OnCollisionEnter2D(Collision2D other)
 //    {
 //        if (other.gameObject.CompareTag("Player"))
@@ -39,6 +46,13 @@ public class Lethal : MonoBehaviour
 
                 GetComponentInChildren<ParticleSystem>().transform.position = collidedRb.transform.position;
                 GetComponentInChildren<ParticleSystem>().Play();
+
+                if (aso != null)
+                {
+                    aso.pitch = 1;
+                    aso.pitch += Random.Range(-0.2f, 0.2f);
+                    aso.PlayOneShot(aso.clip);
+                }
             }
 
 
