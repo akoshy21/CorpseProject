@@ -10,7 +10,7 @@ public class ButtonScript : MonoBehaviour
     private List<GameObject> entryList;
     public bool stayOn;
 
-    public SpriteRenderer sprite;
+    public SpriteRenderer spriteRend;
 
     public Sprite buttonpressedsprite;
 
@@ -22,15 +22,24 @@ public class ButtonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        entryList = new List<GameObject>();  
+        entryList = new List<GameObject>();
+        if (isLever == false)
+        {
+            spriteRend.sprite = buttonunpressedspirte;
+        }
+
+        if (isLever)
+        {
+            spriteRend.sprite = leverOffSprite;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (buttonActive == false)
+        if (isLever == false && buttonActive == false)
         {
-            
+            spriteRend.sprite = buttonunpressedspirte;
         }
        
         if (entryList.Count > 0)
@@ -39,7 +48,7 @@ public class ButtonScript : MonoBehaviour
             if (isLever == false)
             {
                 buttonActive = true;
-                
+                spriteRend.sprite = buttonpressedsprite;
             }
 
             if (isLever)
@@ -47,11 +56,12 @@ public class ButtonScript : MonoBehaviour
                 if (Input.GetKey(KeyCode.E) || Input.GetButton("P1Interact") || Input.GetButton("P2Interact"))
                 {
                     buttonActive = true;
-                   
+                    spriteRend.sprite = leverOnSprite;
                 }
                 else
                 {
                     buttonActive = false;
+                    spriteRend.sprite = leverOffSprite;
                 }
             }
         }
