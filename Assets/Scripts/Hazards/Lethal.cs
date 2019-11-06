@@ -8,6 +8,8 @@ public class Lethal : MonoBehaviour
     /*
      * @author Kate Howell
      */
+
+    public AudioClip[] StabSounds;
     
     private AudioSource aso;
 
@@ -50,8 +52,8 @@ public class Lethal : MonoBehaviour
                 if (aso != null)
                 {
                     aso.pitch = 1;
-                    aso.pitch += Random.Range(-0.2f, 0.2f);
-                    aso.PlayOneShot(aso.clip);
+                    aso.pitch += Random.Range(-0.3f, 0.3f);
+                    aso.PlayOneShot(StabSounds[Random.Range(0, StabSounds.Length)]);
                 }
             }
 
