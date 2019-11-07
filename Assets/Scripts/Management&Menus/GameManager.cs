@@ -69,7 +69,8 @@ public class GameManager : MonoBehaviour
             player.GetComponent<SpriteRenderer>().material = surf;
         }
 
-        Instantiate(splatter, ptOne, Quaternion.Euler(0, 0, Random.Range(0,360)), surface.transform);
+        GameObject tempSplat = Instantiate(splatter, ptOne, Quaternion.Euler(0, 0, Random.Range(0,360)));
+        tempSplat.transform.parent = surface.transform;
         Instantiate(splatter, ptTwo, Quaternion.Euler(0, 0, Random.Range(0, 360)), player.transform);
     }
 
