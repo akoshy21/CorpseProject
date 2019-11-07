@@ -25,11 +25,15 @@ public class MovingWall : MonoBehaviour
     public GameObject buttonOrLever;
     public GameObject buttonOrLever2;
 
+    public AudioClip SquishNoise, BreakNoise;
+    private AudioSource aso;
+
 
     // Start is called before the first frame update
     void Start()
     {
         moveUp = true;
+        aso = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -113,6 +117,11 @@ public class MovingWall : MonoBehaviour
             if (controller != null && !controller.dead && moveDown)
             {
                 controller.Explode();
+                
+                aso.pitch = 1;
+                aso.pitch += Random.Range(-0.25f, 0.25f);
+                aso.PlayOneShot(SquishNoise);
+                aso.PlayOneShot(BreakNoise);
             }
         }
     }
