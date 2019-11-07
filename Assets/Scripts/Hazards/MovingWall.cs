@@ -122,7 +122,7 @@ public class MovingWall : MonoBehaviour
                 aso.pitch += Random.Range(-0.25f, 0.25f);
                 aso.PlayOneShot(SquishNoise);
                 aso.PlayOneShot(BreakNoise);
-                
+
                 GameManager.gm.InstantiateSplatter(other, GetComponent<Collider2D>());
             }
         }
