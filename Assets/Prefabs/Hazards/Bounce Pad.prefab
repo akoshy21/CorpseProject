@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchHeightMax: 150
-  baseLaunchForce: 100
+  baseLaunchForce: 130

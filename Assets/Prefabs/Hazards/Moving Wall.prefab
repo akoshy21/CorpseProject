@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891576313126987791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1, y: 10.1, z: 4.3050103}
+  m_LocalPosition: {x: -2.1, y: 8.6, z: 4.3050103}
   m_LocalScale: {x: 2.7859852, y: 0.249571, z: 1}
   m_Children: []
   m_Father: {fileID: 1891576314914871828}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891576314757079691}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1, y: 2.99, z: 4.3050103}
+  m_LocalPosition: {x: -2.1, y: 3.14, z: 4.3050103}
   m_LocalScale: {x: 2.7859852, y: 0.249571, z: 1}
   m_Children: []
   m_Father: {fileID: 1891576314914871828}
@@ -85,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 1891576314914871829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.6062522, y: 1.48663, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0766139, z: 1}
   m_Children:
   - {fileID: 1891576315202543934}
   - {fileID: 1891576314757079690}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8389241458414715445}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,8 +122,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891576315202543906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.613, y: 2.85, z: 0}
-  m_LocalScale: {x: 1.3766644, y: 8.937245, z: 1}
+  m_LocalPosition: {x: -1.613, y: 2.94, z: 0}
+  m_LocalScale: {x: 1.3766644, y: 8.376522, z: 1}
   m_Children: []
   m_Father: {fileID: 1891576314914871828}
   m_RootOrder: 0
@@ -219,8 +219,8 @@ MonoBehaviour:
   platform: {fileID: 1891576315202543906}
   topBound: {fileID: 1891576313126987790}
   bottomBound: {fileID: 1891576314757079690}
-  moveSpeedUp: 3
-  moveSpeedSide: 3
+  moveSpeedUp: 10
+  moveSpeedSide: 5
   turnOn: 1
   buttonNeeded: 1
   buttonOrLever: {fileID: 0}

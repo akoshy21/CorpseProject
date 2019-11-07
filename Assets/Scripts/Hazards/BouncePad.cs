@@ -38,7 +38,7 @@ public class BouncePad : MonoBehaviour
                     
                     float forceToAdd = baseLaunchForce;
                     
-                    print(velocity);
+                    //print(velocity);
 
                     if (velocity < 0)
                     {
