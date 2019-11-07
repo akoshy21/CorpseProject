@@ -207,6 +207,16 @@ PrefabInstance:
       propertyPath: attacking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4290932493653339766, guid: a41e78acd4fab0c4b97b7cb5e32e2015,
+        type: 3}
+      propertyPath: buttonActivated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290932493653339766, guid: a41e78acd4fab0c4b97b7cb5e32e2015,
+        type: 3}
+      propertyPath: buttonOrLever
+      value: 
+      objectReference: {fileID: 988415060}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a41e78acd4fab0c4b97b7cb5e32e2015, type: 3}
 --- !u!1 &151510718
@@ -455,6 +465,11 @@ PrefabInstance:
       propertyPath: buttonOrLever
       value: 
       objectReference: {fileID: 573313895}
+    - target: {fileID: 8633283001575282623, guid: 141d794f303a7aa4188591fb55669d21,
+        type: 3}
+      propertyPath: buttonOrLever2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8633283002846846608, guid: 141d794f303a7aa4188591fb55669d21,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1525,6 +1540,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &988415060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3460224804051616222, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1435494024}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1070931251
 GameObject:
   m_ObjectHideFlags: 0
