@@ -217,6 +217,16 @@ PrefabInstance:
       propertyPath: buttonOrLever
       value: 
       objectReference: {fileID: 988415060}
+    - target: {fileID: 4290932493653339766, guid: a41e78acd4fab0c4b97b7cb5e32e2015,
+        type: 3}
+      propertyPath: automated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290932493653339766, guid: a41e78acd4fab0c4b97b7cb5e32e2015,
+        type: 3}
+      propertyPath: automatedBulletSpawnRate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a41e78acd4fab0c4b97b7cb5e32e2015, type: 3}
 --- !u!1 &151510718
@@ -1861,6 +1871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isLever
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
+        type: 3}
+      propertyPath: buttonActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1da88bb3bf68d47bb5222f154fe19f, type: 3}
