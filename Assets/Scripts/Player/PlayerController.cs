@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float coyoteTimer;
     private List<RaycastHit2D> groundCheckRight, groundCheckLeft;
-    private bool groundedRight, groundedLeft, onPlayer;
+    private bool groundedRight, groundedLeft, groundedCenter;
     private Vector3 lastVel;
     private float footStartXRight, footStartXLeft;
     private bool reverseStep;
@@ -235,7 +235,12 @@ public class PlayerController : MonoBehaviour
             foreach (RaycastHit2D hit in torsoCheck)
             {
                 //If the raycast hits a player object, check and see if the object belongs to the opposite player 
-                if (hit.collider.CompareTag("Player"))
+                if (!hit.collider.CompareTag("Player"))
+                {
+                    groundedCenter = true;
+                    break;
+                }
+                else if (hit.collider.CompareTag("Player"))
                 {                    
                     Transform current = hit.collider.transform;
                     while (current.parent != null || (!current.CompareTag("PlayerOne") && !current.CompareTag("PlayerTwo")))
@@ -245,28 +250,28 @@ public class PlayerController : MonoBehaviour
 
                     if (playerInt == 1 && current.CompareTag("PlayerTwo"))
                     {
-                        onPlayer = true;
+                        groundedCenter = true;
                         break;
                     }
                     else if (playerInt == 2 && current.CompareTag("PlayerOne"))
                     {
-                        onPlayer = true;
+                        groundedCenter = true;
                         break;
                     }
                     else
-                        onPlayer = false;
+                        groundedCenter = false;
                 }
                 else
-                    onPlayer = false;
+                    groundedCenter = false;
             } 
         }
         else
         {
-            onPlayer = false;
+            groundedCenter = false;
         }
 
         //If either foot is grounded, the player is grounded
-        if (groundedRight || groundedLeft || onPlayer)
+        if (groundedRight || groundedLeft || groundedCenter)
         {
             grounded = true;
         }
