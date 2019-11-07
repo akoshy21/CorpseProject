@@ -50,6 +50,7 @@ public class ButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool p1 = false, p2 = false;
         if (isLever == false && buttonActive == false)
         {
             spriteRend.sprite = buttonunpressedspirte;
@@ -79,9 +80,18 @@ public class ButtonScript : MonoBehaviour
                
             }
 
+            if ((Input.GetKey(KeyCode.E) || Input.GetButton("P1Interact")) && checkIfPlayer(true))
+            {
+                p1 = true;
+            }
+            if ((Input.GetButton("P2Interact") || Input.GetKey(KeyCode.O)) && checkIfPlayer(false))
+            {
+                p2 = true;
+            }
+
             if (isLever)
             {
-                if ((Input.GetKey(KeyCode.E) || Input.GetButton("P1Interact") || Input.GetButton("P2Interact") && entryList.Count > 0))
+                if (entryList.Count > 0 && (p1 || p2))
                 {
                     buttonActive = true;
                     buttonGateOff = true;
@@ -111,10 +121,28 @@ public class ButtonScript : MonoBehaviour
         {
             buttonActive = false;
         }
+    }
 
-     
-
-        
+    bool checkIfPlayer(bool pOne)
+    {
+        for (int i = 0; i < entryList.Count; i++)
+        {
+            if (pOne)
+            {
+                if (entryList[i].transform.parent.CompareTag("PlayerOne"))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (entryList[i].transform.parent.CompareTag("PlayerTwo"))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -133,7 +161,7 @@ public class ButtonScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-      //Debug.Log(other);
+      Debug.Log(other);
         
 
       if (isLever == false)
