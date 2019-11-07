@@ -48,7 +48,7 @@ public class BouncePad : MonoBehaviour
                         
                         if (forceToAdd + velocity > launchHeightMax)
                         {
-                            //forceToAdd = launchHeightMax - velocity;
+                            forceToAdd = launchHeightMax;
                             //print("thisSHouldntPrint");
                         }
                         else
@@ -57,12 +57,12 @@ public class BouncePad : MonoBehaviour
                         }
             
             
-                        print(forceToAdd);
+                        //print(forceToAdd);
                         rigidbody.AddForce(new Vector2(0, forceToAdd), ForceMode2D.Impulse);
                     
                         //print("TheActualJump");
                         //rigidbody.velocity = new Vector2(rigidbody.velocity.x,0);
-                        rigidbody.AddForce(new Vector2(0, forceToAdd), ForceMode2D.Impulse);
+                        //rigidbody.AddForce(new Vector2(0, forceToAdd), ForceMode2D.Impulse);
                         //print(forceToAdd);
                     }
                     else
