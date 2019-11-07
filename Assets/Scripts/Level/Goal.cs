@@ -116,7 +116,7 @@ public class Goal : MonoBehaviour
 
         if (playerOneAtGoal && playerTwoAtGoal)
         {
-            print("yayBoth");
+            //print("yayBoth");
             StartCoroutine(loadNextScene());
         }
     }
