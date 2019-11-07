@@ -79,7 +79,23 @@ public abstract class FallingHazard : MonoBehaviour
             PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
             if (pC != null && !pC.dead)
             {
-                pC.Die();  
+                //pC.Explode();  
+            }
+        }
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && !grounded && !moveUp)
+        {
+            PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
+            if (pC != null && !pC.dead)
+            {
+                pC.Explode();
             }
         }
         else if (other.gameObject.CompareTag("Ground"))

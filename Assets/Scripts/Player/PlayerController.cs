@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -729,15 +730,18 @@ public class PlayerController : MonoBehaviour
             dead = true;
             myRagdoll.CreateRagdoll();
 
-            if (playerInt == 1)
+            if (!SceneManager.GetActiveScene().name.Equals("LevelSelect"))
             {
-                LevelManager.lm.corpseCount1++;
-                LevelManager.lm.NewDeath(true);
-            }
-            else if (playerInt == 2)
-            {
-                LevelManager.lm.corpseCount2++;
-                LevelManager.lm.NewDeath(false);
+                if (playerInt == 1)
+                {
+                    LevelManager.lm.corpseCount1++;
+                    LevelManager.lm.NewDeath(true);
+                }
+                else if (playerInt == 2)
+                {
+                    LevelManager.lm.corpseCount2++;
+                    LevelManager.lm.NewDeath(false);
+                }
             }
 
             randomSound = Random.Range(1, 6);
