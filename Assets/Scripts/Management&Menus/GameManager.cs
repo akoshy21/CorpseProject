@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour
     {
         // assuming rn there are at max five lvls per world; there's probably a better way of doing this.
 
-        lvlC = new int[worldCount, 5];
-        lvlC1 = new int[worldCount, 5];
-        lvlC2 = new int[worldCount, 5];
-        lvlP = new int[worldCount, 5];
+        lvlC = new int[worldCount, 8];
+        lvlC1 = new int[worldCount, 8];
+        lvlC2 = new int[worldCount, 8];
+        lvlP = new int[worldCount, 8];
     }
 
     void SafetyRating()

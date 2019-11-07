@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curLvl: 0
-  par: 0
+  par: 1
   endScreen: {fileID: 479081614}
   paused: 0
   curScn: 0

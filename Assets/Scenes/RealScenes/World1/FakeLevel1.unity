@@ -547,15 +547,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
-        type: 3}
-      propertyPath: isLever
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3460224804051616221, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
         type: 3}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
+        type: 3}
+      propertyPath: isLever
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1da88bb3bf68d47bb5222f154fe19f, type: 3}
@@ -1927,15 +1927,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
-        type: 3}
-      propertyPath: isLever
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3460224804051616221, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
         type: 3}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
+        type: 3}
+      propertyPath: isLever
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1da88bb3bf68d47bb5222f154fe19f, type: 3}
@@ -2768,6 +2768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374448539591071345, guid: 0848df75a8fe8ab408712a3d827975d0,
+        type: 3}
+      propertyPath: par
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0848df75a8fe8ab408712a3d827975d0, type: 3}
