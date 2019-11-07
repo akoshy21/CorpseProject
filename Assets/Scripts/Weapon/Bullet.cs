@@ -66,6 +66,7 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //print("collision");
         if (!hitObject)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -86,6 +87,7 @@ public abstract class Bullet : MonoBehaviour
                 {
                     Hit(controller);
                     this.transform.SetParent(collision.gameObject.transform);
+                    GameManager.gm.InstantiateSplatter(collision.collider, this.GetComponent<Collider2D>());
                 }     
             }
             else if (collision.gameObject.CompareTag("Corpse"))
@@ -96,7 +98,7 @@ public abstract class Bullet : MonoBehaviour
             {
                 Collide(collision.gameObject);
             }
-
+            
             hitObject = true;
         }
         
