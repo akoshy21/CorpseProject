@@ -78,7 +78,7 @@ public class FanpushScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             pushing = true;
-            Debug.Log("Trigger Enter Procced");
+            //Debug.Log("Trigger Enter Procced");
             pushedPlayer.Add(other.gameObject);
         }
 
