@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public Material surf;
 
+    public AudioSource audiosource;
+    public AudioClip music;
+    private bool musicStart;
     
+
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -32,8 +36,23 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        musicStart = false;
     }
 
+    
+    public void Update()
+    {
+        if (musicStart == false)
+        {
+            if (Input.anyKey)
+            {
+                audiosource.loop = true;
+                audiosource.clip = music;
+                audiosource.Play();
+                musicStart = true;
+            }
+        } 
+    }
     void SetUpParCorpseCount()
     {
         // assuming rn there are at max five lvls per world; there's probably a better way of doing this.
