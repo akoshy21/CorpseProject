@@ -10,12 +10,14 @@ public class Goal : MonoBehaviour
      * 
      * This script loads nextSceneToLoad when both playerOne and playerTwo are colliding with this object
      */
-     /*
+    
     [SerializeField, Tooltip("Delay in Seconds that the scene loaded after the player collides with the goal")]
     public int loadDelay;
-    */
+    
     public bool playerOneAtGoal;
     public bool playerTwoAtGoal;
+    private AudioSource audioSource;
+
     /*
     [SerializeField, Tooltip("Handle of the Scene to be loaded when goal is activated")]
     public Scene nextSceneToLoad;
@@ -71,6 +73,14 @@ public class Goal : MonoBehaviour
     /*-------------- ALT GOAL CODE -------------------*/
     //akoshy
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if(audioSource == null)
+        {
+            throw new System.Exception("Goal Missing Audio Source");
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.parent.CompareTag("PlayerOne"))
@@ -92,7 +102,8 @@ public class Goal : MonoBehaviour
 
         if (playerOneAtGoal && playerTwoAtGoal)
         {
-            LevelManager.lm.lvlEnd = true;
+            print("yayBoth");
+            StartCoroutine(loadNextScene());
         }
     }
 
@@ -106,5 +117,45 @@ public class Goal : MonoBehaviour
         {
             playerTwoAtGoal = false;
         }
+        else if(collision.gameObject.CompareTag("Player"))
+        {
+            GameObject current = collision.gameObject;
+            PlayerController controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+            if (controller == null)
+            {
+                current = current.transform.parent.gameObject;
+                controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+            }
+            if (controller == null)
+            {
+                current = current.transform.parent.gameObject;
+                controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+            }
+            if (controller != null && !controller.dead)
+            {
+                if (current.transform.parent.CompareTag("PlayerOne"))
+                {
+                    playerOneAtGoal = false;
+                }
+                else if (current.transform.parent.CompareTag("PlayerTwo"))
+                {
+                    playerTwoAtGoal = false;
+                }
+            }
+        }
+    }
+
+    IEnumerator loadNextScene()
+    {
+        //print("loaded");
+        if(!audioSource.isPlaying)
+        {
+            //print("audioASource");
+            audioSource.Play();
+        }
+        yield return new WaitForSeconds(loadDelay);
+        LevelManager.lm.lvlEnd = true;
+        yield return null;
+
     }
 }
