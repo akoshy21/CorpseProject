@@ -41,7 +41,7 @@ public class CrumblingPlatform : MonoBehaviour
         if (crumbling)
         {
             
-            if (crumbleStage == 2)
+            if (crumbleStage == 4)
             {
                 crumbling = false;
                 spriteRenderer.sprite = null;
