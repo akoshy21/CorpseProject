@@ -40,9 +40,12 @@ public class MovingPlatfromFunctions : MonoBehaviour
 
     void Update()
     {
-        if (buttonOrLever.GetComponent<ButtonScript>().buttonActive == false)
+        if (buttonOrLever != null)
         {
-            rigbod.velocity = new Vector2(0f,0f);
+            if (buttonOrLever.GetComponent<ButtonScript>().buttonActive == false)
+            {
+                rigbod.velocity = new Vector2(0f, 0f);
+            }
         }
 
         bool active = false;
