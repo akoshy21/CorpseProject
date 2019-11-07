@@ -118,8 +118,8 @@ public abstract class Bullet : MonoBehaviour
         velocityX -= decelerationX;
 
         velocity = new Vector2(velocityX, velocityY);
-        //transform.Translate(velocity * Time.deltaTime);
-        rigidBody.velocity = velocity;
+        transform.Translate(velocity * Time.deltaTime);
+        //rigidBody.velocity = velocity;
     }
 
     /// <summary>

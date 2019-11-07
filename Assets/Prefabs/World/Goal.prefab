@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94080c33c11a0864abb6d9577f3909cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 4
+  loadDelay: 1.5
   playerOneAtGoal: 0
   playerTwoAtGoal: 0
   doorOpenSprite: {fileID: 21300000, guid: 2370ca16bc5758044b42846503c4e733, type: 3}

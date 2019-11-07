@@ -1,22 +1,7 @@
 fileFormatVersion: 2
-guid: adc6aef828a6cd84cb8a6e1bf921d48c
+guid: fc43f1920c573a645a772b0c99cd8503
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 2621553741740718570
-    second: ps4_buttons_0
-  - first:
-      213: -3470994670266043283
-    second: ps4_buttons_1
-  - first:
-      213: -7124410640572068375
-    second: ps4_buttons_2
-  - first:
-      213: 2433958742010991186
-    second: ps4_buttons_3
-  - first:
-      213: 4437620023744470570
-    second: ps4_buttons_4
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -55,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -135,112 +120,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: ps4_buttons_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 325
-        height: 323
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72b1c22538539394b806fe37fdc3cf47
-      internalID: 2621553741740718570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ps4_buttons_1
-      rect:
-        serializedVersion: 2
-        x: 506
-        y: 0
-        width: 327
-        height: 323
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a54fc24927535f54986e4d4d5cb6d48f
-      internalID: -3470994670266043283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ps4_buttons_2
-      rect:
-        serializedVersion: 2
-        x: 1014
-        y: 0
-        width: 326
-        height: 323
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd16b87185ab1ac46aaa85cd2c9c86f4
-      internalID: -7124410640572068375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ps4_buttons_3
-      rect:
-        serializedVersion: 2
-        x: 1641
-        y: 0
-        width: 141
-        height: 323
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 761a76b71d7253647b3afdd394179e32
-      internalID: 2433958742010991186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ps4_buttons_4
-      rect:
-        serializedVersion: 2
-        x: 2075
-        y: 50
-        width: 340
-        height: 195
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27314f7fb6e2d11408747b570422b572
-      internalID: 4437620023744470570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
