@@ -9,6 +9,8 @@ public class NarrationFunction : MonoBehaviour
     public AudioClip clip;
     private bool startCheck;
     private bool turnOn;
+
+    public bool dontDestroy;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,11 @@ public class NarrationFunction : MonoBehaviour
         {
             player.PlayOneShot(clip);
             turnOn = false;
+        }
+
+        if (dontDestroy)
+        {
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 }
