@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     {
         if (lm != null && lm != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
