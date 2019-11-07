@@ -13,7 +13,8 @@ public class GlassFunctions : MonoBehaviour
     public SpriteRenderer glassRenderer;
 
     private ParticleSystem shatterParticles;
-
+    public AudioSource audiosource;
+    public AudioClip shatterclip;
     private bool shattered;
     // Start is called before the first frame update
     
@@ -51,6 +52,7 @@ public class GlassFunctions : MonoBehaviour
                 {
                     PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
                     controller.Die();
+                    Debug.Log("Death");
                 }
 
                 if (other.GetComponent<Rigidbody2D>().velocity.x < 0)
@@ -73,6 +75,7 @@ public class GlassFunctions : MonoBehaviour
         //^ hey thats me
         glassRenderer.color = Color.clear;
         shatterParticles.Play();
+        audiosource.PlayOneShot(shatterclip);
         
     }
 }
