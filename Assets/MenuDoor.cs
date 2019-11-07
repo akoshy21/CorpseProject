@@ -47,7 +47,7 @@ public class MenuDoor : MonoBehaviour
         {
             if (men == Menu.Tutorial)
             {
-                StartCoroutine(ToLevels("LevelSelect"));
+                StartCoroutine(ToLevels("FakeLevel1"));
             }
             else if (men == Menu.Start)
             {
