@@ -34,6 +34,8 @@ public abstract class Bullet : MonoBehaviour
 
     private bool pointingRight;
 
+    private Rigidbody2D rigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,8 @@ public abstract class Bullet : MonoBehaviour
         velocityY = intialVelocity.y * bulletSpeed;
 
         velocityX = intialVelocity.x * bulletSpeed;
+
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -114,7 +118,8 @@ public abstract class Bullet : MonoBehaviour
         velocityX -= decelerationX;
 
         velocity = new Vector2(velocityX, velocityY);
-        transform.Translate(velocity * Time.deltaTime);
+        //transform.Translate(velocity * Time.deltaTime);
+        rigidBody.velocity = velocity;
     }
 
     /// <summary>
