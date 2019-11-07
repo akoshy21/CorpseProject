@@ -51,8 +51,8 @@ public class GlassFunctions : MonoBehaviour
                 
                 if (other.gameObject.CompareTag("Player"))
                 {
-                    Transform currentTf = transform;
-                    while (transform.parent != null)
+                    Transform currentTf = other.transform;
+                    while (currentTf.parent != null || (currentTf.CompareTag("PlayerOne") && currentTf.CompareTag("PlayerTwo")))
                     {
                         currentTf = currentTf.parent;
                     }
