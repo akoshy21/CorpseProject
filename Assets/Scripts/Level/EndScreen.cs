@@ -67,7 +67,7 @@ public class EndScreen : MonoBehaviour
 
         if (temp >= 100)
         {
-
+            return 0;
         }
     }
 
