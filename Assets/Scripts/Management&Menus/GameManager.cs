@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<int> lvlC, lvlC1, lvlC2, lvlP;
     [HideInInspector] public int lvlNum, lastScn;
 
-    public int lvlCount;
+    public int lvlCount = 10;
     public GameObject splatter;
     public static GameManager gm;
     public Material surf;

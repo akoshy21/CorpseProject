@@ -169,6 +169,7 @@ public class Goal : MonoBehaviour
         }
         spriteRenderer.sprite = doorOpenSprite;
         yield return new WaitForSeconds(loadDelay);
+        Debug.Log("HEY");
         LevelManager.lm.lvlEnd = true;
         yield return null;
 
