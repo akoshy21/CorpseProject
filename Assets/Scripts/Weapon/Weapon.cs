@@ -158,7 +158,7 @@ public abstract class Weapon : MonoBehaviour
     {
         yield return new WaitForSeconds(automatedBulletSpawnRate);
         Attack();
-        print("Attack");
+        //print("Attack");
         StartCoroutine(automatedAttack());
         
     }
