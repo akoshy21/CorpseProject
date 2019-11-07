@@ -63,13 +63,16 @@ public class EndScreen : MonoBehaviour
         {
             case 0:
                 temp = (float)LevelManager.lm.par / (float)(dCOne + dCTwo) * 100;
+                GameManager.gm.lvlSR.Add(temp);
                 break;
             case 1:
                 temp = (((float)LevelManager.lm.par / 2) / (float)dCOne) *100;
                 Debug.Log("OOF");
+                GameManager.gm.lvlSR1.Add(temp);
                 break;
             default:
                 temp = (((float)LevelManager.lm.par / 2) / (float)dCTwo) * 100;
+                GameManager.gm.lvlSR2.Add(temp);
                 break;
         }
         Debug.Log(x + " " + temp);

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int totalCorpses, p1Corpses, p2Corpses;
     // p - par, c - corpses; one = world one, 1 = lvl 1
     [HideInInspector] public List<int> lvlC, lvlC1, lvlC2, lvlP;
+    [HideInInspector] public List<float> lvlSR, lvlSR1, lvlSR2;
     [HideInInspector] public int lvlNum, lastScn;
 
     public int lvlCount = 10;
