@@ -13,6 +13,14 @@ public class LvlEndScreen : MonoBehaviour
        // deathText.text = "Workplace Accidents: " + LevelManager.lm.totalCorpses;
     }
 
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            LoadNext();
+        }
+    }
+
     public void LoadNext()
     {
         if(LevelManager.lm != null)
