@@ -68,6 +68,7 @@ public class RagdollManager : MonoBehaviour
             }
 
             child.gameObject.tag = "Corpse";
+            gameObject.tag = "Corpse";
             if (child.gameObject.layer != 0)
             {
                 child.gameObject.layer = 0;
