@@ -10,7 +10,7 @@ public class RagdollManager : MonoBehaviour
 
     public bool dead;
     public float rotateSpeed;
-    
+    public Sprite dead1, dead2;
 
     private PlayerController controller;
     private List<GameObject> children = new List<GameObject>();
@@ -51,6 +51,20 @@ public class RagdollManager : MonoBehaviour
 
         foreach (var child in children)
         {
+            if (child.gameObject.name.Equals("Head"))
+            {
+                if (controller.playerInt == 1)
+                {
+                    child.GetComponent<SpriteRenderer>().sprite = dead1;
+                    child.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                else
+                {
+                    child.GetComponent<SpriteRenderer>().sprite = dead2;
+                    child.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+            }
+
             if (child.gameObject.GetComponent<PlayerController>() != null)
             {
                 Destroy(child.gameObject.GetComponent<PlayerController>());
