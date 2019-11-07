@@ -78,6 +78,7 @@ public abstract class Bullet : MonoBehaviour
         if (!hitObject)
         {
             hitObject = true;
+            Destroy(rigidBody);
             if (collision.gameObject.CompareTag("Player"))
             {
                 GameObject current = collision.gameObject;
@@ -113,13 +114,24 @@ public abstract class Bullet : MonoBehaviour
         
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        //print("colling");
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //print("trigger");
+        Destroy(this.gameObject);
+    }
+
     public abstract void Collide(GameObject objectHit);
 
     public abstract void Hit(PlayerController PlayerHit);
 
     private void Move()
     {
-        print("move");
+        
         velocityY -= decelerationY;
         velocityX -= decelerationX;
 
