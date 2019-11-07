@@ -12,7 +12,7 @@ public class Goal : MonoBehaviour
      */
     
     [SerializeField, Tooltip("Delay in Seconds that the scene loaded after the player collides with the goal")]
-    public int loadDelay;
+    public float loadDelay;
     
     public bool playerOneAtGoal;
     public bool playerTwoAtGoal;

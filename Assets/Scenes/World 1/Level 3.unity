@@ -966,12 +966,22 @@ PrefabInstance:
     - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
       propertyPath: m_Offset.x
-      value: 11.462238
+      value: -0.55206394
       objectReference: {fileID: 0}
     - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
       propertyPath: m_Size.x
-      value: 53.794907
+      value: 29.766302
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.27638292
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.935321
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a35a1fb991776d548b47db8113d60b2e, type: 3}
@@ -1022,11 +1032,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
-        type: 3}
-      propertyPath: buttonActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3460224804051616218, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
         type: 3}
@@ -1081,6 +1086,11 @@ PrefabInstance:
     - target: {fileID: 3460224804051616218, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
+        type: 3}
+      propertyPath: buttonActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1697,6 +1707,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3460224804051616223, guid: 0b1da88bb3bf68d47bb5222f154fe19f,
+        type: 3}
+      propertyPath: buttonActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b1da88bb3bf68d47bb5222f154fe19f, type: 3}
 --- !u!1001 &1565187586
@@ -1779,7 +1794,7 @@ PrefabInstance:
     - target: {fileID: 4290932493653339766, guid: a41e78acd4fab0c4b97b7cb5e32e2015,
         type: 3}
       propertyPath: buttonShootDelay
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4290932493653339766, guid: a41e78acd4fab0c4b97b7cb5e32e2015,
         type: 3}

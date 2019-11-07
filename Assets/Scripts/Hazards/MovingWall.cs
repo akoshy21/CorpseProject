@@ -116,12 +116,14 @@ public class MovingWall : MonoBehaviour
             PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
             if (controller != null && !controller.dead && moveDown)
             {
-                controller.Explode();
+                controller.Explode(0.5f);
                 
                 aso.pitch = 1;
                 aso.pitch += Random.Range(-0.25f, 0.25f);
                 aso.PlayOneShot(SquishNoise);
                 aso.PlayOneShot(BreakNoise);
+                
+                GameManager.gm.InstantiateSplatter(other, GetComponent<Collider2D>());
             }
         }
     }
