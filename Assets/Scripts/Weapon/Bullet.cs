@@ -34,6 +34,8 @@ public abstract class Bullet : MonoBehaviour
 
     private bool pointingRight;
 
+    private Rigidbody2D rigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,8 @@ public abstract class Bullet : MonoBehaviour
         velocityY = intialVelocity.y * bulletSpeed;
 
         velocityX = intialVelocity.x * bulletSpeed;
+
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -66,6 +70,7 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //print("collision");
         if (!hitObject)
         {
             if (collision.gameObject.CompareTag("Player"))
@@ -86,6 +91,7 @@ public abstract class Bullet : MonoBehaviour
                 {
                     Hit(controller);
                     this.transform.SetParent(collision.gameObject.transform);
+                    GameManager.gm.InstantiateSplatter(collision.collider, this.GetComponent<Collider2D>());
                 }     
             }
             else if (collision.gameObject.CompareTag("Corpse"))
@@ -96,7 +102,7 @@ public abstract class Bullet : MonoBehaviour
             {
                 Collide(collision.gameObject);
             }
-
+            
             hitObject = true;
         }
         
@@ -112,7 +118,8 @@ public abstract class Bullet : MonoBehaviour
         velocityX -= decelerationX;
 
         velocity = new Vector2(velocityX, velocityY);
-        transform.Translate(velocity * Time.deltaTime);
+        //transform.Translate(velocity * Time.deltaTime);
+        rigidBody.velocity = velocity;
     }
 
     /// <summary>

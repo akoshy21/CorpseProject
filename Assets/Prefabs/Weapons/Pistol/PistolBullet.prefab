@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3706335615805847716}
   - component: {fileID: 8739576152008347592}
   - component: {fileID: 495897250144925478}
+  - component: {fileID: 657968589333247530}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dfbb75c209a14e54c9acb20b2c2204e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,6 +182,27 @@ PolygonCollider2D:
       - {x: -11.589532, y: -4.2622657}
       - {x: -11.529668, y: -4.2383204}
       - {x: -11.457832, y: -4.1664844}
+--- !u!50 &657968589333247530
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692087490562421782}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &8620983882136154143
 PrefabInstance:
   m_ObjectHideFlags: 0
