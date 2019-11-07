@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8633283001230545941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.98, y: 0.7, z: 4.3050103}
+  m_LocalPosition: {x: -0.61, y: -8.19, z: 4.3050103}
   m_LocalScale: {x: 2.7859852, y: 0.249571, z: 1}
   m_Children: []
   m_Father: {fileID: 8633283001325431946}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 8633283001575282622}
   - component: {fileID: 8633283001575282623}
   - component: {fileID: 8633283001575282595}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -91,8 +91,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8633283001575282620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1264684, y: 0.63310224, z: 4.3050103}
-  m_LocalScale: {x: 2.7859852, y: 0.249571, z: 1}
+  m_LocalPosition: {x: -0.891, y: 0.727, z: 4.3050103}
+  m_LocalScale: {x: 0.1329918, y: 0.1291922, z: 1}
   m_Children: []
   m_Father: {fileID: 8633283001325431946}
   m_RootOrder: 0
@@ -135,8 +135,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de8c3f9b60159ef4cb51e07a0203a039, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f52fed332e6a3ac409106291360940ef, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,18 +159,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.092232704, y: -0.08885217}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 19.15, y: 5.48}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.267488, y: 5.620026}
   m_EdgeRadius: 0
 --- !u!114 &8633283001575282623
 MonoBehaviour:
@@ -191,7 +191,10 @@ MonoBehaviour:
   moveSpeedUp: 3
   moveSpeedSide: 3
   turnOn: 1
-  goUp: 0
+  goUp: 1
+  buttonNeeded: 1
+  buttonOrLever: {fileID: 0}
+  buttonOrLever2: {fileID: 0}
 --- !u!50 &8633283001575282595
 Rigidbody2D:
   serializedVersion: 4
@@ -237,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8633283002846846609}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.67, y: 0.77, z: 4.3050103}
+  m_LocalPosition: {x: -0.49, y: 1.22, z: 4.3050103}
   m_LocalScale: {x: 2.7859852, y: 0.249571, z: 1}
   m_Children: []
   m_Father: {fileID: 8633283001325431946}
