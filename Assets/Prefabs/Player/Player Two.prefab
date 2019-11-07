@@ -362,6 +362,10 @@ MonoBehaviour:
   LeftLeg: {fileID: 5431520813049338059}
   RightFoot: {fileID: 7782541566362126394}
   LeftFoot: {fileID: 1252085671798266069}
+  RightArm: {fileID: 7273858334605712234}
+  LeftArm: {fileID: 2272382366994279628}
+  RightArmLower: {fileID: 6985033229535305292}
+  LeftArmLower: {fileID: 5812167429834651617}
   DistanceFromStraight: 0.315
   LegMotorSpeed: 90
   BloodParticles: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,

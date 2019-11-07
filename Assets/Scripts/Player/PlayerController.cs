@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     //@author Carsen Decker
-    
    
     [HideInInspector] public bool dead;
     public float MoveSpeed;
@@ -22,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool grounded;
     public HingeJoint2D RightLeg, LeftLeg;
     public Transform RightFoot, LeftFoot;
+    public HingeJoint2D RightArm, LeftArm;
     public float DistanceFromStraight;
     [Space(20)]
     public float LegMotorSpeed;
@@ -36,9 +36,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastVel;
     private float footStartXRight, footStartXLeft;
     private bool reverseStep;
-    private bool buttonReleased;
+    private bool buttonReleased, pushButtonReleased;
     private RagdollManager myRagdoll;
     private JointAngleLimits2D rightLegLimits, leftLegLimits;
+    private JointAngleLimits2D rightArmLimits, leftArmLimits;
     
     //gun control edits by Kate Howell
     public bool weaponEquipped;
@@ -61,6 +62,9 @@ public class PlayerController : MonoBehaviour
         footStartXLeft = LeftFoot.transform.localPosition.x;
         rightLegLimits = RightLeg.limits;
         leftLegLimits = LeftLeg.limits;
+
+        rightArmLimits = RightArm.limits;
+        leftArmLimits = LeftArm.limits;
 
         //Player Specific Movement added by Kate
         if (transform.parent.CompareTag("PlayerOne"))
@@ -112,7 +116,6 @@ public class PlayerController : MonoBehaviour
         {
             GunControl();
         }
-
 
         //Player Interaction - added by Kate
 
@@ -581,10 +584,40 @@ public class PlayerController : MonoBehaviour
         canJump = true;
     }
 
-    private IEnumerator PushDelay()
+    private IEnumerator PushDelay(bool pushingRight)
     {
         canPush = false;
+        
+        JointAngleLimits2D newLimits = new JointAngleLimits2D();
+        newLimits.max = 0;
+        newLimits.min = 0;
+
+        if (pushingRight)
+        {
+            RightArm.limits = newLimits;
+            RightArm.transform.rotation = Quaternion.Euler(0, 0, 90);
+//            RightArmLower.limits = newLimits;
+        }
+        else
+        {
+            LeftArm.limits = newLimits;
+            LeftArm.transform.rotation = Quaternion.identity;
+//            LeftArmLower.limits = newLimits;
+        }
+
         yield return new WaitForSeconds(0.4f);
+
+        if (pushingRight)
+        {
+            RightArm.limits = rightArmLimits;
+//            LeftArmLower.limits = rightArmLimits;
+        }
+        else
+        {
+            LeftArm.limits = leftArmLimits;
+//            LeftArmLower.limits = leftArmLimits;
+        }
+        
         canPush = true;
     }
 
@@ -651,19 +684,22 @@ public class PlayerController : MonoBehaviour
             pushInput = Input.GetAxisRaw("P2Push");
         }
 
-        if (pushInput > 0)
+        if (pushInput > 0 && pushButtonReleased)
         {
-//            Debug.Log("Pushed");
             RaycastHit2D[] pushHits = new RaycastHit2D[0];
+
+            pushButtonReleased = false;
             
             //Push right if facing right, otherwise left
             if (facingRight)
             {
                 pushHits = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, Vector2.right, 0.2f);
+                StartCoroutine(PushDelay(true));
             }
             else
             {
                 pushHits = Physics2D.BoxCastAll(transform.position, transform.localScale, 0, Vector2.left, 0.2f);
+                StartCoroutine(PushDelay(false));
             }
 
             //If there is actually something in range of pushing...
@@ -695,7 +731,6 @@ public class PlayerController : MonoBehaviour
                                 hitRb.AddForce(Vector2.left * PushForce);
                             }
 
-                            StartCoroutine(PushDelay());
                         }
                         else if (playerInt == 2 && currentTf.CompareTag("PlayerOne"))
                         {
@@ -708,11 +743,28 @@ public class PlayerController : MonoBehaviour
                                 hitRb.AddForce(Vector2.left * PushForce);
                             }
 
-                            StartCoroutine(PushDelay());
                         }
+                    }
+                    else if (hits.collider.CompareTag("Corpse"))
+                    {
+                        Rigidbody2D hitRb = hits.collider.GetComponent<Rigidbody2D>();
+                        
+                        if (facingRight)
+                        {
+                            hitRb.AddForce(Vector2.right * PushForce);
+                        }
+                        else
+                        {
+                            hitRb.AddForce(Vector2.left * PushForce);
+                        }
+                        
                     }
                 }
             }
+        }
+        else if(pushInput <= 0)
+        {
+            pushButtonReleased = true;
         }
     }
 
