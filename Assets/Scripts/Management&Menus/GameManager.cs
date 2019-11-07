@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public Material surf;
 
+    
     private void Awake()
     {
         if (gm != null && gm != this)
