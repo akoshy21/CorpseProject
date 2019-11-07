@@ -18,6 +18,10 @@ public class Goal : MonoBehaviour
     public bool playerTwoAtGoal;
     private AudioSource audioSource;
 
+    private SpriteRenderer spriteRenderer;
+    public Sprite doorOpenSprite;
+    public Sprite doorClosedSprite;
+
     /*
     [SerializeField, Tooltip("Handle of the Scene to be loaded when goal is activated")]
     public Scene nextSceneToLoad;
@@ -80,6 +84,12 @@ public class Goal : MonoBehaviour
         {
             throw new System.Exception("Goal Missing Audio Source");
         }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if(spriteRenderer == null)
+        {
+            throw new System.Exception("Goal Missing Sprite Renderer wtf");
+        }
+        spriteRenderer.sprite = doorClosedSprite;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -153,6 +163,7 @@ public class Goal : MonoBehaviour
             //print("audioASource");
             audioSource.Play();
         }
+        spriteRenderer.sprite = doorOpenSprite;
         yield return new WaitForSeconds(loadDelay);
         LevelManager.lm.lvlEnd = true;
         yield return null;
