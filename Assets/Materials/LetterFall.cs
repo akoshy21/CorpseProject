@@ -7,6 +7,7 @@ public class LetterFall : MonoBehaviour
     public GameObject letter;
     public Rigidbody2D rigbod;
 
+    public bool letterfall;
     
     private float timer;
 
@@ -23,9 +24,16 @@ public class LetterFall : MonoBehaviour
     void Update()
     {
         
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && !letterfall)
         {
-            rigbod.isKinematic = false;
+            letterfall = true;
+            StartCoroutine(Delay(0.1f));
         }
+    }
+
+    IEnumerator Delay(float del)
+    {
+        yield return new WaitForSeconds(del);
+        rigbod.isKinematic = false;
     }
 }

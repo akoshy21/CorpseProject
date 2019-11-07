@@ -7,16 +7,28 @@ public class MenuManager : MonoBehaviour
 {
     //AK
 
-    public GameObject levelView;
+    public GameObject levelView, door;
+    public float doorHeight;
+
+    bool doorRise = false;
 
     void Start()
     {
-        
+        StartCoroutine(DoorDelay(1.5f));
     }
 
     void Update()
     {
-        
+        if (doorRise && door.transform.position.y <= doorHeight)
+        {
+            door.transform.Translate(new Vector3(0, 0.01f, 0));
+        }
+    }
+
+    IEnumerator DoorDelay(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        doorRise = true;
     }
 
     public void ViewLevels()

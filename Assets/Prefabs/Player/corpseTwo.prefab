@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4681901072322776499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743a243551dd6e04cab97f360d668f9c, type: 3}
   m_Name: 
@@ -1784,6 +1784,12 @@ MonoBehaviour:
   gunLocationRight: {fileID: 850760084988965858}
   gunLocationLeft: {fileID: 7248437762664287432}
   playerInt: 2
+  scream1: {fileID: 0}
+  scream2: {fileID: 0}
+  scream3: {fileID: 0}
+  scream4: {fileID: 0}
+  scream5: {fileID: 0}
+  audiosource: {fileID: 0}
 --- !u!1 &7248437762664287432
 GameObject:
   m_ObjectHideFlags: 0
