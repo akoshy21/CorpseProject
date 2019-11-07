@@ -646,6 +646,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4760857594435670005, guid: 967d77e7b07f42846a13e390c0e432f4,
+        type: 3}
+      propertyPath: crumbleTimeIntervalBetween4Stages
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967d77e7b07f42846a13e390c0e432f4, type: 3}
 --- !u!1 &457539649
@@ -887,7 +892,7 @@ PrefabInstance:
     - target: {fileID: 4760857594435670006, guid: 967d77e7b07f42846a13e390c0e432f4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.248047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4760857594435670006, guid: 967d77e7b07f42846a13e390c0e432f4,
         type: 3}
@@ -928,6 +933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760857594435670005, guid: 967d77e7b07f42846a13e390c0e432f4,
+        type: 3}
+      propertyPath: crumbleTimeIntervalBetween4Stages
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967d77e7b07f42846a13e390c0e432f4, type: 3}
@@ -1493,7 +1503,7 @@ PrefabInstance:
     - target: {fileID: 4760857594435670006, guid: 967d77e7b07f42846a13e390c0e432f4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.248047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4760857594435670006, guid: 967d77e7b07f42846a13e390c0e432f4,
         type: 3}
@@ -1534,6 +1544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760857594435670005, guid: 967d77e7b07f42846a13e390c0e432f4,
+        type: 3}
+      propertyPath: crumbleTimeIntervalBetween4Stages
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967d77e7b07f42846a13e390c0e432f4, type: 3}
@@ -3030,7 +3045,7 @@ PrefabInstance:
     - target: {fileID: 4760857594435670006, guid: 967d77e7b07f42846a13e390c0e432f4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.248047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4760857594435670006, guid: 967d77e7b07f42846a13e390c0e432f4,
         type: 3}
@@ -3071,6 +3086,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760857594435670005, guid: 967d77e7b07f42846a13e390c0e432f4,
+        type: 3}
+      propertyPath: crumbleTimeIntervalBetween4Stages
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967d77e7b07f42846a13e390c0e432f4, type: 3}
@@ -3150,6 +3170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: par
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374448539591071345, guid: 0848df75a8fe8ab408712a3d827975d0,
+        type: 3}
+      propertyPath: lvlNum
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0848df75a8fe8ab408712a3d827975d0, type: 3}

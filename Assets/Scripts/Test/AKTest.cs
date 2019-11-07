@@ -68,7 +68,7 @@ public class AKTest : MonoBehaviour
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
                 //Debug.Log("Rotating " + transform.rotation.eulerAngles);
-                if (Mathf.Abs(Quaternion.Angle(originalRotation, transform.rotation)) <= 2) ;
+                if (Mathf.Abs(Quaternion.Angle(originalRotation, transform.rotation)) <= 2)
                 {
                     restoreRotation = false;
                 }

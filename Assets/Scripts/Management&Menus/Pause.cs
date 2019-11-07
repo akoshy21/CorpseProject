@@ -11,6 +11,8 @@ public class Pause : MonoBehaviour
 
     private void Start()
     {
+        LevelManager.lm.paused = false;
+        pauseScreen.SetActive(false);
         // idk if we wanna have a pausemenu tag or smth
         //pauseScreen = GameObject.FindGameObjectWithTag("Pause");
     }
@@ -31,19 +33,33 @@ public class Pause : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+
+        if (LevelManager.lm.paused)
+        {
+            if (Input.GetButtonDown("Triangle"))
+            {
+                ReloadScene();
+            }
+            if (Input.GetButtonDown("Circle"))
+            {
+                LoadMain();
+            }
+        }
     }
 
     public void LoadMain()
     {
-        Time.timeScale = 1f;
         LevelManager.lm.paused = false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        Destroy(LevelManager.lm.gameObject);
     }
 
     public void ReloadScene()
     {
-        Time.timeScale = 1f;
         LevelManager.lm.paused = false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(LevelManager.lm.curScn);
+        Destroy(LevelManager.lm.gameObject);
     }
 }

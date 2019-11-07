@@ -182,7 +182,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
@@ -1159,6 +1159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   rotateSpeed: 2
+  dead1: {fileID: -2750813852222378484, guid: 12cb79a80afc7374d813bf079aea0b18, type: 3}
+  dead2: {fileID: 2554852657056638647, guid: 85a55d5fd42fffe40a5b27de170d7b92, type: 3}
 --- !u!114 &2436396792812689606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,6 +1777,8 @@ MonoBehaviour:
   LeftLeg: {fileID: 7535410450220570092}
   RightFoot: {fileID: 6606505429581864170}
   LeftFoot: {fileID: 574750268806447497}
+  RightArm: {fileID: 6961900378218970486}
+  LeftArm: {fileID: 1879196172213613685}
   DistanceFromStraight: 0.315
   LegMotorSpeed: 90
   BloodParticles: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,
