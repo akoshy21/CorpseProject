@@ -16,6 +16,10 @@ public class WreckBallScriptLuke : MonoBehaviour
     public GameObject ball;
 
     public Transform xPos;
+
+    public AudioSource audiosource;
+
+    public AudioClip chainclip;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,8 @@ public class WreckBallScriptLuke : MonoBehaviour
         vel = rigbod.velocity;
         if (vel.magnitude < speedCap)
         {
+            
+            audiosource.PlayOneShot(chainclip);
             if (transform.position.x > xPos.transform.position.x)
             {
                 rigbod.AddForce(new Vector2(-rePushx,rePushy), ForceMode2D.Impulse);
