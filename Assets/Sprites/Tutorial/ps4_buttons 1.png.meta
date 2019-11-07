@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: adc6aef828a6cd84cb8a6e1bf921d48c
+guid: 51c94dce18224fa46ac0625f32f1626a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2621553741740718570
-    second: ps4_buttons_0
+      213: -7693830756313973114
+    second: ps4_buttons 1_0
   - first:
-      213: -3470994670266043283
-    second: ps4_buttons_1
+      213: -6462987612890051370
+    second: ps4_buttons 1_1
   - first:
-      213: -7124410640572068375
-    second: ps4_buttons_2
+      213: 5313159645542482725
+    second: ps4_buttons 1_2
   - first:
-      213: 2433958742010991186
-    second: ps4_buttons_3
+      213: -2275763330769233271
+    second: ps4_buttons 1_3
   - first:
-      213: 4437620023744470570
-    second: ps4_buttons_4
+      213: 89508276188558638
+    second: ps4_buttons 1_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -137,7 +137,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ps4_buttons_0
+      name: ps4_buttons 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72b1c22538539394b806fe37fdc3cf47
-      internalID: 2621553741740718570
+      spriteID: 082b1e6925d7e864e98580e53506ac61
+      internalID: -7693830756313973114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ps4_buttons_1
+      name: ps4_buttons 1_1
       rect:
         serializedVersion: 2
         x: 506
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a54fc24927535f54986e4d4d5cb6d48f
-      internalID: -3470994670266043283
+      spriteID: a8e76142e6a05b24f8fc6e73535f2184
+      internalID: -6462987612890051370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ps4_buttons_2
+      name: ps4_buttons 1_2
       rect:
         serializedVersion: 2
         x: 1014
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd16b87185ab1ac46aaa85cd2c9c86f4
-      internalID: -7124410640572068375
+      spriteID: bf56cb33ea65206429c485d086a1fd30
+      internalID: 5313159645542482725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ps4_buttons_3
+      name: ps4_buttons 1_3
       rect:
         serializedVersion: 2
         x: 1641
@@ -214,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 761a76b71d7253647b3afdd394179e32
-      internalID: 2433958742010991186
+      spriteID: bdf8adb8417a5254fad5dbf35e474ebd
+      internalID: -2275763330769233271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ps4_buttons_4
+      name: ps4_buttons 1_4
       rect:
         serializedVersion: 2
         x: 2075
@@ -235,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27314f7fb6e2d11408747b570422b572
-      internalID: 4437620023744470570
+      spriteID: 9daee9fdffe7c064c94d0bd84f1b4136
+      internalID: 89508276188558638
       vertices: []
       indices: 
       edges: []
