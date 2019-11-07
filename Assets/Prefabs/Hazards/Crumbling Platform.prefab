@@ -124,3 +124,5 @@ MonoBehaviour:
   crumbleTimeIntervalBetween4Stages: 0.25
   reset: 1
   resetTime: 1
+  spriteS: {fileID: 21300000, guid: c98bf0e79192b5045b25c2d8c8fc358f, type: 3}
+  spriteCrumbling: {fileID: 21300000, guid: 4d21a0a2f4c60324492ea759c4463521, type: 3}
