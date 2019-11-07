@@ -784,6 +784,24 @@ public class PlayerController : MonoBehaviour
         Die();
     }
 
+    public void Explode(float dismemberChance)
+    {
+        HingeJoint2D[] joints = transform.parent.GetComponentsInChildren<HingeJoint2D>();
+        foreach (HingeJoint2D joint in joints)
+        {
+            if (Random.value < dismemberChance)
+            {
+                Rigidbody2D jointRb = joint.GetComponent<Rigidbody2D>();
+                jointRb.AddForce(jointRb.velocity * rb.velocity * 5.5f);
+                GameObject particles = Instantiate(BloodParticles, joint.transform);
+                particles.GetComponent<ParticleSystem>().Play();
+                Destroy(joint);
+            }
+        }
+
+        Die();
+    }
+
     ///Launches the player a certain amount in a certain direction
     public void Launch(float launchForce, Vector3 launchDirection)
     {
