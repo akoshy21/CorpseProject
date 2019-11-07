@@ -18,15 +18,21 @@ public class FanScript : MonoBehaviour
         
         if (status == State.Left)
         {
-            rightTrigger.SetActive(true);
+            rightTrigger.SetActive(false);
+            leftTrigger.SetActive(true);
+
+            Vector3 tempScale = wind.transform.localScale;
+            tempScale.y *= -1;
+            wind.transform.localScale = tempScale;
+
+            this.transform.localScale = new Vector3(-1, transform.localScale.y);
         }
 
         if (status == State.Right)
         {
-            leftTrigger.SetActive(true);
-            Vector3 tempScale = wind.transform.localScale;
-            tempScale.y *= -1;
-            wind.transform.localScale = tempScale;
+            rightTrigger.SetActive(true);
+            leftTrigger.SetActive(false);
+            this.transform.localScale = new Vector3(1, transform.localScale.y);
         }
         
     }
