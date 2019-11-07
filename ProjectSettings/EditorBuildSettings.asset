@@ -27,6 +27,18 @@ EditorBuildSettings:
     path: Assets/Scenes/RealScenes/World1/L1W1.unity
     guid: eb5a57ee3011e4c00bd33481d34f64f9
   - enabled: 1
+    path: Assets/Scenes/RealScenes/World1/L2W1.unity
+    guid: 466d1e5528e44174484d87f12f03e399
+  - enabled: 1
+    path: Assets/Scenes/RealScenes/World1/L3W1.unity
+    guid: 903fec9fe8535fa41bf14a2240d2a8f0
+  - enabled: 1
+    path: Assets/Scenes/RealScenes/World1/L4W1.unity
+    guid: 6f7cce4704e5b1b438eba921f4bfce1e
+  - enabled: 1
+    path: Assets/Scenes/RealScenes/World1/L5W1.unity
+    guid: cdfcc7bf6453a0042b0efd4ae37ceace
+  - enabled: 1
     path: Assets/Scenes/RealScenes/World1/L6W1.unity
     guid: bad480f77b6700a4a9b221de2c388361
   m_configObjects: {}
