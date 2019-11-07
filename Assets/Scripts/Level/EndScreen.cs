@@ -97,7 +97,7 @@ public class EndScreen : MonoBehaviour
         {
             return "F";
         }
-        return "X";
+        return "F-";
     }
 
     float LongestTimeSD(List<float> l)
