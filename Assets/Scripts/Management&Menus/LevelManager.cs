@@ -9,8 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager lm;
 
-    public enum Level { WorldOne_1, WorldOne_2, WorldOne_3}
-    public Level curLvl;
+    public int lvlNum;
     public int par;
     public GameObject endScreen;
 
@@ -29,7 +28,7 @@ public class LevelManager : MonoBehaviour
     {
         if (lm != null && lm != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
@@ -92,38 +91,12 @@ public class LevelManager : MonoBehaviour
 
     void SetPar()
     {
-        switch (curLvl)
-        {
-            case Level.WorldOne_1:
-                GameManager.gm.lvlP[0,0] = par;
-                break;
-            case Level.WorldOne_2:
-                GameManager.gm.lvlP[0,1] = par;
-                break;
-            case Level.WorldOne_3:
-                GameManager.gm.lvlP[0,2] = par;
-                break;
-            default:
-                break;
-        }
+        GameManager.gm.lvlP[lvlNum] = par;
     }
 
     void SetLvl()
     {
-        switch (curLvl)
-        {
-            case Level.WorldOne_1:
-                GameManager.gm.lvl = 0;
-                break;
-            case Level.WorldOne_2:
-                GameManager.gm.lvl = 1;
-                break;
-            case Level.WorldOne_3:
-                GameManager.gm.lvl = 2;
-                break;
-            default:
-                break;
-        }
+        GameManager.gm.lvlNum = lvlNum;
     }
 
     public void NewDeath(bool pOne)
@@ -146,25 +119,8 @@ public class LevelManager : MonoBehaviour
 
     void SetDeaths()
     {
-        switch (curLvl)
-        {
-            case Level.WorldOne_1:
-                GameManager.gm.lvlC[0, 0] = totalCorpses;
-                GameManager.gm.lvlC1[0,0] = corpseCount1;
-                GameManager.gm.lvlC2[0, 0] = corpseCount2;
-                break;
-            case Level.WorldOne_2:
-                GameManager.gm.lvlC[0, 1] = totalCorpses;
-                GameManager.gm.lvlC1[0, 1] = corpseCount1;
-                GameManager.gm.lvlC2[0, 1] = corpseCount2;
-                break;
-            case Level.WorldOne_3:
-                GameManager.gm.lvlC[0, 2] = totalCorpses;
-                GameManager.gm.lvlC1[0, 2] = corpseCount1;
-                GameManager.gm.lvlC2[0, 2] = corpseCount2;
-                break;
-            default:
-                break;
-        }
+        GameManager.gm.lvlC[lvlNum] = totalCorpses;
+        GameManager.gm.lvlC1[lvlNum] = corpseCount1;
+        GameManager.gm.lvlC2[lvlNum] = corpseCount2;
     }
 }

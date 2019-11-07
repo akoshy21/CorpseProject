@@ -12,11 +12,15 @@ public class Goal : MonoBehaviour
      */
     
     [SerializeField, Tooltip("Delay in Seconds that the scene loaded after the player collides with the goal")]
-    public int loadDelay;
+    public float loadDelay;
     
     public bool playerOneAtGoal;
     public bool playerTwoAtGoal;
     private AudioSource audioSource;
+
+    private SpriteRenderer spriteRenderer;
+    public Sprite doorOpenSprite;
+    public Sprite doorClosedSprite;
 
     /*
     [SerializeField, Tooltip("Handle of the Scene to be loaded when goal is activated")]
@@ -80,9 +84,19 @@ public class Goal : MonoBehaviour
         {
             throw new System.Exception("Goal Missing Audio Source");
         }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if(spriteRenderer == null)
+        {
+            throw new System.Exception("Goal Missing Sprite Renderer wtf");
+        }
+        spriteRenderer.sprite = doorClosedSprite;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.transform.parent == null)
+        {
+            return;
+        }
         if (collision.transform.parent.CompareTag("PlayerOne"))
         {
             PlayerController controller = collision.transform.parent.GetComponentInChildren<PlayerController>();
@@ -102,7 +116,7 @@ public class Goal : MonoBehaviour
 
         if (playerOneAtGoal && playerTwoAtGoal)
         {
-            print("yayBoth");
+            //print("yayBoth");
             StartCoroutine(loadNextScene());
         }
     }
@@ -153,7 +167,9 @@ public class Goal : MonoBehaviour
             //print("audioASource");
             audioSource.Play();
         }
+        spriteRenderer.sprite = doorOpenSprite;
         yield return new WaitForSeconds(loadDelay);
+        Debug.Log("HEY");
         LevelManager.lm.lvlEnd = true;
         yield return null;
 

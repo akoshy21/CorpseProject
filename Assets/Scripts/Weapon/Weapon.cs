@@ -31,12 +31,26 @@ public abstract class Weapon : MonoBehaviour
 
     private PlayerController controller;
 
+    public bool buttonActivated;
+    public GameObject buttonOrLever;
+    public int buttonShootDelay;
+
     public void Update()
     {
         if (automated && !attacking)
         {
             StartCoroutine(automatedAttack());
             attacking = true;
+        }
+
+        if (buttonActivated)
+        {
+            if (buttonOrLever.GetComponent<ButtonScript>().buttonActive && !attacking)
+            {
+                Attack();
+                attacking = true;
+                StartCoroutine(buttonAttack());
+            }
         }
     }
 
@@ -158,9 +172,16 @@ public abstract class Weapon : MonoBehaviour
     {
         yield return new WaitForSeconds(automatedBulletSpawnRate);
         Attack();
-        print("Attack");
+        //print("Attack");
         StartCoroutine(automatedAttack());
         
+    }
+
+    public IEnumerator buttonAttack()
+    {
+        yield return new WaitForSeconds(buttonShootDelay);
+        attacking = false;
+
     }
 
 }

@@ -4855,7 +4855,7 @@ Transform:
   m_GameObject: {fileID: 7909929459192226913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.788, y: -4.712, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.18935, y: 0.18935, z: 0.18935}
   m_Children:
   - {fileID: 1365094109}
   - {fileID: 4541933070447543892}
@@ -4925,7 +4925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightTrigger: {fileID: 7909929458766354847}
   leftTrigger: {fileID: 7909929459223005049}
-  status: 0
+  status: 1
 --- !u!95 &7733758155174697795
 Animator:
   serializedVersion: 3
@@ -4936,7 +4936,7 @@ Animator:
   m_GameObject: {fileID: 7909929459192226913}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60364e9efd4f1954cb3109ecbb8574dc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

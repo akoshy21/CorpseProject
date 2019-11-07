@@ -13,7 +13,7 @@ public class GlassFunctions : MonoBehaviour
     public SpriteRenderer glassRenderer;
 
     private ParticleSystem shatterParticles;
-    public AudioSource audiosource;
+    private AudioSource audiosource;
     public AudioClip shatterclip;
     private bool shattered;
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class GlassFunctions : MonoBehaviour
     {
         velocityDivide = 6f;
         shatterParticles = GetComponentInChildren<ParticleSystem>();
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,8 +51,14 @@ public class GlassFunctions : MonoBehaviour
                 
                 if (other.gameObject.CompareTag("Player"))
                 {
-                    PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-                    controller.Die();
+                    Transform currentTf = other.transform;
+                    while (currentTf.parent != null || (currentTf.CompareTag("PlayerOne") && currentTf.CompareTag("PlayerTwo")))
+                    {
+                        currentTf = currentTf.parent;
+                    }
+
+                    PlayerController controller = currentTf.GetComponentInChildren<PlayerController>();
+                    controller.Explode(0.35f);
                     Debug.Log("Death");
                 }
 

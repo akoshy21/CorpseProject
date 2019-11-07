@@ -7,7 +7,10 @@ public class BouncePad : MonoBehaviour
     [SerializeField, Tooltip("Must be more than 100")]
     public float launchHeightMax;
 
-    public List<Rigidbody2D> currentBodies = new List<Rigidbody2D>();
+    [SerializeField, Tooltip("Base Force Before Adjustments")]
+    public float baseLaunchForce = 150;
+
+    //public List<Rigidbody2D> currentBodies = new List<Rigidbody2D>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,9 +36,9 @@ public class BouncePad : MonoBehaviour
                 {
                     float velocity = rigidbody.velocity.y;
                     
-                    float forceToAdd = 150;
+                    float forceToAdd = baseLaunchForce;
                     
-                    print(velocity);
+                    //print(velocity);
 
                     if (velocity < 0)
                     {
@@ -45,8 +48,8 @@ public class BouncePad : MonoBehaviour
                         
                         if (forceToAdd + velocity > launchHeightMax)
                         {
-                            //forceToAdd = launchHeightMax - velocity;
-                            print("thisSHouldntPrint");
+                            forceToAdd = launchHeightMax;
+                            //print("thisSHouldntPrint");
                         }
                         else
                         {
@@ -54,17 +57,17 @@ public class BouncePad : MonoBehaviour
                         }
             
             
-                        print(forceToAdd);
+                        //print(forceToAdd);
                         rigidbody.AddForce(new Vector2(0, forceToAdd), ForceMode2D.Impulse);
                     
                         //print("TheActualJump");
                         //rigidbody.velocity = new Vector2(rigidbody.velocity.x,0);
-                        rigidbody.AddForce(new Vector2(0, forceToAdd), ForceMode2D.Impulse);
+                        //rigidbody.AddForce(new Vector2(0, forceToAdd), ForceMode2D.Impulse);
                         //print(forceToAdd);
                     }
                     else
                     {
-                        print("its positive?");
+                        //print("its positive?");
                     }
                     
 
@@ -148,14 +151,14 @@ public class BouncePad : MonoBehaviour
         */
     }
 
-
+    /*
     private void Launch()
     {
         foreach(Rigidbody2D body in currentBodies)
         {
             float velocity = body.velocity.y;
 
-            float forceToAdd = 150;
+            float forceToAdd = baseLaunchForce;
 
             if (velocity < 0)
             {
@@ -165,25 +168,25 @@ public class BouncePad : MonoBehaviour
             {
                 forceToAdd -= velocity;
                 //velocity = -velocity;
-                print("velocityLaunch");
+                //print("velocityLaunch");
             }
 
             if (forceToAdd + velocity > launchHeightMax)
             {
                 //forceToAdd = launchHeightMax - velocity;
-                print("thisSHouldntPrint");
+                //print("thisSHouldntPrint");
             }
             else
             {
                 forceToAdd += velocity;
             }
-            
-            
+
+            print(velocity);
             print(forceToAdd);
             body.AddForce(new Vector2(0, forceToAdd), ForceMode2D.Impulse);
 
         }
-        /*
+        
         if(rigidbody != null)
         {
             float velocity = rigidbody.velocity.y;
@@ -213,6 +216,7 @@ public class BouncePad : MonoBehaviour
             rigidbody.AddForce(new Vector2(0, jumpAdjustment), ForceMode2D.Impulse);
             print(jumpAdjustment);
         }
-        */
+        
     }
+    */
 }

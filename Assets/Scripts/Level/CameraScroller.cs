@@ -17,9 +17,6 @@ public class CameraScroller : MonoBehaviour
 
     public float standerdDistance;
 
-    
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,17 +34,17 @@ public class CameraScroller : MonoBehaviour
         if(playerOne != null)
         {
             PlayerController controller = playerOne.GetComponentInChildren<PlayerController>();
-            GameObject torso = null;
 
             if (controller != null)
             {
-                torso = controller.gameObject;
+                GameObject torso = controller.gameObject;
+                if (torso != null)
+                {
+                    playerOne = torso;
+                }
             }
 
-            if (torso != null)
-            {
-                playerOne = torso;
-            }
+            
         }
 
         //playone position
@@ -66,17 +63,16 @@ public class CameraScroller : MonoBehaviour
         if (playerTwo != null)
         {
             PlayerController controller = playerTwo.GetComponentInChildren<PlayerController>();
-            GameObject torso = null;
 
             if (controller != null)
             {
-                torso = controller.gameObject;
+                GameObject torso = controller.gameObject;
+                if (torso != null)
+                {
+                    playerTwo = torso;
+                }
             }
 
-            if (torso != null)
-            {
-                playerTwo = torso;
-            }
         }
 
         //playTwo position

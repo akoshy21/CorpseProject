@@ -12,7 +12,7 @@ public abstract class FallingHazard : MonoBehaviour
     [HideInInspector] public bool activated;
     [HideInInspector] public bool fell;
     [HideInInspector] public bool grounded;
-    private bool moveUp;
+    public bool moveUp;
     private Rigidbody2D rigidBody;
     private float startY;
 
@@ -79,7 +79,23 @@ public abstract class FallingHazard : MonoBehaviour
             PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
             if (pC != null && !pC.dead)
             {
-                pC.Die();  
+                pC.Explode();  
+            }
+        }
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && !grounded && !moveUp)
+        {
+            PlayerController pC = other.transform.parent.GetComponentInChildren<PlayerController>();
+            if (pC != null && !pC.dead)
+            {
+                pC.Explode();
             }
         }
         else if (other.gameObject.CompareTag("Ground"))

@@ -17,6 +17,15 @@ public class PistolBullet : Bullet
     /// <param name="objectHit">Object the bullet hits</param>
     public override void Collide(GameObject objectHit)
     {
+        if (objectHit.CompareTag("Ground"))
+        {
+            
+        }
+        else
+        {
+            //Destroy(this.gameObject);
+        }
+        Destroy(this.gameObject);
         //collision code
         //partical effects horraaayyy
     }
@@ -31,9 +40,8 @@ public class PistolBullet : Bullet
         {
             PlayerHit.Die();
         }
-
-        Destroy(this.gameObject);
-
-        //bloodSpatter horrayy
+        
+        GetComponentInChildren<ParticleSystem>().Play();
+        
     }
 }

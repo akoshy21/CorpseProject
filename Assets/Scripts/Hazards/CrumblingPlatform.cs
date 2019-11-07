@@ -11,13 +11,14 @@ public class CrumblingPlatform : MonoBehaviour
     public float resetTime;
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider2D;
-    Sprite spriteS;
+    public Sprite spriteS;
+    public Sprite spriteCrumbling;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-        spriteS = spriteRenderer.sprite;
+        spriteRenderer.sprite = spriteCrumbling;
 
     }
 
@@ -39,6 +40,7 @@ public class CrumblingPlatform : MonoBehaviour
     {
         if (crumbling)
         {
+            
             if (crumbleStage == 4)
             {
                 crumbling = false;
@@ -51,6 +53,7 @@ public class CrumblingPlatform : MonoBehaviour
             }
             else
             {
+                spriteRenderer.sprite = spriteCrumbling;
                 yield return new WaitForSeconds(crumbleTimeIntervalBetween4Stages);
                 crumbleStage++;
                 StartCoroutine(crumble());
@@ -58,6 +61,7 @@ public class CrumblingPlatform : MonoBehaviour
         }
         else
         {
+            
             crumbleStage = 0;
         }
     }

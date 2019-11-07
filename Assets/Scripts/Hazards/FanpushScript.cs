@@ -103,11 +103,11 @@ public class FanpushScript : MonoBehaviour
     {
         if (dir == Direction.Left)
         {
-            go.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0.5f), ForceMode2D.Impulse);
+            go.GetComponent<Rigidbody2D>().AddForce(-transform.parent.parent.right * speed, ForceMode2D.Impulse);
         }
         else if (dir == Direction.Right)
         {
-            go.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0.5f), ForceMode2D.Impulse);
+            go.GetComponent<Rigidbody2D>().AddForce(transform.parent.parent.right * speed, ForceMode2D.Impulse);
         }
     }
 }

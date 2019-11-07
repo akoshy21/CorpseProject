@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -729,15 +730,18 @@ public class PlayerController : MonoBehaviour
             dead = true;
             myRagdoll.CreateRagdoll();
 
-            if (playerInt == 1)
+            if (!SceneManager.GetActiveScene().name.Equals("LevelSelect"))
             {
-                LevelManager.lm.corpseCount1++;
-                LevelManager.lm.NewDeath(true);
-            }
-            else if (playerInt == 2)
-            {
-                LevelManager.lm.corpseCount2++;
-                LevelManager.lm.NewDeath(false);
+                if (playerInt == 1)
+                {
+                    LevelManager.lm.corpseCount1++;
+                    LevelManager.lm.NewDeath(true);
+                }
+                else if (playerInt == 2)
+                {
+                    LevelManager.lm.corpseCount2++;
+                    LevelManager.lm.NewDeath(false);
+                }
             }
 
             randomSound = Random.Range(1, 6);
@@ -772,6 +776,24 @@ public class PlayerController : MonoBehaviour
         foreach (HingeJoint2D joint in joints)
         {
             if (Random.value < 0.25f)
+            {
+                Rigidbody2D jointRb = joint.GetComponent<Rigidbody2D>();
+                jointRb.AddForce(jointRb.velocity * rb.velocity * 5.5f);
+                GameObject particles = Instantiate(BloodParticles, joint.transform);
+                particles.GetComponent<ParticleSystem>().Play();
+                Destroy(joint);
+            }
+        }
+
+        Die();
+    }
+
+    public void Explode(float dismemberChance)
+    {
+        HingeJoint2D[] joints = transform.parent.GetComponentsInChildren<HingeJoint2D>();
+        foreach (HingeJoint2D joint in joints)
+        {
+            if (Random.value < dismemberChance)
             {
                 Rigidbody2D jointRb = joint.GetComponent<Rigidbody2D>();
                 jointRb.AddForce(jointRb.velocity * rb.velocity * 5.5f);

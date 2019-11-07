@@ -18,7 +18,7 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField, Tooltip("Speed bullet moves")]
     public float bulletSpeed;
 
-    private bool hitObject;
+    public bool hitObject;
 
     [SerializeField, Tooltip("Rate of deceleration over time on bullet on the X axis")]
     public float decelerationX;
@@ -33,6 +33,8 @@ public abstract class Bullet : MonoBehaviour
     private Vector2 velocity;
 
     private bool pointingRight;
+
+    private Rigidbody2D rigidBody;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +56,8 @@ public abstract class Bullet : MonoBehaviour
         velocityY = intialVelocity.y * bulletSpeed;
 
         velocityX = intialVelocity.x * bulletSpeed;
+
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -62,15 +66,39 @@ public abstract class Bullet : MonoBehaviour
         {
             Move();
         }
+        else
+        {
+            //rigidBody.velocity = new Vector2(0, 0);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //print("collision");
         if (!hitObject)
         {
+            hitObject = true;
+            Destroy(rigidBody);
             if (collision.gameObject.CompareTag("Player"))
             {
-                Hit(collision.transform.parent.GetComponentInChildren<PlayerController>());
+                GameObject current = collision.gameObject;
+                PlayerController controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+                if (controller == null)
+                {
+                    current = current.transform.parent.gameObject;
+                    controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+                }
+                if (controller == null)
+                {
+                    current = current.transform.parent.gameObject;
+                    controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+                }
+                if (controller != null && !controller.dead)
+                {
+                    Hit(controller);
+                    this.transform.SetParent(collision.gameObject.transform);
+                    GameManager.gm.InstantiateSplatter(collision.collider, this.GetComponent<Collider2D>());
+                }     
             }
             else if (collision.gameObject.CompareTag("Corpse"))
             {
@@ -80,8 +108,19 @@ public abstract class Bullet : MonoBehaviour
             {
                 Collide(collision.gameObject);
             }
+            
+            
+        }
+        
+    }
 
-            hitObject = true;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //print("trigger");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Destroy(this.gameObject);
         }
         
     }
@@ -92,11 +131,13 @@ public abstract class Bullet : MonoBehaviour
 
     private void Move()
     {
+        
         velocityY -= decelerationY;
         velocityX -= decelerationX;
 
         velocity = new Vector2(velocityX, velocityY);
         transform.Translate(velocity * Time.deltaTime);
+        //rigidBody.velocity = velocity;
     }
 
     /// <summary>
