@@ -12,22 +12,22 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e669b9403df66294c8eb2fdcf09a99d0
   - enabled: 1
-    path: Assets/Scenes/World 1/FakeLevel1.unity
+    path: Assets/Scenes/RealScenes/World1/FakeLevel1.unity
     guid: 68eab1659f9df4e4dac27473ee60b83d
   - enabled: 1
-    path: Assets/Scenes/World 1/FakeLevelFast.unity
+    path: Assets/Scenes/RealScenes/World1/FakeLevel2.unity
     guid: ce323422ff164df4bae85ff4491b1b8b
   - enabled: 1
-    path: Assets/Scenes/World 1/Level 1.unity
+    path: Assets/Scenes/RealScenes/World1/L1W1.unity
     guid: eb5a57ee3011e4c00bd33481d34f64f9
   - enabled: 1
-    path: Assets/Scenes/World 1/Level 2.unity
+    path: Assets/Scenes/RealScenes/In Progress/Level 2.unity
     guid: b88c4d9f155a45f459f2f69d5a02645e
   - enabled: 1
-    path: Assets/Scenes/World 1/JumpSpikeLevel.unity
+    path: Assets/Scenes/RealScenes/World1/L6W1.unity
     guid: bad480f77b6700a4a9b221de2c388361
   - enabled: 1
-    path: Assets/Scenes/World 1/LauchandSkip.unity
+    path: Assets/Scenes/RealScenes/In Progress/LauchandSkip.unity
     guid: 4fabf9c23cd0d364d80c8edcf3f0d6d6
   - enabled: 0
     path: 
