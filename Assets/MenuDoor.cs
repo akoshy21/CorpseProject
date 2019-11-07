@@ -1,25 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuDoor : MonoBehaviour
 {
-    Animation anim;
+    public Sprite open;
+    public AudioSource aud;
+
+    bool pOne, pTwo, endStart;
 
     private void Start()
     {
-        anim = this.GetComponent<Animation>();
+        aud = this.GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter2D()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        StartCoroutine(ToLevels());
+        if(col.transform.parent.)
+        
+    }
+
+    private void Update()
+    {
+        if (endStart && pOne && pTwo)
+        {
+            StartCoroutine(ToLevels());
+            endStart = false;
+        }
     }
 
     IEnumerator ToLevels()
     {
-        anim.Play("jump");
+        this.GetComponent<SpriteRenderer>().sprite = open;
+        aud.Play();
         yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("LevelSelect");
 
     }
 }
