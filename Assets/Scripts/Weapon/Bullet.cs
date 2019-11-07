@@ -119,7 +119,7 @@ public abstract class Bullet : MonoBehaviour
 
     private void Move()
     {
-        
+        print("move");
         velocityY -= decelerationY;
         velocityX -= decelerationX;
 
