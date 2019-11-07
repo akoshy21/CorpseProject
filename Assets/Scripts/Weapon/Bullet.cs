@@ -73,6 +73,7 @@ public abstract class Bullet : MonoBehaviour
         //print("collision");
         if (!hitObject)
         {
+            hitObject = true;
             if (collision.gameObject.CompareTag("Player"))
             {
                 GameObject current = collision.gameObject;
@@ -103,7 +104,7 @@ public abstract class Bullet : MonoBehaviour
                 Collide(collision.gameObject);
             }
             
-            hitObject = true;
+            
         }
         
     }
