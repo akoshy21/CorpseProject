@@ -22,7 +22,7 @@ public class NarrationFunction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey  && startCheck == false)
+        if (Input.anyKey   && startCheck == false)
         {
            turnOn = true;
            startCheck = true;
