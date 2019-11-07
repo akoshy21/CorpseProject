@@ -85,6 +85,7 @@ public abstract class Bullet : MonoBehaviour
                 if (controller != null && !controller.dead)
                 {
                     Hit(controller);
+                    this.transform.SetParent(collision.gameObject.transform);
                 }     
             }
             else if (collision.gameObject.CompareTag("Corpse"))
