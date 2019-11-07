@@ -81,7 +81,7 @@ public class ButtonScript : MonoBehaviour
 
             if (isLever)
             {
-                if (Input.GetKey(KeyCode.E) || Input.GetButton("P1Interact") || Input.GetButton("P2Interact"))
+                if ((Input.GetKey(KeyCode.E) || Input.GetButton("P1Interact") || Input.GetButton("P2Interact") && entryList.Count > 0))
                 {
                     buttonActive = true;
                     buttonGateOff = true;
@@ -119,9 +119,16 @@ public class ButtonScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isLever == false)
+        {
+            entryList.Add(other.gameObject);
+        }
         
-     
-        entryList.Add(other.gameObject);
+        if (isLever && other.CompareTag("Player"))
+        {
+            entryList.Add(other.gameObject);
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -129,7 +136,15 @@ public class ButtonScript : MonoBehaviour
       Debug.Log(other);
         
 
-        entryList.Remove(other.gameObject);
+      if (isLever == false)
+      {
+          entryList.Remove(other.gameObject);
+      }
+        
+      if (isLever && other.CompareTag("Player"))
+      {
+          entryList.Remove(other.gameObject);
+      }
     }
 
    
