@@ -18,7 +18,7 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField, Tooltip("Speed bullet moves")]
     public float bulletSpeed;
 
-    private bool hitObject;
+    public bool hitObject;
 
     [SerializeField, Tooltip("Rate of deceleration over time on bullet on the X axis")]
     public float decelerationX;
@@ -65,6 +65,10 @@ public abstract class Bullet : MonoBehaviour
         if (!hitObject)
         {
             Move();
+        }
+        else
+        {
+            //rigidBody.velocity = new Vector2(0, 0);
         }
     }
 
@@ -115,6 +119,7 @@ public abstract class Bullet : MonoBehaviour
 
     private void Move()
     {
+        print("move");
         velocityY -= decelerationY;
         velocityX -= decelerationX;
 
