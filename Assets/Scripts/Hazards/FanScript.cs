@@ -15,24 +15,27 @@ public class FanScript : MonoBehaviour
     void Start()
     {
         ParticleSystem wind = GetComponentInChildren<ParticleSystem>();
-        
+
+        wind.transform.localScale = this.transform.localScale * 9;
+
         if (status == State.Left)
         {
             rightTrigger.SetActive(false);
             leftTrigger.SetActive(true);
 
             Vector3 tempScale = wind.transform.localScale;
-            tempScale.y *= -1;
+            tempScale.x *= -1;
             wind.transform.localScale = tempScale;
 
-            this.transform.localScale = new Vector3(-1, transform.localScale.y);
+            tempScale = this.transform.localScale;
+            tempScale.x *= -1;
+            this.transform.localScale = tempScale;
         }
 
         if (status == State.Right)
         {
             rightTrigger.SetActive(true);
             leftTrigger.SetActive(false);
-            this.transform.localScale = new Vector3(1, transform.localScale.y);
         }
         
     }
