@@ -17,7 +17,7 @@ public class MenuDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.transform.parent.)
+        //if(col.transform.parent.)
         
     }
 
