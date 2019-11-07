@@ -36,7 +36,16 @@ public class EndScreen : MonoBehaviour
         d2.text = dCTwo.ToString();
         dTot.text = (dCOne + dCTwo).ToString();
 
-        safety.text = ((LevelManager.lm.par/(dCOne+dCTwo))*100).ToString("n2") +"%";
+        if (dCOne + dCTwo != 0)
+        {
+
+            safety.text = "shit";
+        }
+        else
+        {
+            safety.text;
+        }
+
 
         dPM.text = (GameManager.gm.lvlC[GameManager.gm.world, GameManager.gm.lvl]/LevelManager.lm.curTime).ToString("n2");
         dPM1.text = (GameManager.gm.lvlC1[GameManager.gm.world, GameManager.gm.lvl] / LevelManager.lm.curTime).ToString("n2");
@@ -51,7 +60,16 @@ public class EndScreen : MonoBehaviour
         lDP2.text = LongestTimeSD(LevelManager.lm.timeSD2).ToString("n2");
     }
 
+    int CalculatePars()
+    {
+        // S = 0, A = 1, B = 2, C = 3, D = 4, F = 5
+        float temp = LevelManager.lm.par / (dCOne + dCTwo)) * 100;
 
+        if (temp >= 100)
+        {
+
+        }
+    }
 
     float LongestTimeSD(List<float> l)
     {

@@ -30,12 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/World 1/LauchandSkip.unity
     guid: 4fabf9c23cd0d364d80c8edcf3f0d6d6
   - enabled: 0
-    path: Assets/Scenes/World 1/FakeLevel4.unity
+    path: 
     guid: 9c4d69fa862218049845a6ab5adee880
   - enabled: 0
-    path: Assets/Scenes/World 1/FakeLevel3.unity
+    path: 
     guid: 15261f88d8e0b124e922f0d807612345
   - enabled: 1
     path: Assets/Scenes/PileEndScene.unity
     guid: 6bdbaeed9e0f96f44a66f7667a86bb7e
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 63082c6789bca1a4a86c8684757f65e0
   m_configObjects: {}

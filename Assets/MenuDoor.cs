@@ -8,7 +8,7 @@ public class MenuDoor : MonoBehaviour
     public Sprite open;
     public AudioSource aud;
 
-    bool pOne, pTwo, endStart;
+    bool pOne, pTwo, endStart = true;
 
     private void Start()
     {
@@ -17,8 +17,25 @@ public class MenuDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        //if(col.transform.parent.)
-        
+        if (col.transform.parent.CompareTag("PlayerTwo"))
+        {
+            pTwo = true;
+        }
+        if (col.transform.parent.CompareTag("PlayerOne"))
+        {
+            pOne = true;
+        }   
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.transform.parent.CompareTag("PlayerTwo"))
+        {
+            pTwo = false;
+        }
+        if (col.transform.parent.CompareTag("PlayerOne"))
+        {
+            pOne = false;
+        }
     }
 
     private void Update()
