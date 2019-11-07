@@ -10,18 +10,27 @@ public class MenuManager : MonoBehaviour
     public GameObject levelView, door;
     public float doorHeight;
 
+    public enum Menu { Start, Tutorial, LvlSelect }
+    public Menu men;
+
     bool doorRise = false;
 
     void Start()
     {
-        StartCoroutine(DoorDelay(1.5f));
+        if (men == Menu.Start)
+        {
+            StartCoroutine(DoorDelay(1.5f));
+        }
     }
 
     void Update()
     {
-        if (doorRise && door.transform.position.y <= doorHeight)
+        if (men == Menu.Start)
         {
-            door.transform.Translate(new Vector3(0, 0.01f, 0));
+            if (doorRise && door.transform.position.y <= doorHeight)
+            {
+                door.transform.Translate(new Vector3(0, 0.01f, 0));
+            }
         }
     }
 

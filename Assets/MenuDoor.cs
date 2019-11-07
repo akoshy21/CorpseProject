@@ -8,6 +8,9 @@ public class MenuDoor : MonoBehaviour
     public Sprite open;
     public AudioSource aud;
 
+    public enum Menu {Start, Tutorial, LvlSelect}
+    public Menu men;
+
     bool pOne, pTwo, endStart = true;
 
     private void Start()
@@ -42,17 +45,24 @@ public class MenuDoor : MonoBehaviour
     {
         if (endStart && pOne && pTwo)
         {
-            StartCoroutine(ToLevels());
+            if (men == Menu.Tutorial)
+            {
+                StartCoroutine(ToLevels("LevelSelect"));
+            }
+            else if (men == Menu.Start)
+            {
+                StartCoroutine(ToLevels("Tutorial"));
+            }
             endStart = false;
         }
     }
 
-    IEnumerator ToLevels()
+    IEnumerator ToLevels(string lvl)
     {
         this.GetComponent<SpriteRenderer>().sprite = open;
         aud.Play();
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("LevelSelect");
+        SceneManager.LoadScene(lvl);
 
     }
 }

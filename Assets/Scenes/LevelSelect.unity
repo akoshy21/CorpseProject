@@ -1115,6 +1115,11 @@ PrefabInstance:
       propertyPath: goUp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8633283001575282623, guid: 141d794f303a7aa4188591fb55669d21,
+        type: 3}
+      propertyPath: moveSpeedSide
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8633283002846846608, guid: 141d794f303a7aa4188591fb55669d21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1149,7 +1154,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: b9f698101f62b4aa5b139bc442f93fd5, type: 2}
+      objectReference: {fileID: 6200000, guid: 8be2453bc09ac5448baa381254c07561, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141d794f303a7aa4188591fb55669d21, type: 3}
 --- !u!1 &820605844
@@ -1883,6 +1888,7 @@ MonoBehaviour:
   levelView: {fileID: 247763096}
   door: {fileID: 7073214613554678636}
   doorHeight: -2.72
+  men: 2
 --- !u!4 &1254422612
 Transform:
   m_ObjectHideFlags: 0
@@ -3309,3 +3315,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300000, guid: 2370ca16bc5758044b42846503c4e733, type: 3}
   aud: {fileID: 0}
+  men: 0
