@@ -11,7 +11,7 @@ public class EndScreen : MonoBehaviour
     public GameObject bodyPrefabOne, bodyPrefabTwo, pOneSpawn, pTwoSpawn;
     [Space(10)]
     public TextMeshProUGUI d1;
-    public TextMeshProUGUI d2, dTot, dPM, dPM1, dPM2, sDP, sDP1, sDP2, lDP, lDP1, lDP2, safety;
+    public TextMeshProUGUI d2, dTot, dPM, dPM1, dPM2, sDP, sDP1, sDP2, lDP, lDP1, lDP2, safety, safetyOne, safetyTwo;
 
     int bodOne, bodTwo; // bodycount 1, bodycount 2
     public int dCOne, dCTwo; // deathcount 1, deathcount 2
@@ -36,15 +36,9 @@ public class EndScreen : MonoBehaviour
         d2.text = dCTwo.ToString();
         dTot.text = (dCOne + dCTwo).ToString();
 
-        //if (dCOne + dCTwo != 0)
-        //{
-        //    safety.text = "shit";
-        //}
-        //else
-        //{
-        //    safety.text;
-        //}
-
+        safety.text = CalculatePar(0);
+        safetyOne.text = CalculatePar(1);
+        safetyTwo.text = CalculatePar(2);
 
         dPM.text = (GameManager.gm.lvlC[GameManager.gm.world, GameManager.gm.lvl]/LevelManager.lm.curTime).ToString("n2");
         dPM1.text = (GameManager.gm.lvlC1[GameManager.gm.world, GameManager.gm.lvl] / LevelManager.lm.curTime).ToString("n2");
@@ -59,17 +53,49 @@ public class EndScreen : MonoBehaviour
         lDP2.text = LongestTimeSD(LevelManager.lm.timeSD2).ToString("n2");
     }
 
-    int CalculatePars()
+    string CalculatePar(int x)
     {
-        // S = 0, A = 1, B = 2, C = 3, D = 4, F = 5
-        float temp = LevelManager.lm.par / (dCOne + dCTwo) * 100;
+        // x -> both - 0, player 1 - 1, player 2 - 2
 
+        float temp;
+
+        switch (x)
+        {
+            case 0:
+                temp = LevelManager.lm.par / (dCOne + dCTwo) * 100;
+                break;
+            case 1:
+                temp = (LevelManager.lm.par / 2) / dCOne;
+                break;
+            default:
+                temp = (LevelManager.lm.par / 2) / dCTwo;
+                break;
+        }
         if (temp >= 100)
         {
-            return 0;
+            return "S";
         }
-
-        return 1;
+        else if (temp < 100 && temp >= 90)
+        {
+            return "A";
+        }
+        else if (temp < 90 && temp >= 80)
+        {
+            return "B";
+        }
+        else if (temp < 80 && temp >= 70)
+        {
+            return "C";
+        }
+        else if (temp < 70 && temp >= 60)
+        {
+            return "D";
+        }
+        else if (temp < 60 && temp >= 50)
+        {
+            return "E";
+        }
+        return "X";
     }
 
     float LongestTimeSD(List<float> l)
