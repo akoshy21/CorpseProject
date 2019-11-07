@@ -19,8 +19,8 @@ public class EndScreen : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
-        dCOne = GameManager.gm.lvlC1[GameManager.gm.world, GameManager.gm.lvl];
-        dCTwo = GameManager.gm.lvlC2[GameManager.gm.world, GameManager.gm.lvl];
+        dCOne = GameManager.gm.lvlC1[GameManager.gm.lvlNum];
+        dCTwo = GameManager.gm.lvlC2[GameManager.gm.lvlNum];
         InvokeRepeating("NewBody", 0, 0.5f);
 
         UpdateText();
@@ -40,9 +40,9 @@ public class EndScreen : MonoBehaviour
         safetyOne.text = CalculatePar(1);
         safetyTwo.text = CalculatePar(2);
 
-        dPM.text = (GameManager.gm.lvlC[GameManager.gm.world, GameManager.gm.lvl]/LevelManager.lm.curTime).ToString("n2");
-        dPM1.text = (GameManager.gm.lvlC1[GameManager.gm.world, GameManager.gm.lvl] / LevelManager.lm.curTime).ToString("n2");
-        dPM2.text = (GameManager.gm.lvlC2[GameManager.gm.world, GameManager.gm.lvl] / LevelManager.lm.curTime).ToString("n2");
+        dPM.text = (GameManager.gm.lvlC[GameManager.gm.lvlNum] / LevelManager.lm.curTime).ToString("n2");
+        dPM1.text = (GameManager.gm.lvlC1[GameManager.gm.lvlNum] / LevelManager.lm.curTime).ToString("n2");
+        dPM2.text = (GameManager.gm.lvlC2[GameManager.gm.lvlNum] / LevelManager.lm.curTime).ToString("n2");
 
         sDP.text = ShortestTimeSD(LevelManager.lm.timeSD).ToString("n2");
         sDP1.text = ShortestTimeSD(LevelManager.lm.timeSD1).ToString("n2");

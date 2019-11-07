@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public int totalCorpses, p1Corpses, p2Corpses;
     // p - par, c - corpses; one = world one, 1 = lvl 1
-    [HideInInspector] public int[,] lvlC, lvlC1, lvlC2, lvlP;
-    [HideInInspector] public int world, lvl, lastScn;
+    [HideInInspector] public List<int> lvlC, lvlC1, lvlC2, lvlP;
+    [HideInInspector] public int lvlNum, lastScn;
 
+    public int lvlCount;
     public GameObject splatter;
     public static GameManager gm;
-    public int worldCount, lvlPWorld;
     public Material surf;
 
     private void Awake()
@@ -37,10 +37,18 @@ public class GameManager : MonoBehaviour
     {
         // assuming rn there are at max five lvls per world; there's probably a better way of doing this.
 
-        lvlC = new int[worldCount, 5];
-        lvlC1 = new int[worldCount, 5];
-        lvlC2 = new int[worldCount, 5];
-        lvlP = new int[worldCount, 5];
+        lvlC = new List<int>();
+        lvlC1 = new List<int>();
+        lvlC2 = new List<int>();
+        lvlP = new List<int>();
+
+        for (int i = 0; i < lvlCount; i++)
+        {
+            lvlC.Add(0);
+            lvlC1.Add(0);
+            lvlC2.Add(0);
+            lvlP.Add(0);
+        }
     }
 
     void SafetyRating()
