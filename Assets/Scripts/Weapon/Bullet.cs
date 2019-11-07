@@ -70,7 +70,22 @@ public abstract class Bullet : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Hit(collision.transform.parent.GetComponentInChildren<PlayerController>());
+                GameObject current = collision.gameObject;
+                PlayerController controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+                if (controller == null)
+                {
+                    current = current.transform.parent.gameObject;
+                    controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+                }
+                if (controller == null)
+                {
+                    current = current.transform.parent.gameObject;
+                    controller = current.transform.parent.GetComponentInChildren<PlayerController>();
+                }
+                if (controller != null && !controller.dead)
+                {
+                    Hit(controller);
+                }     
             }
             else if (collision.gameObject.CompareTag("Corpse"))
             {

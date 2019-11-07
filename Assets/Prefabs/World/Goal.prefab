@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94080c33c11a0864abb6d9577f3909cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadDelay: 0
+  loadDelay: 4
   playerOneAtGoal: 0
   playerTwoAtGoal: 0
+  doorOpenSprite: {fileID: 21300000, guid: 2370ca16bc5758044b42846503c4e733, type: 3}
+  doorClosedSprite: {fileID: 21300000, guid: 6960ce99ac538a64ab6579d1d1e2636f, type: 3}
 --- !u!61 &7073214614031338451
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 602c96cf6d879ed4e868ecfeb4f8bace, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

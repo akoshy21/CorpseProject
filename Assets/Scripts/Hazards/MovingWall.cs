@@ -110,9 +110,9 @@ public class MovingWall : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController controller = other.transform.parent.gameObject.GetComponentInChildren<PlayerController>();
-            if (controller != null)
+            if (controller != null && !controller.dead)
             {
-                controller.Die();
+                controller.Explode();
             }
         }
     }
