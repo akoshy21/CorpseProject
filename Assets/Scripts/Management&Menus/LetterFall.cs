@@ -24,7 +24,7 @@ public class LetterFall : MonoBehaviour
     void Update()
     {
         
-        if (Input.anyKeyDown && !letterfall)
+        if ((Input.anyKeyDown || Input.GetAxisRaw("P1Horizontal")!= 0 || Input.GetAxisRaw("P2Horizontal") != 0) && !letterfall)
         {
             letterfall = true;
             StartCoroutine(Delay(0.1f));
