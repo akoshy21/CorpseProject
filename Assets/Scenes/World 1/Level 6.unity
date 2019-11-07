@@ -2056,7 +2056,7 @@ PrefabInstance:
     - target: {fileID: 7909929458766354912, guid: ba1ba202c136fd4428fab7fc0704a128,
         type: 3}
       propertyPath: pushForce
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7909929458766354913, guid: ba1ba202c136fd4428fab7fc0704a128,
         type: 3}
