@@ -31,7 +31,7 @@ public class FanpushScript : MonoBehaviour
         {
             ticker = 0;
             tick = true;
-            Debug.Log("push");
+            //Debug.Log("push");
         }
 
         if (pushing)
