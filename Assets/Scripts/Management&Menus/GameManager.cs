@@ -69,7 +69,38 @@ public class GameManager : MonoBehaviour
             player.GetComponent<SpriteRenderer>().material = surf;
         }
 
-        Instantiate(splatter, ptOne, Quaternion.Euler(0, 0, Random.Range(0,360)), surface.transform);
+        GameObject tempSplat = Instantiate(splatter, ptOne, Quaternion.Euler(0, 0, Random.Range(0,360)));
+        tempSplat.transform.parent = surface.transform;
         Instantiate(splatter, ptTwo, Quaternion.Euler(0, 0, Random.Range(0, 360)), player.transform);
+    }
+
+    public void InstantiateSplatter(Collider2D player, Collider2D surface, bool ground)
+    {
+        InstantiateSplatter(player, surface);
+        Vector3 pt = player.ClosestPoint(surface.ClosestPoint(player.transform.position));
+        GameObject closestGround = FindClosestGround(player.gameObject);
+        Vector3 newPt = closestGround.GetComponent<Collider2D>().ClosestPoint(pt);
+
+        Instantiate(splatter, newPt, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+    }
+
+    public GameObject FindClosestGround(GameObject obj)
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Ground");
+        GameObject closest = null;
+        float distance = 1;
+        Vector3 position = obj.transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
     }
 }
