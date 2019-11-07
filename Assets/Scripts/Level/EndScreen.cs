@@ -62,20 +62,22 @@ public class EndScreen : MonoBehaviour
         switch (x)
         {
             case 0:
-                temp = LevelManager.lm.par / (dCOne + dCTwo) * 100;
+                temp = (float)LevelManager.lm.par / (float)(dCOne + dCTwo) * 100;
                 break;
             case 1:
-                temp = (LevelManager.lm.par / 2) / dCOne;
+                temp = (((float)LevelManager.lm.par / 2) / (float)dCOne) *100;
+                Debug.Log("OOF");
                 break;
             default:
-                temp = (LevelManager.lm.par / 2) / dCTwo;
+                temp = (((float)LevelManager.lm.par / 2) / (float)dCTwo) * 100;
                 break;
         }
-        if (temp >= 100)
+        Debug.Log(x + " " + temp);
+        if (temp > 100)
         {
             return "S";
         }
-        else if (temp < 100 && temp >= 90)
+        else if (temp <= 100 && temp >= 90)
         {
             return "A";
         }
@@ -93,7 +95,7 @@ public class EndScreen : MonoBehaviour
         }
         else if (temp < 60 && temp >= 50)
         {
-            return "E";
+            return "F";
         }
         return "X";
     }

@@ -20,11 +20,12 @@ public class GameManager : MonoBehaviour
     {
         if (gm != null && gm != this)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
             gm = this;
+            DontDestroyOnLoad(this);
         }
         SetUpParCorpseCount();
     }
