@@ -132,7 +132,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: de8c3f9b60159ef4cb51e07a0203a039, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5647059}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -204,6 +204,8 @@ MonoBehaviour:
   velocityCap: 6
   glassCol: {fileID: 251955276866527046}
   glassRenderer: {fileID: 251955277604029183}
+  audiosource: {fileID: 0}
+  shatterclip: {fileID: 0}
 --- !u!1001 &6680584664700431434
 PrefabInstance:
   m_ObjectHideFlags: 0
