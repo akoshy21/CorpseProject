@@ -58,7 +58,7 @@ public class GlassFunctions : MonoBehaviour
                     }
 
                     PlayerController controller = currentTf.GetComponentInChildren<PlayerController>();
-                    controller.Die();
+                    controller.Explode(0.35f);
                     Debug.Log("Death");
                 }
 
