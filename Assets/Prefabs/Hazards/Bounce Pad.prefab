@@ -120,5 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f617575e086a59044bb9ae832c3a0f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchHeightMax: 0
-  baseLaunchForce: 150
+  launchHeightMax: 150
+  baseLaunchForce: 100
