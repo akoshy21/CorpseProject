@@ -150,7 +150,7 @@ public class MovingPlatfromFunctions : MonoBehaviour
 
                     if (moveDown)
                     {
-                        Debug.Log("going down");
+                        //Debug.Log("going down");
                         rigbod.velocity = (new Vector2(0f, -moveSpeedUp));
                     }
                 }

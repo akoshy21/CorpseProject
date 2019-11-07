@@ -18,7 +18,7 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField, Tooltip("Speed bullet moves")]
     public float bulletSpeed;
 
-    private bool hitObject;
+    public bool hitObject;
 
     [SerializeField, Tooltip("Rate of deceleration over time on bullet on the X axis")]
     public float decelerationX;
@@ -66,6 +66,10 @@ public abstract class Bullet : MonoBehaviour
         {
             Move();
         }
+        else
+        {
+            //rigidBody.velocity = new Vector2(0, 0);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -73,6 +77,7 @@ public abstract class Bullet : MonoBehaviour
         //print("collision");
         if (!hitObject)
         {
+            hitObject = true;
             if (collision.gameObject.CompareTag("Player"))
             {
                 GameObject current = collision.gameObject;
@@ -103,7 +108,7 @@ public abstract class Bullet : MonoBehaviour
                 Collide(collision.gameObject);
             }
             
-            hitObject = true;
+            
         }
         
     }
@@ -114,6 +119,7 @@ public abstract class Bullet : MonoBehaviour
 
     private void Move()
     {
+        print("move");
         velocityY -= decelerationY;
         velocityX -= decelerationX;
 

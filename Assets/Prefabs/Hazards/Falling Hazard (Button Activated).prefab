@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7894355066424127546}
   - component: {fileID: 6541973455169418418}
   - component: {fileID: 7894355066424127548}
-  - component: {fileID: 7894355066424127551}
+  - component: {fileID: 2594570992013662189}
+  - component: {fileID: 1910237837520922876}
   m_Layer: 0
   m_Name: Falling Hazard (Button Activated)
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7894355066424127544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.6, y: 5.8, z: 0}
-  m_LocalScale: {x: 0.57757, y: 0.57757, z: 0.57757}
+  m_LocalPosition: {x: -6.6, y: 10.81, z: 0}
+  m_LocalScale: {x: 0.07637856, y: 0.07637856, z: 0.07637856}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2dcbff16081ee6e45ac4d5b168a0d201, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 362d3834d03b84d4c800137bd71ddd5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,8 +124,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!60 &7894355066424127551
-PolygonCollider2D:
+--- !u!61 &2594570992013662189
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,25 +141,38 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.73, y: 1.56}
+    oldSize: {x: 22.299503, y: 10.54}
     newSize: {x: 1.73, y: 1.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.825, y: -0.48999998}
-      - {x: 0.73499995, y: -0.32999998}
-      - {x: 0.345, y: 0.35999998}
-      - {x: 0.13499999, y: 0.72999996}
-      - {x: 0.074999996, y: 0.78}
-      - {x: -0.074999996, y: 0.78}
-      - {x: -0.13499999, y: 0.72999996}
-      - {x: -0.175, y: 0.65999997}
-      - {x: -0.865, y: -0.56}
-      - {x: -0.865, y: -0.71999997}
-      - {x: -0.815, y: -0.78}
-      - {x: 0.815, y: -0.78}
-      - {x: 0.865, y: -0.71999997}
-      - {x: 0.865, y: -0.57}
+  serializedVersion: 2
+  m_Size: {x: 22.299503, y: 10.54}
+  m_EdgeRadius: 0
+--- !u!61 &1910237837520922876
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894355066424127544}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.89358044, y: -1.0170152}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 22.299503, y: 10.54}
+    newSize: {x: 1.73, y: 1.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 14.763395, y: 8.505968}
+  m_EdgeRadius: 0

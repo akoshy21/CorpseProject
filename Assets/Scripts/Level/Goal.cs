@@ -93,6 +93,10 @@ public class Goal : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.transform.parent == null)
+        {
+            return;
+        }
         if (collision.transform.parent.CompareTag("PlayerOne"))
         {
             PlayerController controller = collision.transform.parent.GetComponentInChildren<PlayerController>();
