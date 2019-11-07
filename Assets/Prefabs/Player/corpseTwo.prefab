@@ -1159,6 +1159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   rotateSpeed: 2
+  dead1: {fileID: -2750813852222378484, guid: 12cb79a80afc7374d813bf079aea0b18, type: 3}
+  dead2: {fileID: 2554852657056638647, guid: 85a55d5fd42fffe40a5b27de170d7b92, type: 3}
 --- !u!114 &2436396792812689606
 MonoBehaviour:
   m_ObjectHideFlags: 0
