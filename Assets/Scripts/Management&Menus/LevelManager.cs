@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public bool paused;
     public int curScn; //current scene
     public float timer;
-    [HideInInspector] public bool lvlEnd = false; //current scene
+    public bool lvlEnd = false; //current scene
     [HideInInspector] public int corpseCount1, corpseCount2, totalCorpses;
     [HideInInspector] public float curTime; // time since death
     [HideInInspector] public List<float> timeSD, timeSD1, timeSD2;
