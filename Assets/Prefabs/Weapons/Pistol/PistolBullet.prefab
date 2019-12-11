@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a78df8eba6abc479a807fba59f4a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 5
+  bulletSpeed: 8
   hitObject: 0
   decelerationX: 0
   decelerationY: 0
@@ -211,11 +211,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2102157224418456534}
     m_Modifications:
-    - target: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,
-        type: 3}
-      propertyPath: m_Name
-      value: Blood Particles
-      objectReference: {fileID: 0}
     - target: {fileID: 1603219589577892760, guid: 826f882d8d42b4b47a8e2454e0f28b86,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,6 +265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855245022203170661, guid: 826f882d8d42b4b47a8e2454e0f28b86,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood Particles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 826f882d8d42b4b47a8e2454e0f28b86, type: 3}
