@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : Weapon
+public class NailGun : Weapon
 {
     /*
      * @author Kate Howell
@@ -11,8 +11,8 @@ public class Pistol : Weapon
      * 
      */
 
-    public GameObject pistolBulletPrefab;
-    private PistolBullet pistolBullet;
+    public GameObject nailPrefab;
+    private NailBullet nailBullet;
 
     public Transform bulletSpawn;
 
@@ -23,8 +23,8 @@ public class Pistol : Weapon
 
     void Awake()
     {
-        pistolBullet = pistolBulletPrefab.GetComponent<PistolBullet>();
-        if(pistolBullet == null)
+        nailBullet = nailPrefab.GetComponent<NailBullet>();
+        if(nailBullet == null)
         {
             throw new UnassignedReferenceException("wrong type of bullet assigned to Pistol");
         }
@@ -35,7 +35,7 @@ public class Pistol : Weapon
         if (automated || (equipped && !delayed))
         {
             //currently not being affected by players position
-            PistolBullet b = Instantiate(pistolBulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<PistolBullet>();
+            NailBullet b = Instantiate(nailPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<NailBullet>();
 
             //**ADD CALCUATION FOR BULLET DIRECTION***
             if (pointingRight)

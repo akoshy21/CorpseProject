@@ -161,7 +161,7 @@ public class ButtonScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-      Debug.Log(other);
+      //Debug.Log(other);
         
 
       if (isLever == false)

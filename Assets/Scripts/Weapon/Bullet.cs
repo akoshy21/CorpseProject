@@ -39,34 +39,46 @@ public abstract class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if the intial velocity of the bullet is never set - this sound be done when its spawned
         if (intialVelocity.Equals(Vector2.zero))
         {
             Destroy(this.gameObject);
         }
 
+        //the initial veloctiy should be a nomalized vector
         if(intialVelocity.x > 1)
         {
             intialVelocity.Normalize();
         }
 
+        //switch veloctiy direction if pointingRight is true
         if (pointingRight)
         {
             intialVelocity = -intialVelocity;
         }
+
+        //calculate the new velocity
         velocityY = intialVelocity.y * bulletSpeed;
 
         velocityX = intialVelocity.x * bulletSpeed;
 
+        //find the rigidBody componenet
         rigidBody = GetComponent<Rigidbody2D>();
+
+        //check the rigid body exsists
+        if(rigidBody == null)
+        {
+            throw new System.Exception("No rigid body found on bullet");
+        }
     }
 
-    private void Update()
+    void Update()
     {
         if (!hitObject)
         {
             Move();
         }
-        else
+        else //what to do after you hit something?
         {
             //rigidBody.velocity = new Vector2(0, 0);
         }
@@ -74,13 +86,19 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //print("collision");
+        print(collision.transform.name);
+        //if you havent already hit something
         if (!hitObject)
         {
-            hitObject = true;
-            Destroy(rigidBody);
+            
+
+            //Destroy(rigidBody);
+
+            //if it was the player that you hit, 
             if (collision.gameObject.CompareTag("Player"))
             {
+               
+                //used to get the player controller 
                 GameObject current = collision.gameObject;
                 PlayerController controller = current.transform.parent.GetComponentInChildren<PlayerController>();
                 if (controller == null)
@@ -95,21 +113,35 @@ public abstract class Bullet : MonoBehaviour
                 }
                 if (controller != null && !controller.dead)
                 {
+                    //run Hit with the controller as input
                     Hit(controller);
-                    this.transform.SetParent(collision.gameObject.transform);
+
+                    //parent the nail the the dead body
+                    //this.transform.SetParent(collision.gameObject.transform);
+                    //parent the body to the nail
+                    controller.gameObject.transform.parent.transform.SetParent(this.gameObject.transform);
+
+                    //blood splatter
                     GameManager.gm.InstantiateSplatter(collision.collider, this.GetComponent<Collider2D>());
-                }     
+                }
+
+                return;
             }
             else if (collision.gameObject.CompareTag("Corpse"))
             {
-                Destroy(this.gameObject);
+               // Destroy(this.gameObject);
+
+                //hit something that wasnt the player
+               // hitObject = true;
             }
             else
             {
                 Collide(collision.gameObject);
+
+                //hit something that wasnt the player
+                //hitObject = true;
             }
-            
-            
+
         }
         
     }
@@ -117,10 +149,12 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //print("trigger");
+        print(collision.gameObject.transform.name);
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Destroy(this.gameObject);
+            print("ground");
+            hitObject = true;
+            Collide(collision.gameObject);
         }
         
     }

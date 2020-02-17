@@ -54,7 +54,7 @@ public class LevelManager : MonoBehaviour
     {
         if (!end)
         {
-            Debug.Log("end");
+            //Debug.Log("end");
             curTime += Time.deltaTime;
             timeSD[ind] += Time.deltaTime;
             timeSD1[ind1] += Time.deltaTime;

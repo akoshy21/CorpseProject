@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolBullet : Bullet
+public class NailBullet : Bullet
 {
     /*
      * @author Kate Howell
@@ -17,6 +17,7 @@ public class PistolBullet : Bullet
     /// <param name="objectHit">Object the bullet hits</param>
     public override void Collide(GameObject objectHit)
     {
+        print("collide");
         if (objectHit.CompareTag("Ground"))
         {
             
@@ -25,7 +26,7 @@ public class PistolBullet : Bullet
         {
             //Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
         //collision code
         //partical effects horraaayyy
     }
@@ -36,9 +37,12 @@ public class PistolBullet : Bullet
     /// <param name="objectHit">Player Controller of the player the bullet hit</param>
     public override void Hit(PlayerController PlayerHit)
     {
+        print("hit");
         if (!PlayerHit.dead)
         {
             PlayerHit.Die();
+            Rigidbody2D collidedRb = PlayerHit.GetComponent<Rigidbody2D>();
+            collidedRb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
         
         GetComponentInChildren<ParticleSystem>().Play();

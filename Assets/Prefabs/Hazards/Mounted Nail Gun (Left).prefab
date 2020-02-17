@@ -76,6 +76,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -187,7 +188,10 @@ MonoBehaviour:
   automatedBulletSpawnRate: 3
   attacking: 0
   pointingRight: 0
-  pistolBulletPrefab: {fileID: 4692087490562421782, guid: 36796b2c3496ce24ea9a2492da059d57,
+  buttonActivated: 0
+  buttonOrLever: {fileID: 0}
+  buttonShootDelay: 0
+  nailPrefab: {fileID: 4692087490562421782, guid: 36796b2c3496ce24ea9a2492da059d57,
     type: 3}
   bulletSpawn: {fileID: 4290932492224373353}
   shotDelay: 2
