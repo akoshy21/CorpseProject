@@ -149,7 +149,7 @@ public abstract class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.transform.name);
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             print("ground");
