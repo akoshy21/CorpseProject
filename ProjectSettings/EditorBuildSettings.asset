@@ -42,19 +42,19 @@ EditorBuildSettings:
     path: Assets/Scenes/RealScenes/World1/L6W1.unity
     guid: bad480f77b6700a4a9b221de2c388361
   - enabled: 1
-    path: Assets/Scenes/RealScenes/World2/Level 3.unity
+    path: Assets/Scenes/RealScenes/World2/L1W2.unity
     guid: 5850a308afd23c14ea669e0c45f2a40d
   - enabled: 1
-    path: Assets/Scenes/RealScenes/World2/Level 7.unity
+    path: Assets/Scenes/RealScenes/World2/L2W2.unity
     guid: 54538bb1b608a67499263890f2738a1b
   - enabled: 1
-    path: Assets/Scenes/RealScenes/World2/Level 6.unity
+    path: Assets/Scenes/RealScenes/World2/L3W2.unity
     guid: ec4321f07d5924c3885d1b11bc7beb10
   - enabled: 1
-    path: Assets/Scenes/RealScenes/World2/Level 8.unity
+    path: Assets/Scenes/RealScenes/World2/L4W2.unity
     guid: 4c6ad8717903c654bb2ddc87c40dd8f7
   - enabled: 1
-    path: Assets/Scenes/RealScenes/World2/Level 9.unity
+    path: Assets/Scenes/RealScenes/World2/L5W2.unity
     guid: 4bc790048a91448e5b24254b154786cd
   - enabled: 1
     path: Assets/Scenes/GameEnd.unity
