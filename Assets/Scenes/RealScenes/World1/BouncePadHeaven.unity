@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -192,6 +193,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -418,6 +420,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -566,11 +569,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8577457751074859037, guid: 277967af89f279344a9e92750be2d612,
-        type: 3}
-      propertyPath: m_Name
-      value: Bounce Pad (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 8577457751074859033, guid: 277967af89f279344a9e92750be2d612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -579,7 +577,7 @@ PrefabInstance:
     - target: {fileID: 8577457751074859033, guid: 277967af89f279344a9e92750be2d612,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.09
+      value: -2.113
       objectReference: {fileID: 0}
     - target: {fileID: 8577457751074859033, guid: 277967af89f279344a9e92750be2d612,
         type: 3}
@@ -631,6 +629,36 @@ PrefabInstance:
       propertyPath: baseLaunchForce
       value: 125
       objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859037, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Name
+      value: Bounce Pad (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859039, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.021986008
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859039, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.4311726
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859039, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.60000145
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859039, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859039, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 18.067966
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 277967af89f279344a9e92750be2d612, type: 3}
 --- !u!1001 &381850340
@@ -640,6 +668,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2374448539591071345, guid: 0848df75a8fe8ab408712a3d827975d0,
+        type: 3}
+      propertyPath: par
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2374448539591071350, guid: 0848df75a8fe8ab408712a3d827975d0,
         type: 3}
       propertyPath: m_Name
@@ -705,11 +738,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2374448539591071345, guid: 0848df75a8fe8ab408712a3d827975d0,
-        type: 3}
-      propertyPath: par
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0848df75a8fe8ab408712a3d827975d0, type: 3}
 --- !u!1 &486931575
@@ -756,10 +784,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5914598871480166590, guid: a35a1fb991776d548b47db8113d60b2e,
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
-      propertyPath: m_Name
-      value: KillBox
+      propertyPath: m_Offset.x
+      value: -0.7204466
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 4.2029657
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 21.708775
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 25.05599
       objectReference: {fileID: 0}
     - target: {fileID: 5914598871480166531, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
@@ -816,25 +859,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+    - target: {fileID: 5914598871480166590, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
-      propertyPath: m_Offset.x
-      value: -0.7204466
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 4.2029657
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 21.708775
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 25.05599
+      propertyPath: m_Name
+      value: KillBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a35a1fb991776d548b47db8113d60b2e, type: 3}
@@ -958,11 +986,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1132686384}
     m_Modifications:
-    - target: {fileID: 7073214614031338461, guid: 30b417a6cd02c374b879fc92470875fb,
-        type: 3}
-      propertyPath: m_Name
-      value: Goal
-      objectReference: {fileID: 0}
     - target: {fileID: 7073214614031338449, guid: 30b417a6cd02c374b879fc92470875fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1017,6 +1040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073214614031338461, guid: 30b417a6cd02c374b879fc92470875fb,
+        type: 3}
+      propertyPath: m_Name
+      value: Goal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b417a6cd02c374b879fc92470875fb, type: 3}
@@ -1092,6 +1120,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1245,10 +1274,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5914598871480166590, guid: a35a1fb991776d548b47db8113d60b2e,
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
-      propertyPath: m_Name
-      value: KillBox (1)
+      propertyPath: m_Offset.x
+      value: 0.045461655
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 2.5899181
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 19.555067
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 24.546318
       objectReference: {fileID: 0}
     - target: {fileID: 5914598871480166531, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
@@ -1305,25 +1349,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
+    - target: {fileID: 5914598871480166590, guid: a35a1fb991776d548b47db8113d60b2e,
         type: 3}
-      propertyPath: m_Offset.x
-      value: 0.045461655
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 2.5899181
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 19.555067
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914598871480166528, guid: a35a1fb991776d548b47db8113d60b2e,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 24.546318
+      propertyPath: m_Name
+      value: KillBox (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a35a1fb991776d548b47db8113d60b2e, type: 3}
@@ -1399,6 +1428,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1569,6 +1599,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1662,6 +1693,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1769,6 +1801,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2068,6 +2101,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2175,6 +2209,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2282,6 +2317,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2330,11 +2366,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8577457751074859037, guid: 277967af89f279344a9e92750be2d612,
-        type: 3}
-      propertyPath: m_Name
-      value: Bounce Pad (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8577457751074859033, guid: 277967af89f279344a9e92750be2d612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2395,6 +2426,11 @@ PrefabInstance:
       propertyPath: baseLaunchForce
       value: 125
       objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859037, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Name
+      value: Bounce Pad (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 277967af89f279344a9e92750be2d612, type: 3}
 --- !u!4 &1867183421 stripped
@@ -2410,11 +2446,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8577457751074859037, guid: 277967af89f279344a9e92750be2d612,
-        type: 3}
-      propertyPath: m_Name
-      value: Bounce Pad
-      objectReference: {fileID: 0}
     - target: {fileID: 8577457751074859033, guid: 277967af89f279344a9e92750be2d612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2474,6 +2505,11 @@ PrefabInstance:
         type: 3}
       propertyPath: baseLaunchForce
       value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577457751074859037, guid: 277967af89f279344a9e92750be2d612,
+        type: 3}
+      propertyPath: m_Name
+      value: Bounce Pad
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 277967af89f279344a9e92750be2d612, type: 3}
