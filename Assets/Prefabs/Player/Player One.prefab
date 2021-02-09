@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 400076032468452069}
   - component: {fileID: 2000710127931304254}
   - component: {fileID: 3955704285417322757}
+  - component: {fileID: 6806702624229340562}
   m_Layer: 0
   m_Name: Arm LL
   m_TagString: Player
@@ -79,6 +80,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -186,6 +188,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &6806702624229340562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884107648012006639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &1544842696554061576
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +245,7 @@ GameObject:
   - component: {fileID: 5096018220781500515}
   - component: {fileID: 6892254212135549949}
   - component: {fileID: 8336268799767168059}
+  - component: {fileID: 8324788218045611195}
   m_Layer: 9
   m_Name: Leg LR
   m_TagString: Player
@@ -265,6 +281,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -372,6 +389,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 1
+--- !u!114 &8324788218045611195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723694548624706048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &1929330197880441240
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +415,7 @@ GameObject:
   - component: {fileID: 7310269329505453719}
   - component: {fileID: 6499583844288982540}
   - component: {fileID: 964854303704598885}
+  - component: {fileID: 238539372670124157}
   m_Layer: 9
   m_Name: Leg LL
   m_TagString: Player
@@ -420,6 +451,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -527,6 +559,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 1
+--- !u!114 &238539372670124157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929330197880441240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &2582981679622184310
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +585,7 @@ GameObject:
   - component: {fileID: 4136774881893017538}
   - component: {fileID: 3131598713323110215}
   - component: {fileID: 7606743812087131190}
+  - component: {fileID: 3491610173946980885}
   m_Layer: 9
   m_Name: Leg UR
   m_TagString: Player
@@ -576,6 +622,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -683,6 +730,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -60
     m_UpperAngle: 75
+--- !u!114 &3491610173946980885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582981679622184310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &2828506019726567355
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +788,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -776,6 +837,7 @@ GameObject:
   - component: {fileID: 1532541872928267184}
   - component: {fileID: 8804522829232476480}
   - component: {fileID: 6177023679049901011}
+  - component: {fileID: 6055202350202935288}
   m_Layer: 0
   m_Name: Arm LR
   m_TagString: Player
@@ -812,6 +874,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -919,6 +982,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -3
     m_UpperAngle: 3
+--- !u!114 &6055202350202935288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3474533153299093565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &4255481588488198571
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +1038,7 @@ GameObject:
   - component: {fileID: 7003548410405941232}
   - component: {fileID: 6612282287509618052}
   - component: {fileID: 7535410450220570092}
+  - component: {fileID: 257230201135685796}
   m_Layer: 9
   m_Name: Leg UL
   m_TagString: Player
@@ -998,6 +1075,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1105,6 +1183,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -60
     m_UpperAngle: 70
+--- !u!114 &257230201135685796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4370454777758590348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &4681901072322776499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1284,7 @@ GameObject:
   - component: {fileID: 4469085654342536435}
   - component: {fileID: 5346748698627939378}
   - component: {fileID: 6961900378218970486}
+  - component: {fileID: 5118914427558659360}
   m_Layer: 0
   m_Name: Arm UR
   m_TagString: Player
@@ -1228,6 +1320,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1335,6 +1428,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -90
     m_UpperAngle: 90
+--- !u!114 &5118914427558659360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5037514366376573160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &5422042675827870086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1484,7 @@ GameObject:
   - component: {fileID: 8775959321123259346}
   - component: {fileID: 7874184711758697985}
   - component: {fileID: 1879196172213613685}
+  - component: {fileID: 1588999022988191016}
   m_Layer: 0
   m_Name: Arm UL
   m_TagString: Player
@@ -1413,6 +1520,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1520,6 +1628,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -270
     m_UpperAngle: -90
+--- !u!114 &1588999022988191016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528211224802378488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &5954324550887107892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1655,7 @@ GameObject:
   - component: {fileID: 7068252142444399535}
   - component: {fileID: 6778279579118594414}
   - component: {fileID: 2028231186466283036}
+  - component: {fileID: 5400134075670878653}
   m_Layer: 0
   m_Name: TORSO
   m_TagString: Player
@@ -1572,6 +1694,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1795,6 +1918,19 @@ MonoBehaviour:
   scream4: {fileID: 8300000, guid: 27ed8a739929cf64eaaf2115a8338bd3, type: 3}
   scream5: {fileID: 8300000, guid: e4b71cbf27da4f148ae4c2f1ad33e50a, type: 3}
   audiosource: {fileID: 6778279579118594414}
+--- !u!114 &5400134075670878653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954324550887107892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
 --- !u!1 &7248437762664287432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,6 +2005,7 @@ GameObject:
   - component: {fileID: 1224713575504650714}
   - component: {fileID: 1891112099028256363}
   - component: {fileID: 6189727471229447232}
+  - component: {fileID: 4874566747378778264}
   m_Layer: 0
   m_Name: Head
   m_TagString: Player
@@ -1904,6 +2041,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2011,3 +2149,16 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -10
     m_UpperAngle: 10
+--- !u!114 &4874566747378778264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965141084198931633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b095010672d4cb89fa0d224a9ccce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YellowColor: {r: 0.9716981, g: 0.8908011, b: 0.22459061, a: 1}
